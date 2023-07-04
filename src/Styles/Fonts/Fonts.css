@@ -1,0 +1,86 @@
+/* Unna */
+@font-face {
+    font-family: 'Unna Bold';
+    src: url('../../Fonts/Unna/Unna-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Unna Bold Italic';
+    src: url('../../Fonts/Unna/Unna-BoldItalic.ttf');
+}
+
+@font-face {
+    font-family: 'Unna Italic';
+    src: url('../../Fonts/Unna/Unna-Italic.ttf');
+}
+
+@font-face{
+    font-family: 'Unna Regular';
+    src: url('../../Fonts/Unna/Unna-Regular.ttf');
+}
+
+/* Poppins */
+@font-face{
+    font-family: 'Poppins Bold';
+    src: url('../../Fonts/Poppins/Poppins-Bold.ttf');
+}
+
+@font-face{
+    font-family: 'Poppins Bold Italic';
+    src: url('../../Fonts/Poppins/Poppins-BoldItalic.ttf');
+}
+
+@font-face{
+    font-family: 'Poppins Extra Light';
+    src: url('../../Fonts/Poppins/Poppins-ExtraLight.ttf');
+}
+
+@font-face{
+    font-family: 'Poppins Italic';
+    src: url('../../Fonts/Poppins/Poppins-Italic.ttf');
+}
+
+@font-face{
+    font-family: 'Poppins Light';
+    src: url('../../Fonts/Poppins/Poppins-Light.ttf');
+}
+
+@font-face{
+    font-family: 'Poppins Light Italic';
+    src: url('../../Fonts/Poppins/Poppins-LightItalic.ttf');
+}
+
+@font-face{
+    font-family: 'Poppins Medium';
+    src: url('../../Fonts/Poppins/Poppins-Medium.ttf');
+}
+
+@font-face{
+    font-family: 'Poppins Medium Italic';
+    src: url('../../Fonts/Poppins/Poppins-MediumItalic.ttf');
+}
+
+@font-face{
+    font-family: 'Poppins Regular';
+    src: url('../../Fonts/Poppins/Poppins-Regular.ttf');
+}
+
+@font-face{
+    font-family: 'Poppins SemiBold';
+    src: url('../../Fonts/Poppins/Poppins-SemiBold.ttf');
+}
+
+@font-face{
+    font-family: 'Poppins SemiBold Italic';
+    src: url('../../Fonts/Poppins/Poppins-SemiBoldItalic.ttf');
+}
+
+@font-face{
+    font-family: 'Poppins Thin';
+    src: url('../../Fonts/Poppins/Poppins-Thin.ttf');
+}
+
+@font-face{
+    font-family: 'Poppins Thin Italic';
+    src: url('../../Fonts/Poppins/Poppins-ThinItalic.ttf');
+}
