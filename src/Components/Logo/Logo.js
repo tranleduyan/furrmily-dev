@@ -1,8 +1,13 @@
+/* Components */
 import React from 'react'
 
-function Logo() {
+/* Stylings */
+import '../../Styles/Components/Logo/Logo.css'
+
+function Logo(props) {
+  const logoClassName = `${props.className} Logo-text`;
   return (
-    <div>Logo</div>
+    <p className={logoClassName}>Furrmily</p>
   )
 }
 

@@ -1,0 +1,6 @@
+@import url('../../../Styles/Fonts/Fonts.css');
+
+.Logo-text{
+    font-family: 'Unna Regular';
+    font-size: calc(10px + 2.3vmin);
+}
