@@ -5,6 +5,8 @@
   /* Colors */
   --Black: #111111;
   --White: #FFFFFF;
+  --Gray1: #EAEAEA;
+  --Gray2: #B5B5B5;
   --Blue1: #0059AB;
   --Red1: #BB0000;
 }
@@ -56,6 +58,7 @@ body {
 }
 
 .button{
+  color: var(--White);
   font-size: calc(10px + 0.85vmin); /* Based on 18px in 1920x1080 */
 }
 

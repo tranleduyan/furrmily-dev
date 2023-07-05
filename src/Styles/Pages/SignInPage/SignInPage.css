@@ -12,18 +12,85 @@
 }
 
 .SignInPage-topContainer{
-    position: relative;
     width: 100%;
-    height: 8.5%;
-    background-color: yellow;    
+    height: 8.5%; 
 }
 
 .SignInPage-logoText{
-    margin-left: calc(10px + 2.3vmin);;
+    margin-left: calc(10px + 2.3vmin);
+}
+
+.SignInPage-pageContent{
+    width:100%;
+    height:91.5%;
+}
+
+.SignInPage-signInFormContainer{
+    margin-top: -8.5%;
+    width: calc(10px + 38.5vmin); /* Based on 380px in 1920x1080 */
+    height: calc(10px + 56.5vmin); /* Based on 537px in 1920x1080 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.SignInPage-signInForm{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.SignInPage-inputGroupContainer{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.SignInPage-inputFieldContainer{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.SignInPage-inputField{
+    border:none;
+    height:calc(10px + 6.5vmin); /* Based on 72px in 1920x1080 */
+    background-color: var(--Gray1);
+    border-radius: 5px;
+    padding: 0px 20px 0px 20px;
+}
+
+.SignInPage-inputField:focus, .SignInPage-inputFieldHasValue{
+    border-color:var(--Black);
+    background-color: var(--White);
+}
+
+.SignInPage-buttonGroupContainer{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.SignInPage-orContainer{
+    height: calc(10px + 4.2vmin); /* Based on 32px in 1920x1080 */;
+    color: var(--Gray2);
 }
 
 .SignInPage-illustrationContainer{
     width: 50%;
     height: 100%;
     background-color: var(--Black);
+}
+
+.largeButton{
+    border-radius: 5px;
+    background-color: var(--Black);
+    width: calc(10px + 38.5vmin); /* Based on 380px in 1920x1080 */
+    height:calc(10px + 6vmin); /* Based on 72px in 1920x1080 */
+}
+
+.buttonTitle{
+    color: var(--White);
 }
