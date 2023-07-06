@@ -1,0 +1,24 @@
+.inputFieldContainer{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+.inputField{
+    border: solid 2px;
+    height:calc(10px + 6.5vmin); /* Based on 72px in 1920x1080 */
+    border-color: var(--Gray1);
+    background-color: var(--Gray1);
+    border-radius: 5px;
+    /* TODO: Padding calc*/
+    padding: 0px 20px 0px 20px;
+}
+.inputField:focus{
+    border: solid 2px;
+    border-color:var(--Black);
+    background-color: var(--White);
+    color: var(--Black);
+}
+
+.inputFieldHasValue{
+    color: var(--Gray3);
+}

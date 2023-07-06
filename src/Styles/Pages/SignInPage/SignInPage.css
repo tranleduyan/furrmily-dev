@@ -48,23 +48,8 @@
     align-items: center;
 }
 
-.SignInPage-inputFieldContainer{
-    width:100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.SignInPage-inputField{
-    border:none;
-    height:calc(10px + 6.5vmin); /* Based on 72px in 1920x1080 */
-    background-color: var(--Gray1);
-    border-radius: 5px;
-    padding: 0px 20px 0px 20px;
-}
-
-.SignInPage-inputField:focus, .SignInPage-inputFieldHasValue{
-    border-color:var(--Black);
-    background-color: var(--White);
+.SignInPage-passwordInputField{
+    margin:15px 0px 0px 0px;
 }
 
 .SignInPage-buttonGroupContainer{

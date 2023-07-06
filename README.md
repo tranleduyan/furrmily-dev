@@ -6,13 +6,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### Using `StandardInputField`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Structure:
+    > <div className={className}>
+      <label htmlFor={props.htmlFor} className='heading3'>{props.title}</label>
+      <input type={props.type} name={props.name} id={props.id} className={inputClassName} value={inputValue} onChange={handleInputChange} required/>
+    </div>
 
 ### `npm test`
 

@@ -4,6 +4,7 @@ import React from 'react'
 /* Stylings */
 import '../../Styles/Pages/SignInPage/SignInPage.css'
 import Logo from '../../Components/Logo/Logo'
+import StandardInputField from '../../Components/InputFields/StandardInputField/StandardInputField'
 
 /* Icons */
 
@@ -18,21 +19,15 @@ function SignInPage() {
           <div className='SignInPage-signInFormContainer'>
             
             {/* TODO: action="" */}
-            <form className='SignInPage-signInForm'>
+            <form className='SignInPage-signInForm' autoComplete='off'>
               <div className='SignInPage-inputGroupContainer'>
                 <h1 className='heading1'>SIGN IN</h1>
                 
-                {/* TODO: Input Field Component, red color when error */}
-                <div className='SignInPage-inputFieldContainer'>
-                  <label htmlFor='username' className='heading3'>USERNAME</label>
-                  <input type='text' name='username' id='username' className='paragraph2 SignInPage-inputField' required/>
-                </div>
+                {/* TODO: red color when error */}
+                <StandardInputField className='' inputClassName='' htmlFor='username' id='username' name='username' type='text' title='USERNAME'/>
 
-                {/* TODO: Input Field Component, red color when error */}
-                <div style={{margin:'15px 0px 0px 0px'}}className='SignInPage-inputFieldContainer'>
-                  <label htmlFor='password' className='heading3'>PASSWORD</label>
-                  <input type='text' name='password' id='password' className='paragraph2 SignInPage-inputField' required/>
-                </div>
+                {/* TODO:red color when error, padding*/}
+                <StandardInputField className='SignInPage-passwordInputField' inputClassName='' htmlFor='password' id='password' name='password' type='password' title='PASSWORD'/>
 
                 {/* TODO: Color is red, add icon, visible only when error */}
                 <p className='paragraph2'>INCORRECT USERNAME/PASSWORD</p>
