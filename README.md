@@ -9,7 +9,7 @@ In the project directory, you can run:
 ### Using `StandardInputField`
 
 Structure:
-    > <div className={className}>
+    ><div className={className}>
       <label htmlFor={props.htmlFor} className='heading3'>{props.title}</label>
       <input type={props.type} name={props.name} id={props.id} className={inputClassName} value={inputValue} onChange={handleInputChange} required/>
     </div>
