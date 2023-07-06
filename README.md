@@ -11,13 +11,13 @@
 ```
 
 ### Props:
-1. **className**: Add extra stylings to the _input field container_, which is the wrapper of <label> and <input>.
-2. **inputClassName**: Add extra stylings to the _input field_ .
-3. **htmlFor**: The **htmlFor** attribute of the _label_ of the input field.
-4. **id**: The **id** attribute of the _input field_.
-5. **name**: The **name** attribute of the _input field_.
-6. **type**: The **type** attribute of the _input field_.
-7. **title**: The title (also known as the label) for the input field.
+1. **className**: Add extra stylings to the **_input field container_**, which is the wrapper of <label> and <input>.
+2. **inputClassName**: Add extra stylings to the **_input field_**.
+3. **htmlFor**: The **htmlFor** attribute of the **_label_** of the input field.
+4. **id**: The **id** attribute of the **_input field_**.
+5. **name**: The **name** attribute of the **_input field_**.
+6. **type**: The **type** attribute of the **_input field_**.
+7. **title**: The **title** (also known as the label) for the **_input field_**.
 
 ### Usage Examples:
 ```
