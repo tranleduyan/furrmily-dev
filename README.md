@@ -1,7 +1,10 @@
 # Components Documentation / Guidelines 
 ## Using `StandardInputField`
 
-### Structure: 
+### Suggested Import Syntax
+> import StandardInputField from '../../Components/InputFields/StandardInputField/StandardInputField'
+
+### Component's Structure Definition: 
 ```
 <div className={className}>
     <label htmlFor={props.htmlFor} className='heading3'>{props.title}</label>
