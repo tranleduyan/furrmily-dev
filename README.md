@@ -32,3 +32,58 @@
 <StandardInputField className='SignInPage-passwordInputField' inputClassName=''
                     htmlFor='password' id='password' name='password' type='password' title='PASSWORD'/>
 ```
+
+### _NOTES_:
+
+## Using `StandardButton`
+
+### Suggested Import Syntax
+> import StandardButton from '../../Components/Buttons/StandardButton/StandardButton'
+
+### Component's Structure Definition:
+```
+<button type='button' className={className}>
+    <p className='button'>{props.title}</p>
+</button>
+```
+
+### Props:
+1. **className**:
+2. **ButtonSize (Required)**:
+3. **title**:
+
+### Usage Examples:
+```
+{/* Large Button */}
+<StandardButton className='' buttonSize='large' title='SIGN IN'/>
+
+{/* Small Button(not in used right now) */}
+<StandardButton className='' buttonSize='small' title='CANCEL'/>
+```
+
+### _NOTES_:
+
+## Using `Message`
+
+### Suggested Import Syntax
+> import Message from '../../Components/Message/Message'
+
+### Component's Structure Definition:
+```
+<div className={className}>
+    <BsFillExclamationCircleFill className='paragraph1 errorIcon'/>
+    <p className='paragraph2'>{props.content}</p>
+</div>
+```
+
+### Props:
+1. **className**:
+2. **content**:
+
+### Usage Examples:
+```
+{/* Type of Message (error, warning, regular) will not be in use right now */}
+<Message className='' content='INCORRECT USERNAME/PASSWORD'/>
+```
+
+### _NOTES_:
