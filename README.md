@@ -1,6 +1,7 @@
 # Components Documentation / Guidelines 
 ## Using `StandardInputField`
-
+- Its usage is to take in users' inputs.
+- 
 ### Suggested Import Syntax
 > import StandardInputField from '../../Components/InputFields/StandardInputField/StandardInputField'
 
@@ -33,9 +34,10 @@
                     htmlFor='password' id='password' name='password' type='password' title='PASSWORD'/>
 ```
 
-### _NOTES_:
+### _NOTES_: The **input field** has a height but does not come with width styling. The width will be based on its **parent** container!
 
 ## Using `StandardButton`
+- Its usage is to perform actions as users hit the button.
 
 ### Suggested Import Syntax
 > import StandardButton from '../../Components/Buttons/StandardButton/StandardButton'
@@ -48,9 +50,9 @@
 ```
 
 ### Props:
-1. **className**:
-2. **ButtonSize (Required)**:
-3. **title**:
+1. **className**: Add extra stylings to the _button_.
+2. **buttonSize (Required)**: Indicates the stylings of the _button_ (either large or small). 
+3. **title**: Indicates the title of the _button_.
 
 ### Usage Examples:
 ```
@@ -61,10 +63,11 @@
 <StandardButton className='' buttonSize='small' title='CANCEL'/>
 ```
 
-### _NOTES_:
+### _NOTES_: **buttonSize** is essential as it is used to decide which stylings the button should have!
 
 ## Using `Message`
-
+- Its usage is to show the message to the users (errors, warnings, instructions, etc.).
+- 
 ### Suggested Import Syntax
 > import Message from '../../Components/Message/Message'
 
@@ -77,8 +80,8 @@
 ```
 
 ### Props:
-1. **className**:
-2. **content**:
+1. **className**: Add extra stylings to the **message**.
+2. **content**: The content of the **message**.
 
 ### Usage Examples:
 ```
@@ -86,4 +89,4 @@
 <Message className='' content='INCORRECT USERNAME/PASSWORD'/>
 ```
 
-### _NOTES_:
+### _NOTES_: It only supports error messages for now. 
