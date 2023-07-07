@@ -1,7 +1,7 @@
 # Components Documentation / Guidelines 
 ## Using `StandardInputField`
 - Its usage is to take in users' inputs.
-- 
+
 ### Suggested Import Syntax
 > import StandardInputField from '../../Components/InputFields/StandardInputField/StandardInputField'
 
@@ -67,7 +67,7 @@
 
 ## Using `Message`
 - Its usage is to show the message to the users (errors, warnings, instructions, etc.).
-- 
+
 ### Suggested Import Syntax
 > import Message from '../../Components/Message/Message'
 
