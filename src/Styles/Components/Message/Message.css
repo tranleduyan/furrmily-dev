@@ -1,0 +1,12 @@
+.messageContainer{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    align-items: center;
+}
+.errorIcon{
+    margin-right:10px;
+    margin-bottom:2px;
+}

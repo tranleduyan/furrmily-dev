@@ -9,8 +9,10 @@
     border-color: var(--Gray1);
     background-color: var(--Gray1);
     border-radius: 5px;
-    /* TODO: Padding calc*/
-    padding: 0px 20px 0px 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: calc(10px + 1vmin); /* Based on 20px in 1920x1080 */
+    padding-right: calc(10px + 1vmin); /* Based on 20px in 1920x1080 */
 }
 .inputField:focus{
     border: solid 2px;

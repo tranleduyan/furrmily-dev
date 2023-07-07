@@ -28,7 +28,7 @@
 .SignInPage-signInFormContainer{
     margin-top: -8.5%;
     width: calc(10px + 38.5vmin); /* Based on 380px in 1920x1080 */
-    height: calc(10px + 56.5vmin); /* Based on 537px in 1920x1080 */
+    /* height: calc(10px + 56.5vmin); Based on 537px in 1920x1080 */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,7 +49,7 @@
 }
 
 .SignInPage-passwordInputField{
-    margin:15px 0px 0px 0px;
+    margin-top:calc(10px + 0.54vmin); /* Based on 18px in 1920x1080 */
 }
 
 .SignInPage-buttonGroupContainer{
@@ -69,13 +69,3 @@
     background-color: var(--Black);
 }
 
-.largeButton{
-    border-radius: 5px;
-    background-color: var(--Black);
-    width: calc(10px + 38.5vmin); /* Based on 380px in 1920x1080 */
-    height:calc(10px + 6vmin); /* Based on 72px in 1920x1080 */
-}
-
-.buttonTitle{
-    color: var(--White);
-}
