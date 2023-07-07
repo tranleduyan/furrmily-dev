@@ -34,7 +34,8 @@
                     htmlFor='password' id='password' name='password' type='password' title='PASSWORD'/>
 ```
 
-### _NOTES_: The **input field** has a height but does not come with width styling. The width will be based on its **parent** container!
+### _NOTES_: 
+> The **input field** has a height but does not come with width styling. The width will be based on its **parent** container!
 
 ## Using `StandardButton`
 - Its usage is to perform actions as users hit the button.
@@ -63,7 +64,8 @@
 <StandardButton className='' buttonSize='small' title='CANCEL'/>
 ```
 
-### _NOTES_: **buttonSize** is essential as it is used to decide which stylings the button should have!
+### _NOTES_: 
+> **buttonSize** is essential as it is used to decide which stylings the button should have!
 
 ## Using `Message`
 - Its usage is to show the message to the users (errors, warnings, instructions, etc.).
@@ -89,4 +91,5 @@
 <Message className='' content='INCORRECT USERNAME/PASSWORD'/>
 ```
 
-### _NOTES_: It only supports error messages for now. 
+### _NOTES_: 
+> It only supports error messages for now. 
