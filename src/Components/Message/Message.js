@@ -5,7 +5,7 @@ import React from 'react'
 import '../../Styles/Components/Message/Message.css'
 
 /* Icons */
-import {BsFillExclamationCircleFill} from 'react-icons/bs'
+import {BsFillExclamationCircleFill, BsFillExclamationTriangleFill} from 'react-icons/bs'
 
 function Message(props) {
   const {messageType, visibility} = props;
@@ -19,6 +19,9 @@ function Message(props) {
     <div className={className}>
       {messageType === 'error' && (
         <BsFillExclamationCircleFill className='paragraph1 errorIcon'/>
+      )}
+      {messageType === 'warning' && (
+        <BsFillExclamationTriangleFill className='paragraph1 warningIcon'/>
       )}
         <p className='paragraph2'>{props.content}</p>
     </div>

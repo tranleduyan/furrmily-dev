@@ -11,7 +11,15 @@
     color: var(--Red1);
 }
 
-.errorIcon{
+.warningMessage{
+    color: yellow; /*yellow is placeholder*/
+}
+
+.instructionalMessage{
+    color: var(--Gray2);
+}
+
+.warningIcon, errorIcon{
     margin-right:10px;
     margin-bottom:2px;
 }

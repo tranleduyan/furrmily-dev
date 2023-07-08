@@ -60,6 +60,7 @@ function SignUpPage() {
       }
     }
     else if(currentFormState === 'Account Information'){
+      {/* TODO: Check for existing username */}
       if(!userInformation.username || !userInformation.password || !userInformation.confirmPassword){
         setErrorMessage('PLEASE FILL IN ALL REQUIRED FIELDS');
         return false;
@@ -70,6 +71,7 @@ function SignUpPage() {
       }
     }
     else if(currentFormState === 'Account Security Information'){
+      {/* TODO: Check for existing email address */}
       if(!userInformation.emailAddress || !userInformation.confirmEmailAddress){
         setErrorMessage('PLEASE FILL IN ALL REQUIRED FIELDS');
         return false;

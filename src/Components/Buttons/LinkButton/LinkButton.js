@@ -12,7 +12,7 @@ function LinkButton(props) {
   return (
     <div className={className}>
         <Link to={props.to} className='link'>{props.title}</Link>
-  </div>
+    </div>
   )
 }
 

@@ -33,6 +33,7 @@ function SignInPage() {
       setIsError(true);
       return;
     }
+    {/* TODO: Check for sign in */}
   }
 
   const IsValid = () => {
@@ -66,13 +67,10 @@ function SignInPage() {
               <div className='SignInPage-inputGroupContainer'>
                 <h1 className='heading1'>SIGN IN</h1>
                 
-                {/* TODO: red color when error */}
                 <StandardInputField className='' inputClassName='' htmlFor='username' id='username' name='username' type='text' title='USERNAME' onChange={HandleInputChange} error={isError}/>
 
-                {/* TODO:red color when error, padding*/}
                 <StandardInputField className='SignInPage-passwordInputField' inputClassName='' htmlFor='password' id='password' name='password' type='password' title='PASSWORD' onChange={HandleInputChange} error={isError}/>
 
-                {/* TODO: Color is red, visible only when error */}
                 <Message className='' messageType='error' visibility={isError} content={errorMessage}/>
               </div>
 
