@@ -1,12 +1,12 @@
 /* Components */
 import React from 'react'
 import Message from '../../Components/Message/Message'
-
-/* Stylings */
-import '../../Styles/Pages/SignInPage/SignInPage.css'
 import Logo from '../../Components/Logo/Logo'
 import StandardInputField from '../../Components/InputFields/StandardInputField/StandardInputField'
 import StandardButton from '../../Components/Buttons/StandardButton/StandardButton'
+
+/* Stylings */
+import '../../Styles/Pages/SignInPage/SignInPage.css'
 
 
 /* Icons */

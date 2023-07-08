@@ -13,7 +13,7 @@ function Message(props) {
     <div className={className}>
         <BsFillExclamationCircleFill className='paragraph1 errorIcon'/>
         <p className='paragraph2'>{props.content}</p>
-  </div>
+    </div>
   )
 }
 
