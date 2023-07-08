@@ -6,7 +6,16 @@
 
     align-items: center;
 }
+
+.errorMessage{
+    color: var(--Red1);
+}
+
 .errorIcon{
     margin-right:10px;
     margin-bottom:2px;
+}
+
+.hide {
+    visibility: hidden;
 }

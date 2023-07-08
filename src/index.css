@@ -64,6 +64,8 @@ body {
 }
 
 .link{
+  text-decoration: none;
+  color: var(--Blue1);
   font-size: calc(10px + 0.65vmin); /* Based on 16px in 1920x1080 */
 }
 

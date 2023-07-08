@@ -9,7 +9,7 @@ import '../../../Styles/Components/Buttons/StandardButton/StandardButton.css'
 function StandardButton(props) {
   const className=`${props.className} flexRowCenter ${props.buttonSize}Button`;
   return (
-    <button type='button' className={className}>
+    <button type='button' className={className} onClick={props.onClick}>
       <p className='button'>{props.title}</p>
     </button>
   )

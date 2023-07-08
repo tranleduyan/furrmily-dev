@@ -1,0 +1,11 @@
+.iconButton{
+    border:none;
+    background: transparent;
+    padding:0;
+    padding-top:6px;
+    font-size: calc(10px + 1.45vmin); /* Based on 24px in 1920x1080 */
+}
+
+.iconButton:hover{
+    cursor: pointer;
+}

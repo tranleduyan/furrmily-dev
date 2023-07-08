@@ -21,6 +21,13 @@
     color: var(--Black);
 }
 
-.inputFieldHasValue{
+.inputField:not(:focus){
     color: var(--Gray3);
+}
+
+.inputFieldError{
+    border: solid 2px;
+    border-color:var(--Red1);
+    background-color: var(--White);
+    color: var(--Black);
 }

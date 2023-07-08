@@ -26,7 +26,7 @@
 }
 
 .SignInPage-signInFormContainer{
-    margin-top: -8.5%;
+    margin-top: -13.5%;
     width: calc(10px + 38.5vmin); /* Based on 380px in 1920x1080 */
     /* height: calc(10px + 56.5vmin); Based on 537px in 1920x1080 */
     display: flex;

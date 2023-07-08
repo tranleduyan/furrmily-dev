@@ -12,3 +12,7 @@
     width: calc(10px + 38.5vmin); /* Based on 380px in 1920x1080 */
     height:calc(10px + 6vmin); /* Based on 72px in 1920x1080 */
 }
+
+.largeButton:hover, .smallButton:hover{
+    cursor: pointer;
+}

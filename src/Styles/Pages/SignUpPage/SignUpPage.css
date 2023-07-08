@@ -1,0 +1,84 @@
+.SignUpPage-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.SignUpPage-contentContainer{
+    width:50%;
+    height:100%;
+    min-height: 100vh;
+}
+
+.SignUpPage-topContainer{
+    width: 100%;
+    height: 8.5%;
+}
+
+.SignUpPage-logoText{
+    margin-left: calc(10px + 2.3vmin);
+}
+
+.SignUpPage-pageContent{
+    width:100%;
+    height:91.5%;
+}
+
+.SignUpPage-signUpFormContainer{
+    margin-top: -8.5%;
+    width: calc(10px + 38.5vmin); /*Based on 380px in 1920x1080 */
+    /* Height is not need to declard*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.SignUpPage-signUpForm{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.SignUpPage-inputGroupContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.SignUpPage-formHeaderContainer{
+    width:100%;
+    display:flex;
+    align-items: center;
+}
+.SignUpPage-formHeaderContainer h1{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.SignInPage-backButton{
+    position: absolute;
+}
+
+.SignUpPage-nonFirstInputField{
+    margin-top: calc(10px + 0.54vmin); /* Based on 18px in 1920x1080 */
+}
+
+.SignUpPage-buttonGroupContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.SignUpPage-linkButtonContainer{
+    margin-top: calc(10px + 1.45vmin); /* Based on 24px in 1920x1080 */
+}
+
+.SignUpPage-illustrationContainer{
+    width: 50%;
+    height: 100%;
+    background-color: var(--Black);
+}
+

@@ -1,5 +1,6 @@
 /* Components */
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Message from '../../Components/Message/Message'
 import Logo from '../../Components/Logo/Logo'
 import StandardInputField from '../../Components/InputFields/StandardInputField/StandardInputField'
@@ -13,6 +14,44 @@ import '../../Styles/Pages/SignInPage/SignInPage.css'
 
 
 function SignInPage() {
+  const navigate = useNavigate();
+  
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isError, setIsError] = useState(false);
+  const [userInformation, setUserInformation] = useState ({
+    username: '',
+    password: '',
+  });
+
+
+  const NavigateToSignUp = () => {
+    navigate('/SignUp');
+  }
+
+  const OnSignIn = () =>{
+    if(IsValid() === false){
+      setIsError(true);
+      return;
+    }
+  }
+
+  const IsValid = () => {
+    if(!userInformation.username || !userInformation.password){
+      setErrorMessage('PLEASE FILL IN ALL REQUIRED FIELDS'); 
+      return false;
+    }
+    setErrorMessage('');
+    return true;
+  }
+
+  const HandleInputChange = (propertyName, inputValue) => {
+    if(isError) {
+      setIsError(false);
+      setErrorMessage('');
+    }
+    setUserInformation({...userInformation, [propertyName]: inputValue});
+  }
+
   return (
     <div className='wrapper SignInPage-wrapper'>
       <div className='SignInPage-contentContainer'>
@@ -28,22 +67,22 @@ function SignInPage() {
                 <h1 className='heading1'>SIGN IN</h1>
                 
                 {/* TODO: red color when error */}
-                <StandardInputField className='' inputClassName='' htmlFor='username' id='username' name='username' type='text' title='USERNAME'/>
+                <StandardInputField className='' inputClassName='' htmlFor='username' id='username' name='username' type='text' title='USERNAME' onChange={HandleInputChange} error={isError}/>
 
                 {/* TODO:red color when error, padding*/}
-                <StandardInputField className='SignInPage-passwordInputField' inputClassName='' htmlFor='password' id='password' name='password' type='password' title='PASSWORD'/>
+                <StandardInputField className='SignInPage-passwordInputField' inputClassName='' htmlFor='password' id='password' name='password' type='password' title='PASSWORD' onChange={HandleInputChange} error={isError}/>
 
                 {/* TODO: Color is red, visible only when error */}
-                <Message className='' content='INCORRECT USERNAME/PASSWORD'/>
+                <Message className='' messageType='error' visibility={isError} content={errorMessage}/>
               </div>
 
               {/* Buttons Group */}
               <div className='SignInPage-buttonGroupContainer'>
-                <StandardButton className='' buttonSize='large' title='SIGN IN'/>
+                <StandardButton className='' buttonSize='large' title='SIGN IN' onClick={OnSignIn} />
                 <div className='flexRowCenter SignInPage-orContainer'>    
                   <h3 className='heading3' style={{margin:'0px'}}>OR</h3>
                 </div>
-              <StandardButton className='' buttonSize='large' title='SIGN UP'/>
+              <StandardButton className='' buttonSize='large' title='SIGN UP' onClick={NavigateToSignUp}/>
               </div>
             </form>
           </div>  
