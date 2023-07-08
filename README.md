@@ -92,4 +92,4 @@
 ```
 
 ### _NOTES_: 
-> It only supports error messages for now. 
+> It only supports error messages for now. The message width is based on its parent's width (100%). 
