@@ -67,9 +67,13 @@ function SignInPage() {
               <div className='SignInPage-inputGroupContainer'>
                 <h1 className='heading1'>SIGN IN</h1>
                 
-                <StandardInputField className='' inputClassName='' htmlFor='username' id='username' name='username' type='text' title='USERNAME' onChange={HandleInputChange} error={isError}/>
+                <StandardInputField className='' inputClassName='' htmlFor='username' id='username' name='username' 
+                                    type='text' title='USERNAME' 
+                                    onChange={HandleInputChange} error={isError}/>
 
-                <StandardInputField className='SignInPage-passwordInputField' inputClassName='' htmlFor='password' id='password' name='password' type='password' title='PASSWORD' onChange={HandleInputChange} error={isError}/>
+                <StandardInputField className='SignInPage-passwordInputField' inputClassName='' htmlFor='password' id='password' name='password' 
+                                    type='password' title='PASSWORD' 
+                                    onChange={HandleInputChange} error={isError}/>
 
                 <Message className='' messageType='error' visibility={isError} content={errorMessage}/>
               </div>

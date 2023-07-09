@@ -117,9 +117,13 @@ function SignUpPage() {
                 {/* Personal Information State */}
                 {currentFormState === 'Personal Information' && (
                   <>
-                    <StandardInputField className='' inputClassName='' htmlFor='firstName' id='firstName' name='firstName' type='text' title='FIRST NAME' value={userInformation.firstName} onChange={HandleInputChange} error={isError}/>
+                    <StandardInputField className='' inputClassName='' htmlFor='firstName' id='firstName' name='firstName' 
+                                        type='text' title='FIRST NAME' value={userInformation.firstName} 
+                                        onChange={HandleInputChange} error={isError}/>
 
-                    <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' htmlFor='middleName' id='middleName' name='middleName' type='text' title='MIDDLE NAME (OPTIONAL)' value={userInformation.middleName} onChange={HandleInputChange} error={isError}/>
+                    <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' htmlFor='middleName' id='middleName' name='middleName' 
+                                        type='text' title='MIDDLE NAME (OPTIONAL)' value={userInformation.middleName} 
+                                        onChange={HandleInputChange} error={isError}/>
 
                     <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' htmlFor='lastName' id='lastName' name='lastName' type='text' title='LAST NAME' value={userInformation.lastName} onChange={HandleInputChange} error={isError}/>
                   </>)
@@ -128,22 +132,36 @@ function SignUpPage() {
                 {/* Account Information State */}
                 {currentFormState === 'Account Information' && (
                   <>
-                    <StandardInputField className='' inputClassName='' htmlFor='username' id='username' name='username' type='text' title='USERNAME' value={userInformation.username} onChange={HandleInputChange} error={isError}/>
+                    <StandardInputField className='' inputClassName='' htmlFor='username' id='username' name='username' 
+                                        type='text' title='USERNAME' value={userInformation.username} 
+                                        onChange={HandleInputChange} error={isError}/>
 
-                    <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' htmlFor='password' id='password' name='password' type='password' title='PASSWORD' value={userInformation.password} onChange={HandleInputChange} error={isError}/>
+                    <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' htmlFor='password' id='password' name='password' 
+                                        type='password' title='PASSWORD' value={userInformation.password} 
+                                        onChange={HandleInputChange} error={isError}/>
 
-                    <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' htmlFor='confirmPassword' id='confirmPassword' name='confirmPassword' type='password' title='CONFIRM PASSWORD' value={userInformation.confirmPassword} onChange={HandleInputChange} error={isError}/>
+                    <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' htmlFor='confirmPassword' id='confirmPassword' name='confirmPassword' 
+                                        type='password' title='CONFIRM PASSWORD' value={userInformation.confirmPassword} 
+                                        onChange={HandleInputChange} error={isError}/>
                   </>)
                 }
 
                 {/* Account Security Information State */}
                 {currentFormState === 'Account Security Information' && (
                   <>
-                    <StandardInputField className='' inputClassName='' htmlFor='emailAddress' id='emailAddress' name='emailAddress' type='email' title='EMAIL ADDRESS' value={userInformation.emailAddress} onChange={HandleInputChange} error={isError} visibility={isError}/>
+                    <StandardInputField className='' inputClassName='' 
+                                        htmlFor='emailAddress' id='emailAddress' name='emailAddress' 
+                                        type='email' title='EMAIL ADDRESS' value={userInformation.emailAddress} 
+                                        onChange={HandleInputChange} error={isError}/>
 
-                    <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' htmlFor='confirmEmailAddress' id='confirmEmailAddress' name='confirmEmailAddress' type='email' title='CONFIRM EMAIL ADDRESS' value={userInformation.confirmEmailAddress} onChange={HandleInputChange} error={isError}/>
+                    <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' 
+                                        htmlFor='confirmEmailAddress' id='confirmEmailAddress' name='confirmEmailAddress' 
+                                        type='email' title='CONFIRM EMAIL ADDRESS' value={userInformation.confirmEmailAddress} 
+                                        onChange={HandleInputChange} error={isError}/>
  
-                    <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' htmlFor='phoneNumber' id='phoneNumber' name='phoneNumber' type='tel' title='PHONE NUMBER (OPTIONAL)' value={userInformation.phoneNumber} onChange={HandleInputChange} error={isError}/>
+                    <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' htmlFor='phoneNumber' id='phoneNumber' name='phoneNumber' 
+                                        type='tel' title='PHONE NUMBER (OPTIONAL)' value={userInformation.phoneNumber} 
+                                        onChange={HandleInputChange} error={isError}/>
                   </>)
                 }
 
