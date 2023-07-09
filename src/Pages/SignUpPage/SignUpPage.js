@@ -1,5 +1,6 @@
 /* Components */
 import React, { useState } from 'react'
+import axios from 'axios'
 import Message from '../../Components/Message/Message'
 import Logo from '../../Components/Logo/Logo'
 import StandardInputField from '../../Components/InputFields/StandardInputField/StandardInputField'
@@ -42,14 +43,40 @@ function SignUpPage() {
   }
 
   const OnSignUp = () => {
+    console.log(userInformation);
     
+    const apiURL = 'https://gy1dkgq8cl.execute-api.us-west-2.amazonaws.com/authentication-beta/api/sign-up';
+    const apiKey = 'ht8xjWktCv3ocTpjSYjkm3FCBotdJI7s60h6VS8i';
+
+    const requestBody = {
+      userFirstName: userInformation.firstName,
+      userLastName: userInformation.lastName,
+      userEmail: userInformation.emailAddress,
+      userPhoneNumber: userInformation.phoneNumber,
+      username: userInformation.username,
+      password: userInformation.password,
+    };
+
+    axios
+    .post(apiURL, requestBody, {
+      headers: {
+        'X-API-KEY': apiKey
+      }
+    })
+    .then(response => {
+      console.log('API Response:', response.data);
+    })
+    .catch(error => {
+      console.log('API Error:', error);
+    });
   }
 
-  const OnBack = () => {
+  const OnBack = (event) => {
     if(currentFormState === 'Account Security Information')
       setCurrentFormState('Account Information');
     else if(currentFormState === 'Account Information')
       setCurrentFormState('Personal Information');
+    event.preventDefault();
   }
 
   const IsValid = () => {

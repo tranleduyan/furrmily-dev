@@ -1,5 +1,6 @@
 /* Components */
 import React, { useState } from 'react'
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import Message from '../../Components/Message/Message'
 import Logo from '../../Components/Logo/Logo'
@@ -33,6 +34,26 @@ function SignInPage() {
       setIsError(true);
       return;
     }
+    console.log(userInformation);
+
+    const apiURL = 'https://gy1dkgq8cl.execute-api.us-west-2.amazonaws.com/authentication-beta/api/sign-in';
+    const apiKey = 'ht8xjWktCv3ocTpjSYjkm3FCBotdJI7s60h6VS8i';
+
+    const requestBody = {
+      username: userInformation.username,
+      password: userInformation.password,
+    }
+
+    axios
+      .post(apiURL, requestBody, {
+        'X-API-KEY': apiKey
+      })
+      .then(response => {
+        console.log('API Response:', response.data);
+      })
+      .catch(error => {
+        console.log('API Error:', error);
+      });
     {/* TODO: Check for sign in */}
   }
 
