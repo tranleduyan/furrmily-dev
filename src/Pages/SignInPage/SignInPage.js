@@ -29,24 +29,25 @@ function SignInPage() {
     navigate('/SignUp');
   }
 
-  const OnSignIn = () =>{
-    if(IsValid() === false){
+  const OnSignIn = () => {
+    if (IsValid() === false) {
       setIsError(true);
       return;
     }
-    console.log(userInformation);
-
-    const apiURL = 'https://gy1dkgq8cl.execute-api.us-west-2.amazonaws.com/authentication-beta/api/sign-in';
+  
+    const apiURL = '/api/sign-in';
     const apiKey = 'ht8xjWktCv3ocTpjSYjkm3FCBotdJI7s60h6VS8i';
-
+  
     const requestBody = {
       username: userInformation.username,
       password: userInformation.password,
-    }
-
+    };
+  
     axios
       .post(apiURL, requestBody, {
-        'X-API-KEY': apiKey
+        headers: {
+          'X-API-KEY': apiKey,
+        },
       })
       .then(response => {
         console.log('API Response:', response.data);
@@ -54,8 +55,9 @@ function SignInPage() {
       .catch(error => {
         console.log('API Error:', error);
       });
-    {/* TODO: Check for sign in */}
-  }
+    // TODO: Check for sign in
+  };
+  
 
   const IsValid = () => {
     if(!userInformation.username || !userInformation.password){

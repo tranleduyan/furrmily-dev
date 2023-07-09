@@ -43,9 +43,11 @@ function SignUpPage() {
   }
 
   const OnSignUp = () => {
-    console.log(userInformation);
-    
-    const apiURL = 'https://gy1dkgq8cl.execute-api.us-west-2.amazonaws.com/authentication-beta/api/sign-up';
+    if(IsValid() === false){
+      setIsError(true);
+      return;
+    }
+    const apiURL = '/api/sign-up';
     const apiKey = 'ht8xjWktCv3ocTpjSYjkm3FCBotdJI7s60h6VS8i';
 
     const requestBody = {
@@ -68,10 +70,23 @@ function SignUpPage() {
     })
     .catch(error => {
       console.log('API Error:', error);
+      //Handle existing username or email error
+      if(error.response.status === 401){
+        const apiErrorMessage = error.response.data.message;
+        setErrorMessage(apiErrorMessage);
+      }
+      else{
+        setErrorMessage('AN ERROR OCCURRED WHILE SIGNING UP');
+      }
+      setIsError(true);
     });
   }
 
   const OnBack = (event) => {
+    if(isError) {
+      setIsError(false);
+      setErrorMessage('');
+    }
     if(currentFormState === 'Account Security Information')
       setCurrentFormState('Account Information');
     else if(currentFormState === 'Account Information')

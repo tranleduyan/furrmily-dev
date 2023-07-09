@@ -19,7 +19,7 @@
     color: var(--Gray2);
 }
 
-.warningIcon, errorIcon{
+.warningIcon, .errorIcon{
     margin-right:10px;
     margin-bottom:2px;
 }
