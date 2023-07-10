@@ -51,11 +51,14 @@ function SignInPage() {
       })
       .then(response => {
         console.log('API Response:', response.data);
+        navigate('/Dashboard');
       })
       .catch(error => {
         console.log('API Error:', error);
+        const apiErrorMessage = error.response.data.message;
+        setErrorMessage(apiErrorMessage);
+        setIsError(true);
       });
-    // TODO: Check for sign in
   };
   
 
