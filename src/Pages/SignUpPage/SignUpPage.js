@@ -50,7 +50,6 @@ function SignUpPage() {
       setIsError(true);
       return;
     }
-    return;
     const apiURL = '/api/sign-up';
     const apiKey = 'ht8xjWktCv3ocTpjSYjkm3FCBotdJI7s60h6VS8i';
 
