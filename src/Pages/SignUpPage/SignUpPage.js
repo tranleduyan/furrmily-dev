@@ -14,8 +14,11 @@ import '../../Styles/Pages/SignUpPage/SignUpPage.css'
 
 /* Icons */
 import { FaChevronLeft } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom'
 
 function SignUpPage() {
+  const navigate = useNavigate();
+
   const [currentFormState, setCurrentFormState] = useState('Personal Information');
   const [errorMessage, setErrorMessage] = useState('');
   const [isError, setIsError] = useState(false);
@@ -42,20 +45,22 @@ function SignUpPage() {
       setCurrentFormState('Account Security Information');
   }
 
-  const OnSignUp = () => {
+  const OnSignUp = (event) => {
     if(IsValid() === false){
       setIsError(true);
       return;
     }
+    return;
     const apiURL = '/api/sign-up';
     const apiKey = 'ht8xjWktCv3ocTpjSYjkm3FCBotdJI7s60h6VS8i';
 
     const requestBody = {
-      userFirstName: userInformation.firstName,
-      userLastName: userInformation.lastName,
-      userEmail: userInformation.emailAddress,
-      userPhoneNumber: userInformation.phoneNumber,
-      username: userInformation.username,
+      firstName: userInformation.firstName,
+      middleName: userInformation.middleName,
+      lastName: userInformation.lastName,
+      emailAddress: userInformation.emailAddress.toLowerCase(),
+      phoneNumber: userInformation.phoneNumber,
+      username: userInformation.username.toLowerCase(),
       password: userInformation.password,
     };
 
@@ -67,6 +72,7 @@ function SignUpPage() {
     })
     .then(response => {
       console.log('API Response:', response.data);
+      navigate('/');
     })
     .catch(error => {
       console.log('API Error:', error);
@@ -96,15 +102,32 @@ function SignUpPage() {
 
   const IsValid = () => {
     if(currentFormState === 'Personal Information'){
+      const userRegex = /^[A-Z][a-z]*$/;
       if(!userInformation.firstName || !userInformation.lastName){
         setErrorMessage('PLEASE FILL IN ALL REQUIRED FIELDS'); 
         return false;
       }
+      else if(!userRegex.test(userInformation.firstName) || !userRegex.test(userInformation.lastName)){
+        setErrorMessage('PLEASE ENTER VALID NAME'); 
+        return false;
+      }
     }
     else if(currentFormState === 'Account Information'){
-      {/* TODO: Check for existing username */}
+      const usernameRegex = /^[a-zA-Z][a-z0-9_.]*$/;
       if(!userInformation.username || !userInformation.password || !userInformation.confirmPassword){
         setErrorMessage('PLEASE FILL IN ALL REQUIRED FIELDS');
+        return false;
+      }
+      else if(!usernameRegex.test(userInformation.username)){
+        setErrorMessage('PLEASE ENTER VALID USERNAME');
+        return false;
+      }
+      else if(userInformation.password.length < 6){
+        setErrorMessage('PASSWORD REQUIRES 6+ CHARACTERS');
+        return false;
+      }
+      else if((userInformation.password).includes(' ')){
+        setErrorMessage('PASSWORD MUST NOT HAVE SPACES');
         return false;
       }
       else if(userInformation.password !== userInformation.confirmPassword){
@@ -113,13 +136,22 @@ function SignUpPage() {
       }
     }
     else if(currentFormState === 'Account Security Information'){
-      {/* TODO: Check for existing email address */}
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const phoneNumberRegex = /^\d+$/;
       if(!userInformation.emailAddress || !userInformation.confirmEmailAddress){
         setErrorMessage('PLEASE FILL IN ALL REQUIRED FIELDS');
         return false;
       }
+      else if(!emailRegex.test(userInformation.emailAddress) || !emailRegex.test(userInformation.confirmEmailAddress)){
+        setErrorMessage('PLEASE ENTER VALID EMAIL ADDRESS');
+        return false;
+      }
       else if(userInformation.emailAddress !== userInformation.confirmEmailAddress){
         setErrorMessage('THE EMAILS DO NOT MATCH');
+        return false;
+      }
+      else if(userInformation.phoneNumber.length > 0 && (userInformation.phoneNumber.length !== 10 || !phoneNumberRegex.test(userInformation.phoneNumber))){
+        setErrorMessage('PLEASE ENTER VALID PHONE NUMBER');
         return false;
       }
     }
