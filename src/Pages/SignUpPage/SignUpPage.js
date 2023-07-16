@@ -1,5 +1,6 @@
 /* Components */
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Message from '../../Components/Message/Message'
 import Logo from '../../Components/Logo/Logo'
@@ -13,8 +14,8 @@ import '../../Styles/Pages/SignUpPage/SignUpPage.css'
 
 
 /* Icons */
-import { FaChevronLeft } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
 function SignUpPage() {
   const navigate = useNavigate();
@@ -181,7 +182,8 @@ function SignUpPage() {
                 <div className='SignUpPage-formHeaderContainer'>
                 {currentFormState !== 'Personal Information' && (
                   <>
-                  <IconButton className='SignInPage-backButton' icon={<FaChevronLeft/>} onClick={OnBack}/>
+                  <IconButton className='SignInPage-backButton' icon={<FontAwesomeIcon icon={faChevronLeft} />
+} onClick={OnBack}/>
                   </>
                 )}
                   <h1 className='heading1'>SIGN UP</h1>
