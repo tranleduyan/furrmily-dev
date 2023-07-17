@@ -6,6 +6,7 @@ import '../../../Styles/Components/Buttons/StandardButton/StandardButton.css'
 
 /* Icons */
 
+/* TODO: Remove button size, make width be adjustable, primary and secondary type instead */
 function StandardButton(props) {
   const className=`${props.className} flexRowCenter ${props.buttonSize}Button`;
   return (

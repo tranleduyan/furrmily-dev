@@ -1,3 +1,4 @@
+/* Components */
 import React from 'react'
 
 /* Stylings */
