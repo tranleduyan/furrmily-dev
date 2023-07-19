@@ -2,12 +2,20 @@
 import React from 'react'
 
 /* Stylings */
+import '../../Styles/Pages/DashboardPage/Dashboard.css'
 
 /* Icons */
 
 function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <div className='wrapper Dashboard-wrapper'>
+      <div className='Dashboard-sideNavBar'>
+
+      </div>
+      <div className='Dashboard-content'>
+        
+      </div>
+    </div>
   )
 }
 

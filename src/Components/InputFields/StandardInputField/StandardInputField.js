@@ -7,7 +7,9 @@ import '../../../Styles/Components/Inputfields/StandardInputField/StandardInputF
 function StandardInputField(props) {
   const {onChange, error} = props;
   const className=`${props.className} inputFieldContainer`;
-  const inputClassName = (error) ? `${props.inputClassName} paragraph2 inputField inputFieldError` : `${props.inputClassName} paragraph2 inputField`;
+  const inputClassName = (error) 
+                         ? `${props.inputClassName} paragraph2 inputField inputFieldError` 
+                         : `${props.inputClassName} paragraph2 inputField`;
 
   /* Functions */
   const handleInputChange = (event) =>{

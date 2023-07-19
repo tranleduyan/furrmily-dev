@@ -1,0 +1,32 @@
+.Dashboard-wrapper{
+    display: flex;
+    flex-direction: row;
+}
+
+.Dashboard-sideNavBar{
+    background-color: var(--Black);
+    height:100%;
+    width: calc(10px + 26.6vmin); /*Based on 266px in 1920x1080 */
+}
+
+.Dashboard-ProfileContainer{
+
+}
+
+.Dashboard-ProfileAvatarContainer{
+
+}
+
+.Dashboard-ProfileInformationTextContainer{
+
+}
+
+.Dashboard-NavigationListContainer{
+    
+}
+
+.Dashboard-content{
+    background-color: var(--White);
+    height:100%;
+    width: calc(100vmax - calc(10px + 26.6vmin)); /*Based on 100vmax - 266px in 1920x1080 */
+}
