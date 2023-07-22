@@ -30,7 +30,7 @@ body {
 }
 
 .heading2{
-  font-size: calc(10px + 1.45vmin); /* Based on 24px in 1920x1080 */
+  font-size: calc(2.5vmin); /* Based on 24px in 1920x1080 */
 }
 
 .heading3{

@@ -1,0 +1,46 @@
+.sideNavBar{
+    background-color: var(--Black);
+    height:100%;
+    width: calc(10px + 26.6vmin); /*Based on 266px in 1920x1080 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profileContainer{
+    margin: calc(2.5vmin) calc(2.5vmin);
+    width: calc(100% - (calc(2.5vmin)*2)); /* Based on 24px in 1920x1080 */
+    height: calc(5.65vmin); /* Based on 56px in 1920x1080 */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profileAvatarContainer{
+    height:100%;
+    width:calc(10px + 4.6vmin); /* Based on 56px in 1920x1080 */
+    background-color: var(--Gray4);
+    border-radius: 5px;
+}
+
+.profileAvatar{
+    font-size: calc(3.8vmin); /* Based on 36px in 1920x1080 */
+    color:var(--White);
+}
+
+.profileInformationTextContainer{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: calc(1.2vmin);
+    color: white;
+    height:100%;
+    width:calc(100% - calc(5.6vmin));
+    line-height: calc(2vmin);
+}
+
+.navigationListContainer{
+    height:100%;
+    width: 100%;
+}

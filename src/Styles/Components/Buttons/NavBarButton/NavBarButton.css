@@ -1,0 +1,22 @@
+.navButtonContainer{
+    margin:calc(10px + 1.45vmin) calc(10px + 1.45vmin);
+    width: calc(100% - (calc(10px + 1.45vmin)*2)); /* Based on 24px margins in 1920x1080 */
+    height: calc(10px + 4.6vmin); /* Based on 56px in 1920x1080 */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color:white;
+    background-color:transparent;
+    border: solid 0px;
+}
+
+.navButtonContainer:hover, .navButtonContainerActive{
+    background-color: var(--Gray4);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.navIcon{
+    margin: 0 calc(1.65vmin);
+    font-size: calc(2.5vmin); /* Based on 24px in 1920x1080 */
+}
