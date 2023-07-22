@@ -59,7 +59,7 @@
 }
 
 .SignInPage-orContainer{
-    height: calc(10px + 4.2vmin); /* Based on 32px in 1920x1080 */;
+    height: calc(10px + 4.2vmin); /* Based on ... in 1920x1080 */;
     color: var(--Gray2);
 }
 

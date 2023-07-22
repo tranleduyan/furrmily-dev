@@ -3,77 +3,94 @@
     flex-direction: row;
 }
 
-.Dashboard-sideNavBar{
-    background-color: var(--Black);
-    height:100%;
-    width: calc(10px + 26.6vmin); /*Based on 266px in 1920x1080 */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.Dashboard-profileContainer{
-    margin:calc(10px + 1.45vmin) calc(10px + 1.45vmin);
-    width: calc(100% - (calc(10px + 1.45vmin)*2)); /* Based on 24px in 1920x1080 */
-    height: calc(10px + 4.6vmin); /* Based on 56px in 1920x1080 */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.Dashboard-profileAvatarContainer{
-    height:100%;
-    width:calc(10px + 4.6vmin); /* Based on 56px in 1920x1080 */
-    background-color: var(--Gray4);
-    border-radius: 5px;
-}
-
-.Dashboard-profileAvatar{
-    font-size: calc(10px + 2.6vmin); /* Based on 36px in 1920x1080 */
-    color:var(--White);
-}
-
-.Dashboard-profileInformationTextContainer{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: calc(1.2vmin);
-    color: white;
-    height:100%;
-    width:calc(100% - calc(10px + 4.6vmin));
-    line-height: calc(1.8vmin);
-}
-
-.Dashboard-navigationListContainer{
-    height:100%;
-    width: 100%;
-}
-
-.Dashboard-navButtonContainer{
-    margin:calc(10px + 1.45vmin) calc(10px + 1.45vmin);
-    width: calc(100% - (calc(10px + 1.45vmin)*2)); /* Based on 24px in 1920x1080 */
-    height: calc(10px + 4.6vmin); /* Based on 56px in 1920x1080 */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color:white;
-}
-
-.Dashboard-navButtonContainer:hover{
-    background-color: var(--Gray4);
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.Dashboard-navIcon{
-    margin: 0 calc(1.65vmin);
-    font-size: calc(2.5vmin); /* Based on 24px in 1920x1080 */
-}
-
 .Dashboard-content{
     background-color: var(--White);
     height:100%;
     width: calc(100vmax - calc(10px + 26.6vmin)); /*Based on 100vmax - 266px in 1920x1080 */
 
 }
+
+.Dashboard-pageHeaderContainer{
+   height: calc(10.7vmin); /* Based on 112px in 1920x1080 */
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: center;
+   padding: 0px 0px 0px calc(5vmin); /* Based on 48px in 1920x1080 */
+}
+
+.Dashboard-pageContentContainer{
+    height: calc(100vmax - calc(11.7vmin));
+    padding: calc(0vmin) calc(5vmin) 0px calc(5vmin); 
+}
+
+.Dashboard-contentColumn1{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width:calc(58.8vmin); /* Based on 565px in 1920x1080 */
+    height:100%;
+}
+
+.Dashboard-petsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: calc(44.5vmin); /* Based on 428px in 1920x1080 */
+}
+
+.Dashboard-friendsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: calc(18.9vmin); /* Based on 182px in 1920x1080 */
+    margin: calc(3.35vmin) 0px;
+}
+
+.Dashboard-dailyProgressContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: calc(16.2vmin); /* Based on 156px in 1920x1080 */
+}
+
+.Dashboard-sectionHeaderContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}   
+
+.Dashboard-sectionHeaderText{
+    margin:0px;
+}
+
+.Dashboard-AddButton{
+    padding-top:0px;
+    font-size: calc(3.35vmin);
+}
+
+.Dashboard-ContinueButton{
+    padding-top: 0px;
+    font-size: calc(2.1vmin); /* Based on 20px in 1920x1080 */
+}
+
+.Dashboard-SeeAllButton{
+    margin-top:calc(1.25vmin); /* Based on 12px in 1920x1080 */
+}
+
+.Dashboard-SeeAllButtonIcon{
+    font-size:calc(1.46vmin);
+    padding-top: 0px;
+    margin-left:calc(0.45vmin); /* Based on 4px in 1920x1080 */
+    color: var(--Blue1);
+}
+
+.Dashboard-petsListContainer{
+    height: calc(35.7vmin); /* Based on 344px in 1920x1080 */
+}
+
+.Dashboard-petCard{
+    height:calc(17.05vmin); /* Based on 164px in 1920x1080 */
+    margin-bottom: calc(1.65vmin); /* Based on 16px in 1920x1080 */
+}
+

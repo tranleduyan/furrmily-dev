@@ -26,7 +26,7 @@ body {
 }
 
 .heading1{
-  font-size: calc(10px + 2.3vmin); /* Based on 32px in 1920x1080 */
+  font-size: calc(3.35vmin); /* Based on 32px in 1920x1080 */
 }
 
 .heading2{
@@ -71,7 +71,7 @@ body {
 .link{
   text-decoration: none;
   color: var(--Blue1);
-  font-size: calc(10px + 0.65vmin); /* Based on 16px in 1920x1080 */
+  font-size: calc(1.65vmin); /* Based on 16px in 1920x1080 */
 }
 
 /* Global Stylings */
