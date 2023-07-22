@@ -7,26 +7,73 @@
     background-color: var(--Black);
     height:100%;
     width: calc(10px + 26.6vmin); /*Based on 266px in 1920x1080 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.Dashboard-ProfileContainer{
-
+.Dashboard-profileContainer{
+    margin:calc(10px + 1.45vmin) calc(10px + 1.45vmin);
+    width: calc(100% - (calc(10px + 1.45vmin)*2)); /* Based on 24px in 1920x1080 */
+    height: calc(10px + 4.6vmin); /* Based on 56px in 1920x1080 */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.Dashboard-ProfileAvatarContainer{
-
+.Dashboard-profileAvatarContainer{
+    height:100%;
+    width:calc(10px + 4.6vmin); /* Based on 56px in 1920x1080 */
+    background-color: var(--Gray4);
+    border-radius: 5px;
 }
 
-.Dashboard-ProfileInformationTextContainer{
-
+.Dashboard-profileAvatar{
+    font-size: calc(10px + 2.6vmin); /* Based on 36px in 1920x1080 */
+    color:var(--White);
 }
 
-.Dashboard-NavigationListContainer{
-    
+.Dashboard-profileInformationTextContainer{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: calc(1.2vmin);
+    color: white;
+    height:100%;
+    width:calc(100% - calc(10px + 4.6vmin));
+    line-height: calc(1.8vmin);
+}
+
+.Dashboard-navigationListContainer{
+    height:100%;
+    width: 100%;
+}
+
+.Dashboard-navButtonContainer{
+    margin:calc(10px + 1.45vmin) calc(10px + 1.45vmin);
+    width: calc(100% - (calc(10px + 1.45vmin)*2)); /* Based on 24px in 1920x1080 */
+    height: calc(10px + 4.6vmin); /* Based on 56px in 1920x1080 */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color:white;
+}
+
+.Dashboard-navButtonContainer:hover{
+    background-color: var(--Gray4);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Dashboard-navIcon{
+    margin: 0 calc(1.65vmin);
+    font-size: calc(2.5vmin); /* Based on 24px in 1920x1080 */
 }
 
 .Dashboard-content{
     background-color: var(--White);
     height:100%;
     width: calc(100vmax - calc(10px + 26.6vmin)); /*Based on 100vmax - 266px in 1920x1080 */
+
 }

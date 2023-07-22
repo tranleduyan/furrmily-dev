@@ -8,6 +8,7 @@
   --Gray1: #EAEAEA;
   --Gray2: #B5B5B5;
   --Gray3: #757575;
+  --Gray4: #1F1F22;
   --Blue1: #0059AB;
   --Red1: #BB0000;
 }
@@ -37,7 +38,7 @@ body {
 }
 
 .heading4{
-  font-size: calc(10px + 0.65vmin); /* Based on 16px in 1920x1080 */
+  font-size: calc(1.65vmin); /* Based on 16px in 1920x1080 */
 }
 
 /* Global Paragraphs */
@@ -50,7 +51,11 @@ body {
 }
 
 .paragraph2{
-  font-size: calc(10px + 0.65vmin); /* Based on 16px in 1920x1080 */
+  font-size: calc(1.65vmin); /* Based on 16px in 1920x1080 */
+}
+
+.paragraph3{
+  font-size: calc(1.46vmin); /* Based on 14px in 1920x1080 */
 }
 
 /* Global Buttons / Links */
