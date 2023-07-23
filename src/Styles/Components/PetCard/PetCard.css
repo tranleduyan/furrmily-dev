@@ -1,0 +1,66 @@
+.petCard{
+    height:calc(17.05vmin); /* Based on 164px in 1920x1080 */
+    margin-bottom: calc(1.65vmin); /* Based on 18px in 1920x1080 */
+    border: solid 1px var(--Gray2);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px calc(2.5vmin);
+}
+
+.petCard:last-child{
+    margin-bottom: calc(0.03vmin);;
+}
+
+.petAvatar{
+    width: calc(13.32vmin); /* Based on 128px in 1920x1080 */
+    height: calc(13.32vmin); /* Based on 128px in 1920x1080 */
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center center;
+    margin-right: calc(1.65vmin); /* Based on 16px in 1920x1080 */
+}
+
+.petAvatarPlaceholder{
+    width: calc(13.32vmin); /* Based on 128px in 1920x1080 */
+    height: calc(13.32vmin); /* Based on 128px in 1920x1080 */
+    border-radius: 50%;
+    margin-right: calc(1.65vmin); /* Based on 16px in 1920x1080 */
+    background-color: var(--Gray1);
+    color: var(--Gray2);
+    font-size: calc(3.35vmin); /* Based on 32px in 1920x1080 */
+}
+
+.petInformationContainer{
+    width: calc(22.8vmin); /* Based on 219px in 1920x1080 */
+    height: calc(13.32vmin); /* Based on 128px in 1920x1080 */
+    display: flex;
+    flex-direction: column;
+    margin-right: calc(1.65vmin); /* Based on 16px in 1920x1080 */
+}
+
+.petMemberContainer{
+    width: calc(14.12vmin); /* Based on 136px in 1920x1080 */
+    height: calc(13.32vmin); /* Based on 128px in 1920x1080 */
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.petMemberList{
+    height: calc(4.15vmin); /* Based on 40px in 1920x1080 */
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+.lastPetMemberCard{
+    width: calc(4.15vmin); /* Based on 40px in 1920x1080 */
+    height: calc(4.15vmin); /* Based on 40px in 1920x1080 */
+    background-color: var(--Gray4);
+    border-radius: 50%;
+    color: var(--White);
+    font-size: calc(2.5vmin); /* Based on 24px in 1920x1080px */
+    margin-left: 0px;
+}

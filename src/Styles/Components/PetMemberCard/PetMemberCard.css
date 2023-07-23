@@ -1,0 +1,9 @@
+.petMemberCard{
+    width: calc(4.15vmin); /* Based on 40px in 1920x1080 */
+    height: calc(4.15vmin); /* Based on 40px in 1920x1080 */
+    background-color: var(--Gray4);
+    border-radius: 50%;
+    color: var(--White);
+    font-size: calc(2.5vmin); /* Based on 24px in 1920x1080px */
+    margin-left: calc(0.83vmin); /* Based on 8px in 1920x1080 */
+}

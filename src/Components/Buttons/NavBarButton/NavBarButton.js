@@ -1,6 +1,6 @@
 /* Components */
 import React from 'react'
-import {Link, useLocation, useNavigate} from 'react-router-dom'
+import { useLocation, useNavigate} from 'react-router-dom'
 
 /* Stylings */
 import '../../../Styles/Components/Buttons/NavBarButton/NavBarButton.css'

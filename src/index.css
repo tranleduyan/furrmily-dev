@@ -125,6 +125,10 @@ body {
   align-items: center;
 }
 
+.hidden{
+  visibility: hidden;
+}
+
 /* 1920x1080 */
 @media screen and (min-width: 1920px){
 
