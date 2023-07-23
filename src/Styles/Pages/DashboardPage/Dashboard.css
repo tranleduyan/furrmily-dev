@@ -36,7 +36,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: calc(44.5vmin); /* Based on 428px in 1920x1080 */
+    height: calc(45.8vmin); /* Based on 440px in 1920x1080 */
 }
 
 .Dashboard-friendsContainer{
@@ -74,10 +74,6 @@
     font-size: calc(2.1vmin); /* Based on 20px in 1920x1080 */
 }
 
-.Dashboard-SeeAllButton{
-    margin-top:calc(1.25vmin); /* Based on 12px in 1920x1080 */
-}
-
 .Dashboard-SeeAllButtonIcon{
     font-size:calc(1.46vmin);
     padding-top: 0px;
@@ -86,11 +82,69 @@
 }
 
 .Dashboard-petsListContainer{
-    height: calc(35.7vmin); /* Based on 344px in 1920x1080 */
+    margin:calc(1.65vmin) 0px;
+    height: calc(36.3vmin); /* Based on 344px in 1920x1080 */
 }
 
 .Dashboard-petCard{
     height:calc(17.05vmin); /* Based on 164px in 1920x1080 */
     margin-bottom: calc(1.65vmin); /* Based on 16px in 1920x1080 */
+    border: solid 1px var(--Gray2);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px calc(2.5vmin);
 }
 
+.Dashboard-petAvatar{
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center center;
+    margin-right: 16px;
+}
+
+.Dashboard-petInformationContainer{
+    width: 219px;
+    height:128px;
+    display: flex;
+    flex-direction: column;
+    margin-right:16px;
+}
+
+.Dashboard-petMemberContainer{
+    width:136px;
+    height:128px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.Dashboard-petMemberList{
+    height:40px;
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+.Dashboard-petMemberCard{
+    width:40px;
+    height:40px;
+    background-color: var(--Gray4);
+    border-radius: 50%;
+    color: var(--White);
+    font-size: calc(2.5vmin); /* Based on 24px in 1920x1080px */
+    margin-left: 8px;
+}
+
+.Dashboard-lastPetMemberCard{
+    width:40px;
+    height:40px;
+    background-color: var(--Gray4);
+    border-radius: 50%;
+    color: var(--White);
+    font-size: calc(2.5vmin); /* Based on 24px in 1920x1080px */
+    margin-left: 0px;
+}
