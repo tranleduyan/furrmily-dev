@@ -62,7 +62,7 @@ function SignUpPage() {
     }
 
     /* API Information - Value */
-    const apiURL = '/api/sign-up';
+    const apiURL = '/api/authentication/sign-up';
     const apiKey = 'ht8xjWktCv3ocTpjSYjkm3FCBotdJI7s60h6VS8i';
 
     /* Request Body to post (Include all neccessary information about the user and their account for creation) */
@@ -74,6 +74,7 @@ function SignUpPage() {
       phoneNumber: userInformation.phoneNumber,
       username: userInformation.username.toLowerCase(),
       password: userInformation.password,
+      userAvatar: 'faFishFins',
     };
 
     /* Post to the apiURL with requestBody and headers (Headers using the key for valid auth) */

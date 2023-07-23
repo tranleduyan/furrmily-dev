@@ -4,6 +4,7 @@ import IconButton from '../../Components/Buttons/IconButton'
 import SideNavBar from '../../Components/NavBars/SideNavBar/SideNavBar'
 import LinkButton from '../../Components/Buttons/LinkButton'
 import PetsList from '../../Components/Lists/PetsList/PetsList'
+import { connect } from 'react-redux'
 
 /* Stylings */
 import '../../Styles/Pages/DashboardPage/Dashboard.css'
@@ -12,10 +13,10 @@ import '../../Styles/Pages/DashboardPage/Dashboard.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-function Dashboard() {
+function Dashboard({ userData }) {
   return (
     <div className='wrapper Dashboard-wrapper'>
-      <SideNavBar userName={'Walker'}/>
+      <SideNavBar userName={userData.firstName}/>
       <div className='Dashboard-content'>
         <div className='Dashboard-pageHeaderContainer'>
           <h1 className='heading1'>Dashboard</h1>
@@ -51,4 +52,9 @@ function Dashboard() {
   )
 }
 
-export default Dashboard
+const mapStateToProps = state => ({
+  userData: state.userData,
+})
+
+
+export default connect(mapStateToProps)(Dashboard)

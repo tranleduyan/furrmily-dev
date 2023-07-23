@@ -1,5 +1,7 @@
 /* Components */
 import React, { useState } from 'react'
+import { connect, useDispatch } from 'react-redux';
+import { setUserData } from '../../storage';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import Message from '../../Components/Message/Message'
@@ -15,6 +17,7 @@ import '../../Styles/Pages/SignInPage/SignInPage.css'
 
 
 function SignInPage() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   
   /* errorMessage to return visually the message to the user */
@@ -43,7 +46,7 @@ function SignInPage() {
     }
   
     /* API Information - Value */
-    const apiURL = '/api/sign-in';
+    const apiURL = '/api/authentication/sign-in';
     const apiKey = 'ht8xjWktCv3ocTpjSYjkm3FCBotdJI7s60h6VS8i';
   
     /* Request Body to post (Include all neccessary information about the user's account for database comparation to sign in) */
@@ -62,7 +65,10 @@ function SignInPage() {
 
       /* If there is no error, means sign in success, navigate to Dashboard */
       .then(response => {
-        console.log('API Response:', response.data);
+        console.log('API Response:', response.data.responseObject);
+        const userData = response.data.responseObject;
+
+        dispatch(setUserData(userData));
         navigate('/Dashboard');
       })
       .catch(error => {
@@ -155,4 +161,4 @@ function SignInPage() {
   )
 }
 
-export default SignInPage
+export default connect()(SignInPage)
