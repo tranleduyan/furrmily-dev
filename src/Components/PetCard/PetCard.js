@@ -11,6 +11,7 @@ import { faPaw } from '@fortawesome/free-solid-svg-icons';
 
 function PetCard(props) {
   const petAge = `Age: ${props.petAge} years old`;
+  const petType = `Type: ${props.petType}`;
   const petBreed = `Breed: ${props.petBreed}`;
   const extraMemberAmount = `+${props.extraMemberAmount}`;
   const lastPetMemberCardClassName = (extraMemberAmount > 0) ? `flexColumnCenter lastPetMemberCard` : `hidden`
@@ -33,6 +34,7 @@ function PetCard(props) {
       <div className='petInformationContainer'>
         <h2 className='heading2'>{props.petName}</h2>
           <p className='paragraph2'>{petAge}</p>
+          <p className='paragraph2'>{petType}</p>
           <p className='paragraph2'>{petBreed}</p>
       </div>
       <div className='petMemberContainer'>

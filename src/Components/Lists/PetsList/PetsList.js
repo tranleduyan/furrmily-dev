@@ -19,6 +19,7 @@ function PetsList(props) {
             <PetCard petAvatar={PomPlaceholderImage} 
                      petName={'Pom'} 
                      petAge={'2'} 
+                     petType={'Dog'}
                      petBreed={'Pomeranian'} 
                      member1Avatar={faKiwiBird} 
                      member2Avatar={faFishFins} 
@@ -26,14 +27,16 @@ function PetsList(props) {
             <PetCard petAvatar={BanhPlaceholderImage}
                      petName={'Banh'}
                      petAge={'2'}
+                     petType={'Hamster'}
                      petBreed={'Winter White'}
                      member1Avatar={faKiwiBird}
                      member2Avatar={faFishFins}
                      extraMemberAmount={'0'}/>
-            <PetCard petAvatar={BanhPlaceholderImage}
-                     petName={'Banh'}
+            <PetCard petAvatar={''}
+                     petName={'Chip'}
                      petAge={'2'}
-                     petBreed={'Winter White'}
+                     petType={'Dog'}
+                     petBreed={'Cavalier King Charles Spaniel'}
                      member1Avatar={faKiwiBird}
                      member2Avatar={faFishFins}
                      extraMemberAmount={'0'}/>
