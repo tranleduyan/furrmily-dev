@@ -1,4 +1,6 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { configureStore, createSlice } from '@reduxjs/toolkit'
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
 const initialState = {
     userData: null,
@@ -11,13 +13,25 @@ const userSlice = createSlice({
         setUserData: (state, action) => {
             state.userData = action.payload;
         },
+        signOutUser: (state) => {
+            state.userData = null; // Reset user data to null on sign out.
+        }
     },
 });
 
-const storage = configureStore({
-    reducer: userSlice.reducer,
+const persistConfig = {
+    key: 'root',
+    storage,  
+};
+
+const persistedReducer = persistReducer(persistConfig, userSlice.reducer);
+
+const store = configureStore({
+    reducer: persistedReducer,
 });
 
-export const { setUserData } = userSlice.actions;
+const persistor = persistStore(store);
 
-export default storage;
+export const { setUserData, signOutUser } = userSlice.actions;
+
+export {store, persistor};

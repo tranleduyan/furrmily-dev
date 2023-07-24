@@ -25,7 +25,7 @@
 }
 
 .profileAvatar{
-    font-size: calc(3.8vmin); /* Based on 36px in 1920x1080 */
+    font-size: calc(3.35vmin); /* Based on 32px in 1920x1080 */
     color:var(--White);
 }
 

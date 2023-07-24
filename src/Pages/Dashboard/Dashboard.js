@@ -16,7 +16,7 @@ import { faPlusCircle, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 function Dashboard({ userData }) {
   return (
     <div className='wrapper Dashboard-wrapper'>
-      <SideNavBar userName={userData.firstName}/>
+      <SideNavBar userAvatar={userData.userAvatar} userName={userData.firstName}/>
       <div className='Dashboard-content'>
         <div className='Dashboard-pageHeaderContainer'>
           <h1 className='heading1'>Dashboard</h1>

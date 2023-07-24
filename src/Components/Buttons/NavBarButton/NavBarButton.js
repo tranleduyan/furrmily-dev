@@ -52,9 +52,10 @@ function NavBarButton(props) {
     }
   }
 
+
   const className = (isPageActive()) ? 'navButtonContainer navButtonContainerActive': 'navButtonContainer';
   return (
-    <button className= {className} onClick={NavigatePage}>
+    <button className= {className} onClick={(!props.onClick) ? NavigatePage : props.onClick}>
         <FontAwesomeIcon icon={props.icon} className='navIcon'/>
         <p className='paragraph2'>{props.title}</p>
     </button>
