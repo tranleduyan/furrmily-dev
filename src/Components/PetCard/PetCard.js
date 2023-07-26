@@ -17,13 +17,13 @@ function PetCard(props) {
   const lastPetMemberCardClassName = (extraMemberAmount > 0) ? `flexColumnCenter lastPetMemberCard` : `hidden`
   return (
     <div className='petCard'>
-        {(props.petAvatar) && ( 
+        {(props.petAvatar && props.petAvatar !== 'X') && ( 
           <>
             <img src={props.petAvatar} alt='Pet Avatar' className='petAvatar'/>
           </>
         )}
 
-        {(!props.petAvatar) && (
+        {(!props.petAvatar || props.petAvatar === 'X') && (
           <>
             <div className='flexColumnCenter petAvatarPlaceholder'>
               <FontAwesomeIcon icon={faPaw}/>

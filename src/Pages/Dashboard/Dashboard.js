@@ -28,7 +28,7 @@ function Dashboard({ userData }) {
                 <p className='heading2 Dashboard-sectionHeaderText'>Pets</p>
                 <IconButton className='flexRowCenter Dashboard-AddButton' icon={<FontAwesomeIcon icon={faPlusCircle}/>}/>
               </div>
-              <PetsList className='Dashboard-petsListContainer'/>
+              <PetsList userId={userData.userId} className='Dashboard-petsListContainer'/>
               <div className='flexRowCenter'>
                 <LinkButton to='/Pets' className='' title='See All'/>
                 <IconButton className='flexRowCenter Dashboard-SeeAllButtonIcon' icon={<FontAwesomeIcon icon={faChevronRight}/>}/>
@@ -54,7 +54,7 @@ function Dashboard({ userData }) {
 
 const mapStateToProps = state => ({
   userData: state.userData,
-})
+});
 
 
 export default connect(mapStateToProps)(Dashboard)
