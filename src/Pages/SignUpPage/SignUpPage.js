@@ -74,7 +74,7 @@ function SignUpPage() {
       phoneNumber: userInformation.phoneNumber,
       username: userInformation.username.toLowerCase(),
       password: userInformation.password,
-      userAvatar: 'faFishFins',
+      userAvatar: 'faUser',
     };
 
     /* Post to the apiURL with requestBody and headers (Headers using the key for valid auth) */
@@ -127,7 +127,7 @@ function SignUpPage() {
 
     if(currentFormState === 'Personal Information'){
       /* Name Regex - Capital first letter */
-      const userRegex = /^[A-Z][a-z]*$/;
+      const userRegex = /^[A-Z][a-zA-Z ]*$/;
       
       /* Check if the First Name and Last Name input fields are blank, if blank, it is an error */
       if(!userInformation.firstName || !userInformation.lastName){

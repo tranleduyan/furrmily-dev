@@ -1,15 +1,16 @@
 import React from 'react'
 import SideNavBar from '../../Components/NavBars/SideNavBar/SideNavBar'
+import { connect } from 'react-redux'
 
 /* Stylings */
 import '../../'
 
 /* Icons */
 
-function Tasks() {
+function Tasks({ userData }) {
   return (
     <div className='wrapper Tasks-wrapper'>
-      <SideNavBar userName={'Walker'}/>
+      <SideNavBar userAvatar={userData.userAvatar} userName={userData.firstName}/>
       <div className='Tasks-content'>
 
       </div>
@@ -17,4 +18,8 @@ function Tasks() {
   )
 }
 
-export default Tasks
+const mapStateToProps = state => ({
+  userData: state.userData,
+});
+
+export default connect(mapStateToProps)(Tasks)

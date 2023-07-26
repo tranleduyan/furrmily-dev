@@ -1,16 +1,18 @@
 /* Components */
 import React from 'react'
 import SideNavBar from '../../Components/NavBars/SideNavBar/SideNavBar'
+import { connect } from 'react-redux'
+
 
 /* Stylings */
 import '../../Styles/Pages/Pets/Pets.css'
 
 /* Icons */
 
-function Pets() {
+function Pets({ userData }) {
   return (
     <div className='wrapper Pets-wrapper'>
-      <SideNavBar userName={'Walker'}/>
+      <SideNavBar userAvatar={userData.userAvatar} userName={userData.firstName}/>
       <div className='Pets-content'>
 
       </div>
@@ -18,4 +20,8 @@ function Pets() {
   )
 }
 
-export default Pets
+const mapStateToProps = state => ({
+  userData: state.userData,
+});
+
+export default connect(mapStateToProps)(Pets)
