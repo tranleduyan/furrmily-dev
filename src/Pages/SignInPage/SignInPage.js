@@ -8,6 +8,8 @@ import Message from '../../Components/Message/Message'
 import Logo from '../../Components/Logo/Logo'
 import StandardInputField from '../../Components/InputFields/StandardInputField/StandardInputField'
 import StandardButton from '../../Components/Buttons/StandardButton/StandardButton'
+import UITEXT from '../../Global/Constants';
+import { Converters } from '../../Global/Helpers';
 
 /* Stylings */
 import '../../Styles/Pages/SignInPage/SignInPage.css'
@@ -76,7 +78,7 @@ function SignInPage() {
         
         /* If there is an error, set the error message display the error to the user */
         const apiErrorMessage = error.response.data.message;
-        setErrorMessage(apiErrorMessage);
+        setErrorMessage(Converters.UpperCaseConverter(apiErrorMessage));
         setIsError(true);
       });
   };
@@ -86,7 +88,7 @@ function SignInPage() {
 
     /* Check if all inputs are filled in */
     if(!userInformation.username || !userInformation.password){
-      setErrorMessage('PLEASE FILL IN ALL REQUIRED FIELDS'); 
+      setErrorMessage(Converters.UpperCaseConverter(UITEXT.EMPTY_FIELD_ERROR)); 
       return false;
     }
 
@@ -118,16 +120,16 @@ function SignInPage() {
             {/* Sign In Form */}
             <form className='SignInPage-signInForm' autoComplete='off'>
               <div className='SignInPage-inputGroupContainer'>
-                <h1 className='heading1'>SIGN IN</h1>
+                <h1 className='heading1'>{Converters.UpperCaseConverter(UITEXT.SIGN_IN_TEXT)}</h1>
                 
                 {/* Username input field */}
                 <StandardInputField className='' inputClassName='' htmlFor='username' id='username' name='username' 
-                                    type='text' title='USERNAME' 
+                                    type='text' title={Converters.UpperCaseConverter(UITEXT.USERNAME_TEXT)} 
                                     onChange={HandleInputChange} error={isError}/>
 
                 {/* Password input field */}
                 <StandardInputField className='SignInPage-passwordInputField' inputClassName='' htmlFor='password' id='password' name='password' 
-                                    type='password' title='PASSWORD' 
+                                    type='password' title={Converters.UpperCaseConverter(UITEXT.PASSWORD_TEXT)} 
                                     onChange={HandleInputChange} error={isError}/>
 
                 {/* Message to display error to the user */}
@@ -138,15 +140,15 @@ function SignInPage() {
               <div className='SignInPage-buttonGroupContainer'>
 
                 {/* Sign In Button */}
-                <StandardButton className='' buttonSize='large' title='SIGN IN' onClick={OnSignIn} />
+                <StandardButton className='' buttonSize='large' title={Converters.UpperCaseConverter(UITEXT.SIGN_IN_TEXT)} onClick={OnSignIn} />
 
                 {/* 'Or' */}
                 <div className='flexRowCenter SignInPage-orContainer'>    
-                  <h3 className='heading3' style={{margin:'0px'}}>OR</h3>
+                  <h3 className='heading3' style={{margin:'0px'}}>{Converters.UpperCaseConverter(UITEXT.OR_TEXT)}</h3>
                 </div>
 
                 {/* Sign Up Button */}
-                <StandardButton className='' buttonSize='large' title='SIGN UP' onClick={NavigateToSignUp}/>
+                <StandardButton className='' buttonSize='large' title={Converters.UpperCaseConverter(UITEXT.SIGN_UP_TEXT)} onClick={NavigateToSignUp}/>
               </div>
             </form>
           </div>  

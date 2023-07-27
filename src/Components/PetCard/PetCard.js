@@ -13,17 +13,17 @@ function PetCard(props) {
   const petAge = `Age: ${props.petAge} years old`;
   const petType = `Type: ${props.petType}`;
   const petBreed = `Breed: ${props.petBreed}`;
-  const extraMemberAmount = `+${props.extraMemberAmount}`;
+  const extraMemberAmount = `0`;
   const lastPetMemberCardClassName = (extraMemberAmount > 0) ? `flexColumnCenter lastPetMemberCard` : `hidden`
   return (
     <div className='petCard'>
-        {(props.petAvatar && props.petAvatar !== 'X') && ( 
+        {(props.petAvatar && props.petAvatar !== 'x') && ( 
           <>
             <img src={props.petAvatar} alt='Pet Avatar' className='petAvatar'/>
           </>
         )}
 
-        {(!props.petAvatar || props.petAvatar === 'X') && (
+        {(!props.petAvatar || props.petAvatar === 'x') && (
           <>
             <div className='flexColumnCenter petAvatarPlaceholder'>
               <FontAwesomeIcon icon={faPaw}/>
@@ -39,10 +39,9 @@ function PetCard(props) {
       </div>
       <div className='petMemberContainer'>
         <div className='petMemberList'>
-            <PetMemberCard avatar={props.member1Avatar}/>
-            <PetMemberCard avatar={props.member2Avatar}/>
+            <PetMemberCard avatar={props.ownerAvatar}/>
             <div className={lastPetMemberCardClassName}>
-              <h4 className='heading4'>{extraMemberAmount}</h4>
+              <h4 className='heading4'>{`+ ${extraMemberAmount}`}</h4>
             </div>
         </div>
       </div>

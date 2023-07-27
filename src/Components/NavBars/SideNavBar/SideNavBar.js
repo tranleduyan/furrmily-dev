@@ -2,13 +2,15 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { signOutUser } from '../../../storage'
+import UITEXT from '../../../Global/Constants'
+import { Converters, Helpers} from '../../../Global/Helpers'
 
 /* Stylings */
 import '../../../Styles/Components/NavBars/SideNavBar/SideNavBar.css'
 
 /* Icons */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse, faPaw, faBarsProgress, faBell, faGear, faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faPaw, faBarsProgress, faBell, faGear, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import NavBarButton from '../../Buttons/NavBarButton/NavBarButton'
 
 /* Avatar Icons */
@@ -16,7 +18,7 @@ import { faFishFins, faHippo, faOtter,
   faCow, faDog, faFeather, faFish, 
   faDragon, faKiwiBird, faWorm, faShrimp, 
   faHorseHead, faHorse, faFrog, faFeatherPointed, 
-  faDove, faCrow, faCat } from '@fortawesome/free-solid-svg-icons'
+  faDove, faCrow, faCat, faUser } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 
 function SideNavBar(props) {
@@ -32,16 +34,16 @@ function SideNavBar(props) {
       const currentHour = currentTime.getHours();
 
       if(currentHour >= 5 && currentHour < 12){
-        setWelcomeState('Good Morning,');
+        setWelcomeState(Converters.CapitalConverter(UITEXT.GOOD_MORNING_TEXT));
       }
       else if(currentHour >= 12 && currentHour < 17){
-        setWelcomeState('Good Afternoon,');
+        setWelcomeState(Converters.CapitalConverter(UITEXT.GOOD_AFTERNOON_TEXT));
       }
       else if(currentHour >= 17 && currentHour < 20){
-        setWelcomeState('Good Evening,');
+        setWelcomeState(Converters.CapitalConverter(UITEXT.GOOD_EVENING_TEXT));
       }
       else{
-        setWelcomeState('Good Night,');
+        setWelcomeState(Converters.CapitalConverter(UITEXT.GOOD_NIGHT_TEXT));
       }
     };
 
@@ -108,7 +110,7 @@ function SideNavBar(props) {
       <div className='profileContainer'>
         {/* Avatar */}
         <div className='flexRowCenter profileAvatarContainer'>
-          <FontAwesomeIcon icon={GetAvatarIcon(props.userAvatar)} className='profileAvatar'/>
+          <FontAwesomeIcon icon={Helpers.GetAvatarIcon(props.userAvatar)} className='profileAvatar'/>
         </div>
         {/* Text */}
         <div className='profileInformationTextContainer'>
@@ -121,13 +123,13 @@ function SideNavBar(props) {
       </div>
       {/* Navigation List Section */}
       <div className='navigationListContainer'>
-        <NavBarButton icon={faHouse} title='Dashboard'/>
-        <NavBarButton icon={faPaw} title='Pets'/>
-        <NavBarButton icon={faBarsProgress} title='Tasks'/>
-        <NavBarButton icon={faBell} title='Activities'/>
-        <NavBarButton icon={faGear} title='Settings'/>
+        <NavBarButton icon={faHouse} title={UITEXT.DASHBOARD_TEXT}/>
+        <NavBarButton icon={faPaw} title={UITEXT.PETS_TEXT}/>
+        <NavBarButton icon={faBarsProgress} title={UITEXT.TASKS_TEXT}/>
+        <NavBarButton icon={faBell} title={UITEXT.ACTIVITIES_TEXT}/>
+        <NavBarButton icon={faGear} title={UITEXT.SETTINGS_TEXT}/>
       </div>
-      <NavBarButton icon={faRightFromBracket} title='Sign Out' onClick={OnSignOut}/>
+      <NavBarButton icon={faRightFromBracket} title={Converters.CapitalConverter(UITEXT.SIGN_OUT_TEXT)} onClick={OnSignOut}/>
     </div>
   )
 }

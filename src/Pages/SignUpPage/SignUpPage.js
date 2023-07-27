@@ -8,6 +8,8 @@ import StandardInputField from '../../Components/InputFields/StandardInputField/
 import StandardButton from '../../Components/Buttons/StandardButton/StandardButton'
 import LinkButton from '../../Components/Buttons/LinkButton'
 import IconButton from '../../Components/Buttons/IconButton/IconButton'
+import UITEXT from '../../Global/Constants'
+import { Converters } from '../../Global/Helpers';
 
 /* Stylings */
 import '../../Styles/Pages/SignUpPage/SignUpPage.css'
@@ -96,10 +98,10 @@ function SignUpPage() {
       /* Handle existing username or email error */
       if(error.response.status === 401){
         const apiErrorMessage = error.response.data.message;
-        setErrorMessage(apiErrorMessage);
+        setErrorMessage(Converters.UpperCaseConverter(apiErrorMessage));
       }
       else{
-        setErrorMessage('AN ERROR OCCURRED WHILE SIGNING UP');
+        setErrorMessage(Converters.UpperCaseConverter(UITEXT.GENERAL_ERROR));
       }
       setIsError(true);
     });
@@ -131,13 +133,13 @@ function SignUpPage() {
       
       /* Check if the First Name and Last Name input fields are blank, if blank, it is an error */
       if(!userInformation.firstName || !userInformation.lastName){
-        setErrorMessage('PLEASE FILL IN ALL REQUIRED FIELDS'); 
+        setErrorMessage(Converters.UpperCaseConverter(UITEXT.EMPTY_FIELD_ERROR)); 
         return false;
       }
       /* Check if the First Name and Last Name input fields are filled with valid name. 
          A valid name has a capital letter in front */
       else if(!userRegex.test(userInformation.firstName) || !userRegex.test(userInformation.lastName)){
-        setErrorMessage('PLEASE ENTER VALID NAME'); 
+        setErrorMessage(Converters.UpperCaseConverter(UITEXT.INVALID_NAME_ERROR)); 
         return false;
       }
     }
@@ -147,31 +149,31 @@ function SignUpPage() {
       
       /* Check if all required input fields are filled */
       if(!userInformation.username || !userInformation.password || !userInformation.confirmPassword){
-        setErrorMessage('PLEASE FILL IN ALL REQUIRED FIELDS');
+        setErrorMessage(Converters.UpperCaseConverter(UITEXT.EMPTY_FIELD_ERROR));
         return false;
       }
 
       /* Check if username is valid */
       else if(!usernameRegex.test(userInformation.username)){
-        setErrorMessage('PLEASE ENTER VALID USERNAME');
+        setErrorMessage(Converters.UpperCaseConverter(UITEXT.INVALID_USERNAME_ERROR));
         return false;
       }
 
       /* Check if password is less than 6 Characters */
       else if(userInformation.password.length < 6){
-        setErrorMessage('PASSWORD REQUIRES 6+ CHARACTERS');
+        setErrorMessage(Converters.UpperCaseConverter(UITEXT.PASSWORD_SHORT_ERROR));
         return false;
       }
 
       /* Check if password has space */
       else if((userInformation.password).includes(' ')){
-        setErrorMessage('PASSWORD MUST NOT HAVE SPACES');
+        setErrorMessage(Converters.UpperCaseConverter(UITEXT.PASSWORD_SPACE_ERROR));
         return false;
       }
 
       /* Check if password and confirm password are matched */
       else if(userInformation.password !== userInformation.confirmPassword){
-        setErrorMessage('THE PASSWORDS DO NOT MATCH');
+        setErrorMessage(Converters.UpperCaseConverter(UITEXT.PASSWORD_MISMATCHED_ERROR));
         return false;
       }
     }
@@ -184,25 +186,25 @@ function SignUpPage() {
 
       /* Check if all required fields are filled */
       if(!userInformation.emailAddress || !userInformation.confirmEmailAddress){
-        setErrorMessage('PLEASE FILL IN ALL REQUIRED FIELDS');
+        setErrorMessage(Converters.UpperCaseConverter(UITEXT.EMPTY_FIELD_ERROR));
         return false;
       }
       
       /* Check if the provided email address is valid */
       else if(!emailRegex.test(userInformation.emailAddress) || !emailRegex.test(userInformation.confirmEmailAddress)){
-        setErrorMessage('PLEASE ENTER VALID EMAIL ADDRESS');
+        setErrorMessage(Converters.UpperCaseConverter(UITEXT.INVALID_EMAIL_ADDRESS_ERROR));
         return false;
       }
 
       /* Check if email address and confirm email address are matched */
       else if(userInformation.emailAddress !== userInformation.confirmEmailAddress){
-        setErrorMessage('THE EMAILS DO NOT MATCH');
+        setErrorMessage(Converters.UpperCaseConverter(UITEXT.EMAIL_MISMATCHED_ERROR));
         return false;
       }
 
       /* Check if phone number is valid - must be 10 characters and all digits */
       else if(userInformation.phoneNumber.length > 0 && (userInformation.phoneNumber.length !== 10 || !phoneNumberRegex.test(userInformation.phoneNumber))){
-        setErrorMessage('PLEASE ENTER VALID PHONE NUMBER');
+        setErrorMessage(Converters.UpperCaseConverter(UITEXT.INVALID_PHONE_NUMBER_ERROR));
         return false;
       }
     }
@@ -241,7 +243,7 @@ function SignUpPage() {
                     <IconButton className='SignInPage-backButton' icon={<FontAwesomeIcon icon={faChevronLeft} />} onClick={OnBack}/>
                     </>
                   )}
-                  <h1 className='heading1'>SIGN UP</h1>
+                  <h1 className='heading1'>{Converters.UpperCaseConverter(UITEXT.SIGN_UP_TEXT)}</h1>
                 </div>
 
                 {/* If the form state is 'Personal Information State' */}
@@ -249,17 +251,17 @@ function SignUpPage() {
                   <>
                     {/* First Name input field */}
                     <StandardInputField className='' inputClassName='' htmlFor='firstName' id='firstName' name='firstName' 
-                                        type='text' title='FIRST NAME' value={userInformation.firstName} 
+                                        type='text' title={Converters.UpperCaseConverter(UITEXT.FIRST_NAME_TEXT)} value={userInformation.firstName} 
                                         onChange={HandleInputChange} error={isError}/>
                     
                     {/* Middle Name input field */}
                     <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' htmlFor='middleName' id='middleName' name='middleName' 
-                                        type='text' title='MIDDLE NAME (OPTIONAL)' value={userInformation.middleName} 
+                                        type='text' title={`${Converters.UpperCaseConverter(UITEXT.MIDDLE_NAME_TEXT)} (${Converters.UpperCaseConverter(UITEXT.OPTIONAL_TEXT)})`} value={userInformation.middleName} 
                                         onChange={HandleInputChange} error={isError}/>
 
                     {/* Last Name input field */}
                     <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' htmlFor='lastName' id='lastName' name='lastName'
-                                        type='text' title='LAST NAME' value={userInformation.lastName}
+                                        type='text' title={Converters.UpperCaseConverter(UITEXT.LAST_NAME_TEXT)} value={userInformation.lastName}
                                         onChange={HandleInputChange} error={isError}/>
                   </>
                 )}
@@ -269,17 +271,17 @@ function SignUpPage() {
                   <>
                     {/* Username input field */}
                     <StandardInputField className='' inputClassName='' htmlFor='username' id='username' name='username' 
-                                        type='text' title='USERNAME' value={userInformation.username} 
+                                        type='text' title={Converters.UpperCaseConverter(UITEXT.USERNAME_TEXT)} value={userInformation.username} 
                                         onChange={HandleInputChange} error={isError}/>
 
                     {/* Password input field */}
                     <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' htmlFor='password' id='password' name='password' 
-                                        type='password' title='PASSWORD' value={userInformation.password} 
+                                        type='password' title={Converters.UpperCaseConverter(UITEXT.PASSWORD_TEXT)} value={userInformation.password} 
                                         onChange={HandleInputChange} error={isError}/>
 
                     {/* Confirm Password input Field */}
                     <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' htmlFor='confirmPassword' id='confirmPassword' name='confirmPassword' 
-                                        type='password' title='CONFIRM PASSWORD' value={userInformation.confirmPassword} 
+                                        type='password' title={Converters.UpperCaseConverter(UITEXT.CONFIRM_PASSWORD_TEXT)} value={userInformation.confirmPassword} 
                                         onChange={HandleInputChange} error={isError}/>
                   </>
                 )}
@@ -290,18 +292,18 @@ function SignUpPage() {
                     {/* Email Address input field */}
                     <StandardInputField className='' inputClassName='' 
                                         htmlFor='emailAddress' id='emailAddress' name='emailAddress' 
-                                        type='email' title='EMAIL ADDRESS' value={userInformation.emailAddress} 
+                                        type='email' title={Converters.UpperCaseConverter(UITEXT.EMAIL_ADDRESS_TEXT)} value={userInformation.emailAddress} 
                                         onChange={HandleInputChange} error={isError}/>
 
                     {/* Confirm Email Address input field */}
                     <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' 
                                         htmlFor='confirmEmailAddress' id='confirmEmailAddress' name='confirmEmailAddress' 
-                                        type='email' title='CONFIRM EMAIL ADDRESS' value={userInformation.confirmEmailAddress} 
+                                        type='email' title={Converters.UpperCaseConverter(UITEXT.CONFIRM_EMAIL_ADDRESS_TEXT)} value={userInformation.confirmEmailAddress} 
                                         onChange={HandleInputChange} error={isError}/>
 
                     {/* Phone Number input field */}
                     <StandardInputField className='SignUpPage-nonFirstInputField' inputClassName='' htmlFor='phoneNumber' id='phoneNumber' name='phoneNumber' 
-                                        type='tel' title='PHONE NUMBER (OPTIONAL)' value={userInformation.phoneNumber} 
+                                        type='tel' title={`${Converters.UpperCaseConverter(UITEXT.PHONE_NUMBER_TEXT)} (${Converters.UpperCaseConverter(UITEXT.OPTIONAL_TEXT)})`} value={userInformation.phoneNumber} 
                                         onChange={HandleInputChange} error={isError}/>
                   </>
                 )}
@@ -316,19 +318,19 @@ function SignUpPage() {
                 {/* If the form state is 'Personal Information' or 'Account Information' display Continue button to progress */}
                 {(currentFormState === 'Personal Information' || currentFormState === 'Account Information') && (
                   <>
-                     <StandardButton className='' buttonSize='large' title='CONTINUE' onClick={OnContinue}/>
+                     <StandardButton className='' buttonSize='large' title={Converters.UpperCaseConverter(UITEXT.CONTINUE_TEXT)} onClick={OnContinue}/>
                   </>
                 )}
 
                 {/* If the form state is 'Account Security Information,' display Sign Up button to submit all the information and create the account */}
                 {(currentFormState === 'Account Security Information') && (
                   <>
-                    <StandardButton className='' buttonSize='large' title='SIGN UP' onClick={OnSignUp}/>
+                    <StandardButton className='' buttonSize='large' title={Converters.UpperCaseConverter(UITEXT.SIGN_UP_TEXT)} onClick={OnSignUp}/>
                   </>
                 )}
 
                 {/* ALREADY HAVE AN ACCOUNT? Link button */}
-                <LinkButton className='SignUpPage-linkButtonContainer' to='/' title='ALREADY HAVE AN ACCOUNT?'/>
+                <LinkButton className='SignUpPage-linkButtonContainer' to='/' title={Converters.UpperCaseConverter(UITEXT.ALREADY_HAVE_AN_ACCOUNT_TEXT)}/>
               </div>
             </form>
           </div>
