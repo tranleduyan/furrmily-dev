@@ -8,7 +8,7 @@ import StandardInputField from '../../Components/InputFields/StandardInputField/
 import StandardButton from '../../Components/Buttons/StandardButton/StandardButton'
 import LinkButton from '../../Components/Buttons/LinkButton'
 import IconButton from '../../Components/Buttons/IconButton/IconButton'
-import UITEXT from '../../Global/Constants'
+import {UITEXT} from '../../Global/Constants'
 import { Converters } from '../../Global/Helpers';
 
 /* Stylings */

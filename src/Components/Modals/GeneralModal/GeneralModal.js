@@ -1,6 +1,6 @@
 import React from 'react'
 import StandardButton from '../../../Components/Buttons/StandardButton/StandardButton'
-import  UITEXT from '../../../Global/Constants'
+import  {UITEXT} from '../../../Global/Constants'
 import { Converters } from '../../../Global/Helpers';
 import  ReactDOM  from 'react-dom';
 

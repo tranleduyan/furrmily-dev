@@ -8,7 +8,7 @@ import Message from '../../Components/Message/Message'
 import Logo from '../../Components/Logo/Logo'
 import StandardInputField from '../../Components/InputFields/StandardInputField/StandardInputField'
 import StandardButton from '../../Components/Buttons/StandardButton/StandardButton'
-import UITEXT from '../../Global/Constants';
+import {UITEXT} from '../../Global/Constants';
 import { Converters } from '../../Global/Helpers';
 
 /* Stylings */

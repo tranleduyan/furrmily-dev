@@ -1,7 +1,7 @@
 import React from 'react'
 import GeneralModal from '../GeneralModal/GeneralModal'
 import { Converters } from '../../../Global/Helpers'
-import UITEXT from '../../../Global/Constants'
+import {UITEXT} from '../../../Global/Constants'
 import StandardButton from '../../Buttons/StandardButton/StandardButton'
 
 import '../../../Styles/Components/Modals/MessageModal.css'

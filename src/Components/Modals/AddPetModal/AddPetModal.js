@@ -3,7 +3,7 @@ import GeneralModal from '../GeneralModal/GeneralModal'
 import StandardButton from '../../Buttons/StandardButton/StandardButton'
 import StandardInputField from '../../InputFields/StandardInputField'
 import IconButton from '../../Buttons/IconButton/IconButton'
-import UITEXT from '../../../Global/Constants'
+import {UITEXT} from '../../../Global/Constants'
 
 import '../../../Styles/Components/Modals/AddPetModal.css'
 
@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage } from '@fortawesome/free-solid-svg-icons'
 import { Converters } from '../../../Global/Helpers'
 import TextAreaInputField from '../../InputFields/TextAreaInputField/TextAreaInputField'
+import StandardDropDown from '../../Dropdowns/StandardDropDown/StandardDropDown'
 
 function AddPetModal({open, OnClose}) {
   return (
@@ -29,9 +30,11 @@ function AddPetModal({open, OnClose}) {
                                   type='text' title={UITEXT.NAME_TEXT} 
                                   onChange={()=>{}} />
               {/* Pet Name input field */}
-              <StandardInputField className='AddPetModal-inputFieldContainer' inputClassName='' htmlFor='petName' id='petName' name='petName' 
-                                  type='text' title={UITEXT.NAME_TEXT} 
-                                  onChange={()=>{}} />
+              <div className='AddPetModal-dropDownGroup'>
+                <StandardDropDown className='' inputClassName='' htmlFor='petDateOfBirth' id='petDateOfBirth' name='petDateOfBirth' title={UITEXT.DOB_TEXT}/>
+                <StandardDropDown className='' inputClassName='' htmlFor='petDateOfBirth' id='petDateOfBirth' name='petDateOfBirth' title={''}/>
+
+              </div>
               {/* Pet Type input field */}
               <StandardInputField className='AddPetModal-inputFieldContainer' inputClassName='' htmlFor='petType' id='petType' name='petType' 
                                   type='text' title={UITEXT.TYPE_TEXT} 

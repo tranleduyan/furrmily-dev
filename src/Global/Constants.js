@@ -1,4 +1,4 @@
-const UITEXT = {
+export const UITEXT = {
     SIGN_IN_TEXT: 'Sign in',
     OR_TEXT: 'Or',
     SIGN_UP_TEXT: 'Sign up',
@@ -57,4 +57,26 @@ const UITEXT = {
     INVALID_PHONE_NUMBER_ERROR: 'Please enter valid phone number',
 };
 
-export default UITEXT;
+export const DATA = {
+    DATE: [],
+    MONTH: [],
+    YEAR: [],
+    GENDER: ['M', 'F'],
+    STATE: ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 
+            'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV',
+            'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN',
+            'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'],
+}
+
+for(let date = 1; date <= 31; date++){
+    DATA.DATE.push(date.toString());
+}
+
+for(let month = 1; month <= 12; month++){
+    DATA.MONTH.push(month.toString());
+}
+
+const currentYear = new Date().getFullYear();
+for(let year = currentYear; year > currentYear - 50; year--){
+    DATA.YEAR.push(year.toString());
+}

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { signOutUser } from '../../../storage'
-import UITEXT from '../../../Global/Constants'
+import {UITEXT} from '../../../Global/Constants'
 import { Converters, Helpers} from '../../../Global/Helpers'
 
 /* Stylings */

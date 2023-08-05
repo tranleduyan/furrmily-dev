@@ -49,7 +49,7 @@
 }
 
 .AddPetModal-aboutInputField{
-    height:132px; /* Based on 72px in 1920x1080 */
+    height: calc(12.45vmin); /* Based on 132px in 1920x1080 */
 }
 
 .AddPetModal-addButton{
@@ -58,4 +58,9 @@
 
 .AddPetModal-cancelButton{
     margin-left: calc(1.25vmin); /* Based on 12px in 1920x1080 */
+}
+
+.AddPetModal-dropDownGroup{
+    display:flex;
+    flex-direction: row;
 }

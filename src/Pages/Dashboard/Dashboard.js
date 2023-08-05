@@ -5,7 +5,7 @@ import SideNavBar from '../../Components/NavBars/SideNavBar/SideNavBar'
 import LinkButton from '../../Components/Buttons/LinkButton'
 import PetsList from '../../Components/Lists/PetsList/PetsList'
 import { connect } from 'react-redux'
-import UITEXT from '../../Global/Constants'
+import {UITEXT} from '../../Global/Constants'
 import { Converters } from '../../Global/Helpers';
 import GeneralModal from '../../Components/Modals/GeneralModal/GeneralModal'
 
