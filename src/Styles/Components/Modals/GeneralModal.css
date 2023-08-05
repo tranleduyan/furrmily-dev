@@ -1,0 +1,19 @@
+.GeneralModal-container{
+    position:absolute;
+    top: 50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    padding:calc(3.35vmin) calc(6.7vmin); /*Based on 32px and 64px */
+    background-color: var(--White);
+    border-radius: 5px;
+}
+
+.GeneralModal-overlayContainer{
+    position: fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-color: var(--Black);
+    opacity: 0.7;
+}

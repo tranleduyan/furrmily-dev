@@ -1,0 +1,61 @@
+.AddPetModal-leftContentPanel, .AddPetModal-rightContentPanel{
+    width: calc(45.2vmin); /* Based on 532px on 1920x1080 */
+    height: calc(83.2vmin); /* Based on 894px on 1920x1080 */
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.AddPetModal-leftContentPanel{
+    padding-right: calc(6.7vmin); /* Based on 64px on 1920x1080 */
+}
+
+.AddPetModal-rightContentPanel{
+    padding-left: calc(6.7vmin); /* Based on 64px on 1920x1080 */
+}
+
+.AddPetModal-addPetAvatarContainer{
+    width: calc(13.32vmin);
+    height: calc(13.32vmin);
+    background-color: var(--Gray1);
+    border-radius:50%;
+    margin-top: calc(1.65vmin); /* Based on 20px on 1920x1080 */
+    margin-bottom: calc(1.65vmin); /* Based on 20px on 1920x1080 */
+}
+
+.AddPetModal-addPetAvatarButton{
+    font-size: calc(5vmin); /* Based on 48px on 1920x1080 */
+    color: var(--Gray2);
+}
+
+.AddPetModal-leftInputGroupContainer, .AddPetModal-rightInputGroupContainer{
+    width:100%;
+}
+
+.AddPetModal-inputFieldContainer{
+    margin-bottom: calc(1.65vmin); /* Based on 16px in 1920x1080 */
+}
+
+.AddPetModal-lastLeftInputFieldContainer{
+    margin-bottom: calc(5.45vmin); /* Based on 52px in 1920x1080 */
+}
+
+.AddPetModal-lastRightInputFieldContainer{
+    margin-bottom: 0; /* Based on 16px in 1920x1080 */
+}
+
+.AddPetModal-leftButtonGroupContainer{
+    width:100%;
+}
+
+.AddPetModal-aboutInputField{
+    height:132px; /* Based on 72px in 1920x1080 */
+}
+
+.AddPetModal-addButton{
+    margin-right: calc(1.25vmin); /* Based on 12px in 1920x1080 */
+}
+
+.AddPetModal-cancelButton{
+    margin-left: calc(1.25vmin); /* Based on 12px in 1920x1080 */
+}

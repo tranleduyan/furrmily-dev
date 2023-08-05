@@ -1,0 +1,3 @@
+.MessageModal-content{
+    margin:0 0 calc(2.1vmin) 0;  /* Based on 20px in 1920x1080 */
+}

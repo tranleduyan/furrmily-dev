@@ -18,7 +18,7 @@ function StandardInputField(props) {
   }
   return (
     <div className={className}>
-      <label htmlFor={props.htmlFor} className='heading3'>{props.title}</label>
+      <label htmlFor={props.htmlFor} className='heading3 inputFieldTitle'>{props.title}</label>
       <input type={props.type} name={props.name} id={props.id} className={inputClassName} value={props.value} onChange={handleInputChange}/>
   </div>
   )

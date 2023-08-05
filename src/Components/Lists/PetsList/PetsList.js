@@ -12,7 +12,7 @@ import '../../../Styles/Components/Lists/PetsList/PetsList.css'
 function PetsList(props) {
 
   const [petsListData, setPetsListData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [message, setMessage] = useState('');
 
   const apiURL = `/api/pet-profiles/${props.userId}`
   const apiKey = 'ht8xjWktCv3ocTpjSYjkm3FCBotdJI7s60h6VS8i';
@@ -28,22 +28,16 @@ function PetsList(props) {
         if(response.status === 200){
           const JSONFormat = JSON.stringify(response.data.responseObject);
           setPetsListData(JSON.parse(JSONFormat));
+          setMessage('');
           console.log(response.data.responseObject);
-
-        }
-        else{
-          console.log(response.status);
         }
       })
       .catch(error => {
-        console.error('Error fetching pet profiles:', error);
+        setMessage(error.response.data.message);
+        console.log(error.response.data.message);
       })
   }, [apiURL, apiKey]);
 
-  useEffect(()=>{
-    console.log(petsListData);
-    setIsLoading(false);
-  },[petsListData]);
 
   const CalculateAge = (dob) => {
     const birthDate = new Date(dob);
@@ -57,13 +51,13 @@ function PetsList(props) {
     return age;
   }
 
-  const className= ` petsListContainer ${props.className}`;
+  const className= ` petsList-Container ${props.className}`;
   return (
     <SimpleBar className={className}>
-      {isLoading ? (
-        <p>Loading...</p>
-        ) :
-        (petsListData.map(pet => (
+      {petsListData.length === 0 ? (
+          <p className='petsList-Message paragraph2'>{message}</p>
+        ) : (
+          petsListData.map(pet => (
           <PetCard
             key={pet.ppId}
             petAvatar={pet.photo}

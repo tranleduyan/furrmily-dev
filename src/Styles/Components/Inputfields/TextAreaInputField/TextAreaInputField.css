@@ -1,38 +1,42 @@
-.inputFieldContainer{
+.TextArea-inputFieldContainer{
     width:100%;
     display: flex;
     flex-direction: column;
 }
 
-.inputFieldTitle{
-    margin-bottom:calc(0.4vmin);
+.TextArea-inputFieldTitle{
+    margin-bottom: calc(0.4vmin); /* Based on 4px in 1920x1080 */
 }
 
-.inputField{
+.TextArea-inputField{
     border: solid 2px;
-    height:calc(7.54vmin); /* Based on 72px in 1920x1080 */
     border-color: var(--Gray1);
     background-color: var(--Gray1);
     border-radius: 5px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: calc(2.1vmin); /* Based on 20px in 1920x1080 */
+    padding-bottom: calc(2.1vmin); /* Based on 20px in 1920x1080 */
     padding-left: calc(2.1vmin); /* Based on 20px in 1920x1080 */
     padding-right: calc(2.1vmin); /* Based on 20px in 1920x1080 */
+    resize: none;
 }
-.inputField:focus{
+.TextArea-inputField:focus{
     border: solid 2px;
     border-color:var(--Black);
     background-color: var(--White);
     color: var(--Black);
 }
 
-.inputField:not(:focus){
+.TextArea-inputField:not(:focus){
     color: var(--Gray3);
 }
 
-.inputFieldError{
+.TextArea-inputFieldError{
     border: solid 2px;
     border-color:var(--Red1);
     background-color: var(--White);
     color: var(--Black);
 }
+
+.TextArea-inputField::-webkit-scrollbar {
+    display: none;
+  }

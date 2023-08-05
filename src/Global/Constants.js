@@ -27,6 +27,21 @@ const UITEXT = {
     SEE_MORE_TEXT: 'See more',
     FRIENDS_TEXT: 'Friends',
     DAILY_PROGRESS_TEXT: `Today's progress`,
+    CLOSE_TEXT: `Close`,
+    NAME_TEXT: `Name`,
+    DOB_TEXT: `Date of Birth`,
+    GENDER_TEXT: `Gender`,
+    TYPE_TEXT: `Type`,
+    BREED_TEXT: `Breed`,
+    ABOUT_TEXT: `About`,
+    WEIGHT_TEXT: `Weight`,
+    ADDRESS_LINE_1_TEXT: `Address Line 1`,
+    ADDRESS_LINE_2_TEXT: `Address Line 2`,
+    CITY_TEXT: `City`,
+    STATE_TEXT: `State`,
+    ZIP_CODE_TEXT: `Zip Code`,
+    ADD_TEXT: `Add`,
+    CANCEL_TEXT: `Cancel`,
 
     
     /* ERROR MESSAGES */
