@@ -3,7 +3,7 @@ import GeneralModal from '../GeneralModal/GeneralModal'
 import StandardButton from '../../Buttons/StandardButton/StandardButton'
 import StandardInputField from '../../InputFields/StandardInputField'
 import IconButton from '../../Buttons/IconButton/IconButton'
-import {UITEXT} from '../../../Global/Constants'
+import {OPTIONS_DATA, UITEXT} from '../../../Global/Constants'
 
 import '../../../Styles/Components/Modals/AddPetModal.css'
 
@@ -14,6 +14,7 @@ import TextAreaInputField from '../../InputFields/TextAreaInputField/TextAreaInp
 import StandardDropDown from '../../Dropdowns/StandardDropDown/StandardDropDown'
 
 function AddPetModal({open, OnClose}) {
+
   return (
     <GeneralModal open={open}>
       <div className='flexRowCenter AddPetModal-container'>
@@ -31,8 +32,12 @@ function AddPetModal({open, OnClose}) {
                                   onChange={()=>{}} />
               {/* Pet Name input field */}
               <div className='AddPetModal-dropDownGroup'>
-                <StandardDropDown className='' inputClassName='' htmlFor='petDateOfBirth' id='petDateOfBirth' name='petDateOfBirth' title={UITEXT.DOB_TEXT}/>
-                <StandardDropDown className='' inputClassName='' htmlFor='petDateOfBirth' id='petDateOfBirth' name='petDateOfBirth' title={''}/>
+                <div className='flexRowCenter'>
+                  <StandardDropDown className='AddPetModal-petMonthOfBirthDropDownContainer' htmlFor='petDateOfBirth' id='petDateOfBirth' name='petDateOfBirth' title={UITEXT.DOB_TEXT} placeholder='MM' options={OPTIONS_DATA.monthOptions} onChange={()=>{}}/>
+                  <StandardDropDown className='AddPetModal-petDateOfBirthDropDownContainer' htmlFor='petDateOfBirth' id='petDateOfBirth' name='petDateOfBirth' title={''} placeholder='DD' options={OPTIONS_DATA.dateOptions} onChange={()=>{}}/>
+                  <StandardDropDown className='AddPetModal-petYearOfBirthDropDownContainer' inputClassName='AddPetModal-petYearOfBirthDropDown' htmlFor='petDateOfBirth' id='petYearOfBirth' name='petDateOfBirth' title={''} placeholder='YYYY' options={OPTIONS_DATA.yearOptions} onChange={()=>{}}/>
+                </div>
+                <StandardDropDown className='AddPetModal-petGenderDropDownContainer' htmlFor='petGender' id='petGender' name='petGender' title={'Gender'} placeholder=' ' options={OPTIONS_DATA.genderOptions} onChange={()=>{}}/>
 
               </div>
               {/* Pet Type input field */}
@@ -68,13 +73,21 @@ function AddPetModal({open, OnClose}) {
               <StandardInputField className='AddPetModal-inputFieldContainer' inputClassName='' htmlFor='petAddressLine2' id='petAddressLine2' name='petAddressLine2' 
                                   type='text' title={`${UITEXT.ADDRESS_LINE_2_TEXT} (${UITEXT.OPTIONAL_TEXT})`} 
                                   onChange={()=>{}} />
-              <StandardInputField className='AddPetModal-inputFieldContainer' inputClassName='' htmlFor='petName' id='petName' name='petName' 
-                                  type='text' title={UITEXT.NAME_TEXT} 
-                                  onChange={()=>{}} />
-              {/* Pet Name input field */}
-              <StandardInputField className='AddPetModal-lastRightInputFieldContainer' inputClassName='' htmlFor='petName' id='petName' name='petName' 
-                                  type='text' title={UITEXT.NAME_TEXT} 
-                                  onChange={()=>{}} />
+              <div className='AddPetModal-CityStateGroup'>
+                <StandardInputField className='AddPetModal-leftGroupInputFieldContainer' inputClassName='' htmlFor='petCity' id='petCity' name='petCity' 
+                                    type='text' title={UITEXT.CITY_TEXT} 
+                                    onChange={()=>{}} />
+                <StandardDropDown className='AddPetModal-rightGroupInputFieldContainer' htmlFor='petState' id='petState' name='petState' title={UITEXT.STATE_TEXT} placeholder=' ' options={OPTIONS_DATA.stateOptions} onChange={()=>{}}/>
+              </div>
+
+              <div className='AddPetModal-CityStateGroup'>
+                <StandardInputField className='AddPetModal-leftGroupInputFieldContainer' inputClassName='' htmlFor='petZipCode' id='petZipCode'             name='petZipCode' 
+                                    type='text' title={UITEXT.ZIP_CODE_TEXT} 
+                                    onChange={()=>{}} />
+                <StandardInputField className='AddPetModal-rightGroupInputFieldContainer' inputClassName='' htmlFor='petZipCode4' id='petZipCode4'             name='petZipCode4' 
+                                    type='text' title={''} 
+                                    onChange={()=>{}} />
+              </div>
             </div>
           </div>
       </div>

@@ -1,5 +1,40 @@
 .StandardDropDown-container{
-    width:100%;
+
     display: flex;
     flex-direction: column;
 }
+
+.StandardDropDown-title{
+    min-height: calc(3.35vmin); /* Based on 32px in 1920x1080 */
+    margin-bottom: calc(0.4vmin); /* Based on 4px in 1920x1080 */
+}
+
+.StandardDropDown{
+    border: solid 2px;
+    height:calc(7.54vmin); /* Based on 72px in 1920x1080 */
+    border-color: var(--Gray1);
+    background-color: var(--Gray1);
+    border-radius: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: calc(2.1vmin); /* Based on 20px in 1920x1080 */
+    padding-right: calc(2.1vmin); /* Based on 20px in 1920x1080 */
+}
+.StandardDropDown:focus{
+    border: solid 2px;
+    border-color:var(--Black);
+    background-color: var(--White);
+    color: var(--Black);
+}
+
+.StandardDropDown:not(:focus){
+    color: var(--Gray3);
+}
+
+.StandardDropDown-error{
+    border: solid 2px;
+    border-color:var(--Red1);
+    background-color: var(--White);
+    color: var(--Black);
+}
+

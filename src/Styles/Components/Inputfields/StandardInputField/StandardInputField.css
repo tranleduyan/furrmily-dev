@@ -5,7 +5,8 @@
 }
 
 .inputFieldTitle{
-    margin-bottom:calc(0.4vmin);
+    min-height: calc(2.8vmin); /* Based on 32px in 1920x1080 */
+    margin-bottom: calc(0.4vmin); /* Based on 4px in 1920x1080 */
 }
 
 .inputField{
@@ -33,6 +34,13 @@
 .inputFieldError{
     border: solid 2px;
     border-color:var(--Red1);
+    background-color: var(--White);
+    color: var(--Black);
+}
+
+.inputField:hover{
+    box-shadow: inset 0 0 0 1px var(--Black);
+    border-color:var(--Black);
     background-color: var(--White);
     color: var(--Black);
 }

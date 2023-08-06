@@ -29,7 +29,7 @@ export const UITEXT = {
     DAILY_PROGRESS_TEXT: `Today's progress`,
     CLOSE_TEXT: `Close`,
     NAME_TEXT: `Name`,
-    DOB_TEXT: `Date of Birth`,
+    DOB_TEXT: `Birth Date`,
     GENDER_TEXT: `Gender`,
     TYPE_TEXT: `Type`,
     BREED_TEXT: `Breed`,
@@ -57,7 +57,7 @@ export const UITEXT = {
     INVALID_PHONE_NUMBER_ERROR: 'Please enter valid phone number',
 };
 
-export const DATA = {
+ const DATA = {
     DATE: [],
     MONTH: [],
     YEAR: [],
@@ -79,4 +79,37 @@ for(let month = 1; month <= 12; month++){
 const currentYear = new Date().getFullYear();
 for(let year = currentYear; year > currentYear - 50; year--){
     DATA.YEAR.push(year.toString());
+}
+
+const dateOptions = DATA.DATE.map(date => ({
+    value: date,
+    label: date,
+  }));
+
+const monthOptions = DATA.MONTH.map(month => ({
+    value: month,
+    label: month,
+  }));
+
+const yearOptions = DATA.YEAR.map(year => ({
+    value: year,
+    label: year,
+  }));
+
+const genderOptions = DATA.GENDER.map(gender => ({
+    value: gender,
+    label: gender,
+  }));
+  
+  const stateOptions = DATA.STATE.map(state => ({
+    value: state,
+    label: state,
+  }));
+
+export const OPTIONS_DATA = {
+    dateOptions,
+    monthOptions,
+    yearOptions,
+    genderOptions,
+    stateOptions,
 }

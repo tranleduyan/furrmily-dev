@@ -63,4 +63,47 @@
 .AddPetModal-dropDownGroup{
     display:flex;
     flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: calc(1.65vmin); /* Based on 16px in 1920x1080 */
+}
+
+.AddPetModal-petMonthOfBirthDropDownContainer{
+    margin-right: 8px;
+    width:105px;
+}
+
+.AddPetModal-petDateOfBirthDropDownContainer{
+    margin-right: 8px;
+    width:105px;
+}
+
+.AddPetModal-petYearOfBirthDropDownContainer{
+    width:136px;
+}
+
+.AddPetModal-petGenderDropDownContainer{
+    width:100px;
+}
+
+.AddPetModal-CityStateGroup{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: calc(1.65vmin); /* Based on 16px in 1920x1080 */
+}
+
+.AddPetModal-leftGroupInputFieldContainer{
+    margin-right: 8px;
+    width:230px;
+}
+
+.AddPetModal-rightGroupInputFieldContainer{
+    margin-left: 8px;
+    width:230px;
+}
+
+.AddPetModal-ZipCodeGroup{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
