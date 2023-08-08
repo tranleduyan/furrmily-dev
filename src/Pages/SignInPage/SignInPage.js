@@ -120,16 +120,16 @@ function SignInPage() {
             {/* Sign In Form */}
             <form className='SignInPage-signInForm' autoComplete='off'>
               <div className='SignInPage-inputGroupContainer'>
-                <h1 className='heading1'>{Converters.UpperCaseConverter(UITEXT.SIGN_IN_TEXT)}</h1>
+                <h1 className='heading1'>SIGN IN</h1>
                 
                 {/* Username input field */}
                 <StandardInputField className='' inputClassName='' htmlFor='username' id='username' name='username' 
-                                    type='text' title={Converters.UpperCaseConverter(UITEXT.USERNAME_TEXT)} 
+                                    type='text' title='USERNAME'
                                     onChange={HandleInputChange} error={isError}/>
 
                 {/* Password input field */}
                 <StandardInputField className='SignInPage-passwordInputField' inputClassName='' htmlFor='password' id='password' name='password' 
-                                    type='password' title={Converters.UpperCaseConverter(UITEXT.PASSWORD_TEXT)} 
+                                    type='password' title='PASSWORD'
                                     onChange={HandleInputChange} error={isError}/>
 
                 {/* Message to display error to the user */}
@@ -140,15 +140,15 @@ function SignInPage() {
               <div className='SignInPage-buttonGroupContainer'>
 
                 {/* Sign In Button */}
-                <StandardButton className='' buttonSize='large' title={Converters.UpperCaseConverter(UITEXT.SIGN_IN_TEXT)} onClick={OnSignIn} />
+                <StandardButton className='' buttonSize='large' title='SIGN IN' onClick={OnSignIn} />
 
                 {/* 'Or' */}
                 <div className='flexRowCenter SignInPage-orContainer'>    
-                  <h3 className='heading3' style={{margin:'0px'}}>{Converters.UpperCaseConverter(UITEXT.OR_TEXT)}</h3>
+                  <h3 className='heading3' style={{margin:'0px'}}>OR</h3>
                 </div>
 
                 {/* Sign Up Button */}
-                <StandardButton className='' buttonSize='large' title={Converters.UpperCaseConverter(UITEXT.SIGN_UP_TEXT)} onClick={NavigateToSignUp}/>
+                <StandardButton className='' buttonSize='large' title='SIGN UP' onClick={NavigateToSignUp}/>
               </div>
             </form>
           </div>  

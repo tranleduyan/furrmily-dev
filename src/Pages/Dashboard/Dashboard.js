@@ -36,31 +36,31 @@ function Dashboard({ userData }) {
       <SideNavBar userAvatar={userData.userAvatar} userName={userData.firstName}/>
       <div className='Dashboard-content'>
         <div className='Dashboard-pageHeaderContainer'>
-          <h1 className='heading1'>{UITEXT.DASHBOARD_TEXT}</h1>
+          <h1 className='heading1'>Dashboard</h1>
         </div>
         <div className='Dashboard-pageContentContainer'>
           <div className='Dashboard-contentColumn1'>
             <section className='Dashboard-petsContainer'>
               <div className='Dashboard-sectionHeaderContainer'>
-                <p className='heading2 Dashboard-sectionHeaderText'>{UITEXT.PETS_TEXT}</p>
+                <p className='heading2 Dashboard-sectionHeaderText'>Pets</p>
                 <IconButton className='flexRowCenter Dashboard-AddButton' icon={<FontAwesomeIcon icon={faPlusCircle}/>} onClick={OnAddPetButtonClick}/>
               </div>
               <PetsList userId={userData.userId} className='Dashboard-petsListContainer'/>
               <div className='flexRowCenter'>
-                <LinkButton to='/Pets' className='' title={Converters.CapitalConverter(UITEXT.SEE_MORE_TEXT)}/>
+                <LinkButton to='/Pets' className='' title='See More'/>
                 <IconButton className='flexRowCenter Dashboard-SeeAllButtonIcon' icon={<FontAwesomeIcon icon={faChevronRight}/>}/>
 
               </div>
             </section>
             <section className='Dashboard-friendsContainer'>
               <div className='Dashboard-sectionHeaderContainer'>
-                <p className='heading2 Dashboard-sectionHeaderText'>{UITEXT.FRIENDS_TEXT}</p>
+                <p className='heading2 Dashboard-sectionHeaderText'>Friends</p>
                 <IconButton className='flexRowCenter Dashboard-ContinueButton' icon={<FontAwesomeIcon icon={faChevronRight}/>}/>
               </div>
             </section>
             <section className='Dashboard-dailyProgressContainer'>
               <div className='Dashboard-sectionHeaderContainer'>
-                <p className='heading2 Dashboard-sectionHeaderText'>{Converters.CapitalConverter(UITEXT.DAILY_PROGRESS_TEXT)}</p>
+                <p className='heading2 Dashboard-sectionHeaderText'>Today's Progress</p>
               </div>
             </section>
           </div>

@@ -13,7 +13,7 @@ function MessageModal({open, OnClose, Message}) {
             <div className='flexRowCenter MessageModal-content'>
                 <p className='paragraph2'>{Message}</p>
             </div>
-            <StandardButton className='' buttonSize='large' title={Converters.UpperCaseConverter(UITEXT.CLOSE_TEXT)} onClick={OnClose}/>
+            <StandardButton className='' buttonSize='large' title='CLOSE' onClick={OnClose}/>
         </GeneralModal>
     )
 }
