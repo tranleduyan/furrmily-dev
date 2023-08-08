@@ -1,10 +1,11 @@
+/* Components */
 import React from 'react'
-import StandardButton from '../../../Components/Buttons/StandardButton/StandardButton'
-import  {UITEXT} from '../../../Global/Constants'
-import { Converters } from '../../../Global/Helpers';
 import  ReactDOM  from 'react-dom';
 
+/* Stylings */
 import '../../../Styles/Components/Modals/GeneralModal.css';
+
+/* Icons */
 
 function GeneralModal({open, children}) {
   if(!open) return null;

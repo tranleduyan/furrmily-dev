@@ -67,15 +67,11 @@ function SignInPage() {
 
       /* If there is no error, means sign in success, navigate to Dashboard */
       .then(response => {
-        console.log('API Response:', response.data.responseObject);
         const userData = response.data.responseObject;
-
         dispatch(setUserData(userData));
         navigate('/Dashboard');
       })
       .catch(error => {
-        console.log('API Error:', error);
-        
         /* If there is an error, set the error message display the error to the user */
         const apiErrorMessage = error.response.data.message;
         setErrorMessage(Converters.UpperCaseConverter(apiErrorMessage));
@@ -123,14 +119,26 @@ function SignInPage() {
                 <h1 className='heading1'>SIGN IN</h1>
                 
                 {/* Username input field */}
-                <StandardInputField className='' inputClassName='' htmlFor='username' id='username' name='username' 
-                                    type='text' title='USERNAME'
-                                    onChange={HandleInputChange} error={isError}/>
+                <StandardInputField className='' 
+                                    inputClassName='' 
+                                    htmlFor='username' 
+                                    id='username' 
+                                    name='username' 
+                                    type='text' 
+                                    title='USERNAME'
+                                    onChange={HandleInputChange} 
+                                    error={isError}/>
 
                 {/* Password input field */}
-                <StandardInputField className='SignInPage-passwordInputField' inputClassName='' htmlFor='password' id='password' name='password' 
-                                    type='password' title='PASSWORD'
-                                    onChange={HandleInputChange} error={isError}/>
+                <StandardInputField className='SignInPage-passwordInputField' 
+                                    inputClassName=''
+                                    htmlFor='password' 
+                                    id='password' 
+                                    name='password' 
+                                    type='password' 
+                                    title='PASSWORD'
+                                    onChange={HandleInputChange} 
+                                    error={isError}/>
 
                 {/* Message to display error to the user */}
                 <Message className='' messageType='error' visibility={isError} content={errorMessage}/>

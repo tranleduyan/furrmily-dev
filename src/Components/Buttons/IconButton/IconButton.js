@@ -9,7 +9,7 @@ function IconButton(props) {
   return (
     <button className={className} onClick={props.onClick}>
         {props.icon}
-  </button>
+    </button>
   )
 }
 

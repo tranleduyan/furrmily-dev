@@ -11,10 +11,11 @@ function Message(props) {
   const {messageType, visibility} = props;
   const className = `${props.className} messageContainer 
                      ${messageType === 'error' ? 'errorMessage'
-                    : messageType === 'warning' ? 'warningMessage'
-                    : messageType === 'instructional' ? 'instructionalMessage'
-                    : ''}
-                    ${visibility === false ? 'hide' : ''}`;
+                                               : messageType === 'warning' ? 'warningMessage'
+                                               : messageType === 'instructional' ? 'instructionalMessage'
+                                               : ''}
+                    ${visibility === false ? 'hide' 
+                                           : ''}`;
   return (
     <div className={className}>
       {messageType === 'error' && (

@@ -1,7 +1,11 @@
+/* Components */
 import React, { useState, useEffect } from 'react'
 import Select, { components } from 'react-select';
+
+/* Stylings */
 import '../../../Styles/Components/DropDowns/StandardDropDown.css'
 
+/* Icons */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
@@ -17,6 +21,7 @@ function StandardDropDown(props) {
     onChange(name, value);
   }
   
+  /* Component to sub for Drop Down Indicator of 'Select' - Override Icon and Styling Font Size*/
   const DropdownIndicator = props => {
     return (
       <components.DropdownIndicator {...props}>
@@ -25,18 +30,21 @@ function StandardDropDown(props) {
     );
   };
 
-  const IndicatorSeparator = () => null;  // Custom component that renders nothing
+  /* Component to remove Indicator Separator of 'Select' */
+  const IndicatorSeparator = () => null;
 
   useEffect(() => {
+
+    /* Calculate Height for the Dropdown List's Height */
     const calculateHeight = () => {
       const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
       const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
       const vmin = Math.min(vh, vw);
-      setMaxMenuHeight(0.155 * vmin);  // 50vmin
+      setMaxMenuHeight(0.155 * vmin);
     };
 
     window.addEventListener('resize', calculateHeight);
-    calculateHeight();  // Initial calculation
+    calculateHeight();
   
     return () => {
       window.removeEventListener('resize', calculateHeight);
@@ -44,15 +52,22 @@ function StandardDropDown(props) {
 
   },[]);
 
+  /* Custom Styling for 'Select' */
   const customStyles = {
+    
+    /* Menu (List) Styling */
     menu: (provided, state) => ({
       ...provided,
       marginTop: '0',
     }),
+    
+    /* Options (List Options) Styling */
     options: (provided, state) => ({
       ...provided,
       fontSize: 'calc(1.65vmin)',
     }),
+
+    /* Control Styling */
     control: (provided, state) => ({
       ...provided,
       fontSize: 'calc(1.65vmin)',
@@ -62,8 +77,11 @@ function StandardDropDown(props) {
       paddingBottom: '0px',
       paddingLeft: 'calc(0.8vmin)', 
       paddingRight: 'calc(1.65vmin)',
-      backgroundColor: error || state.isFocused ? 'var(--White)' : 'var(--Gray1)',
-      border: error ? 'solid 3px var(--Red1)' : state.isFocused ? 'solid 3px var(--Black)' : 'solid 3px var(--Gray1)',
+      backgroundColor: error || state.isFocused ? 'var(--White)' 
+                                                : 'var(--Gray1)',
+      border: error ? 'solid 3px var(--Red1)' 
+                    : state.isFocused ? 'solid 3px var(--Black)' 
+                    : 'solid 3px var(--Gray1)',
       boxShadow: 'none',
       '&:hover': {
         border: 'solid 3px var(--Black)',
