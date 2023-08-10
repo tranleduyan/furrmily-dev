@@ -148,7 +148,7 @@ function SignInPage() {
               <div className='SignInPage-buttonGroupContainer'>
 
                 {/* Sign In Button */}
-                <StandardButton className='' buttonSize='large' title='SIGN IN' onClick={OnSignIn} />
+                <StandardButton className='' type='Primary' title='SIGN IN' onClick={OnSignIn} />
 
                 {/* 'Or' */}
                 <div className='flexRowCenter SignInPage-orContainer'>    
@@ -156,7 +156,7 @@ function SignInPage() {
                 </div>
 
                 {/* Sign Up Button */}
-                <StandardButton className='' buttonSize='large' title='SIGN UP' onClick={NavigateToSignUp}/>
+                <StandardButton className='' type='Primary' title='SIGN UP' onClick={NavigateToSignUp}/>
               </div>
             </form>
           </div>  

@@ -13,7 +13,7 @@ function MessageModal({open, OnClose, Message}) {
             <div className='flexRowCenter MessageModal-content'>
                 <p className='paragraph2'>{Message}</p>
             </div>
-            <StandardButton className='' buttonSize='large' title='CLOSE' onClick={OnClose}/>
+            <StandardButton className='' type='Primary' title='CLOSE' onClick={OnClose}/>
         </GeneralModal>
     )
 }

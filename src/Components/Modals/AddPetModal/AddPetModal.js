@@ -111,8 +111,8 @@ function AddPetModal({open, OnClose}) {
 
           {/* Buttons */}
           <div className='AddPetModal-leftButtonGroupContainer flexRowCenter'>
-            <StandardButton className='AddPetModal-addButton' buttonSize='large' title='ADD' onClick={()=>{}}/>
-            <StandardButton className='AddPetModal-cancelButton' buttonSize='large' title='CANCEL' onClick={()=>{}}/>
+            <StandardButton className='AddPetModal-addButton' type='Primary' title='ADD' onClick={()=>{}}/>
+            <StandardButton className='AddPetModal-cancelButton' type='Secondary' title='CANCEL' onClick={()=>{}}/>
           </div>
         </div>
 

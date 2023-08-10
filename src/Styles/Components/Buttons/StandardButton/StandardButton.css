@@ -1,18 +1,26 @@
-.largeButton{
+.Button{
     border-radius: 5px;
-    background-color: var(--Black);
-    width: calc(10px + 38.5vmin); /* Based on 380px in 1920x1080 */
-    height:calc(10px + 6vmin); /* Based on 72px in 1920x1080 */
+    width: calc(38.85vmin); /* Based on 380px in 1920x1080 */
+    height:calc(7.54vmin); /* Based on 72px in 1920x1080 */
 }
 
-/* TODO: Doesn't need for now (not done styling) */
-.smallButton{
-    border-radius: 5px;
+.PrimaryButton{
     background-color: var(--Black);
-    width: calc(10px + 38.5vmin); /* Based on 380px in 1920x1080 */
-    height:calc(10px + 6vmin); /* Based on 72px in 1920x1080 */
 }
 
-.largeButton:hover, .smallButton:hover{
+.PrimaryButton p{
+    color: var(--White);
+}
+
+.SecondaryButton{
+    border: solid calc(0.3vmin) var(--Black);
+    background-color: var(--White);
+}
+
+.SecondaryButton p {
+    color: var(--Black);
+}
+
+.PrimaryButton:hover, .SecondaryButton:hover{
     cursor: pointer;
 }

@@ -8,7 +8,8 @@ import '../../../Styles/Components/Buttons/StandardButton/StandardButton.css'
 
 /* TODO: Remove button size, make width be adjustable, primary and secondary type instead */
 function StandardButton(props) {
-  const className=`${props.className} flexRowCenter ${props.buttonSize}Button`;
+  const type = (!props.type) ? 'Primary' : `${props.type}`;
+  const className=`${props.className} flexRowCenter Button ${type}Button `;
   return (
     <button type='button' className={className} onClick={props.onClick}>
       <p className='button'>{props.title}</p>

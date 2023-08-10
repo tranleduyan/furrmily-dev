@@ -375,14 +375,14 @@ function SignUpPage() {
                 {/* If the form state is 'Personal Information' or 'Account Information' display Continue button to progress */}
                 {(currentFormState === 'Personal Information' || currentFormState === 'Account Information') && (
                   <>
-                     <StandardButton className='' buttonSize='large' title='CONTINUE' onClick={OnContinue}/>
+                     <StandardButton className='' type='Primary' title='CONTINUE' onClick={OnContinue}/>
                   </>
                 )}
 
                 {/* If the form state is 'Account Security Information,' display Sign Up button to submit all the information and create the account */}
                 {(currentFormState === 'Account Security Information') && (
                   <>
-                    <StandardButton className='' buttonSize='large' title='SIGN UP' onClick={OnSignUp}/>
+                    <StandardButton className='' type='Primary' title='SIGN UP' onClick={OnSignUp}/>
                   </>
                 )}
 

@@ -42,7 +42,7 @@
 }
 
 .petMemberContainer{
-    width: calc(14.12vmin); /* Based on 136px in 1920x1080 */
+    width: calc(14.12vmin);
     height: calc(13.32vmin); /* Based on 128px in 1920x1080 */
     display:flex;
     flex-direction: column;
