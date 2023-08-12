@@ -1,5 +1,5 @@
 /* Components */
-import React from 'react'
+import React, { useState } from 'react'
 import GeneralModal from '../GeneralModal/GeneralModal'
 import StandardButton from '../../Buttons/StandardButton/StandardButton'
 import StandardInputField from '../../InputFields/StandardInputField'
@@ -17,6 +17,42 @@ import { faImage } from '@fortawesome/free-solid-svg-icons'
 
 
 function AddPetModal({open, OnClose}) {
+
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const [isError, setIsError] = useState(false);
+
+  const [petInformation, setPetInformation] = useState({
+    petName:'',
+    petPhoto:'x',
+    petBirthMonth: '',
+    petBirthDay: '',
+    petBirthYear: '',
+    petType: '',
+    petBreed: '',
+    petGender: '',
+    petWeight: '',
+    physicalAddress1: '',
+    physicalAddress2: '',
+    addressCity: '',
+    addressState: '',
+    addressZip4: '',
+    addressZip5: '',
+    description: '',
+  });
+
+  /* HandleInputChange - takes the propertyName of the input to updateuserInformation object with the input value */
+  const HandleInputChange = (propertyName, inputValue) => {
+    if(isError) {
+      setIsError(false);
+      setErrorMessage('');
+    }
+    setPetInformation({...petInformation, [propertyName]: inputValue});
+  }
+
+  const OnAddPetProfile = () => {
+    console.log(petInformation);
+  }
 
   return (
     <GeneralModal open={open}>
@@ -40,7 +76,7 @@ function AddPetModal({open, OnClose}) {
                                 name='petName' 
                                 type='text' 
                                 title='Name' 
-                                onChange={()=>{}} />
+                                onChange={HandleInputChange} />
             {/* Drop Down Group */}
             <div className='AddPetModal-dropDownGroup'>
 
@@ -49,34 +85,34 @@ function AddPetModal({open, OnClose}) {
 
                 {/* Month DropDown */}
                 <StandardDropDown className='AddPetModal-petMonthOfBirthDropDownContainer' 
-                                  htmlFor='petDateOfBirth' 
-                                  id='petDateOfBirth' 
-                                  name='petDateOfBirth' 
+                                  htmlFor='petBirthMonth' 
+                                  id='petBirthMonth' 
+                                  name='petBirthMonth' 
                                   title='Birth Date' 
                                   placeholder='MM' 
                                   options={OPTIONS_DATA.monthOptions} 
-                                  onChange={()=>{}}/>
+                                  onChange={HandleInputChange}/>
 
                 {/* Date DropDown */}
                 <StandardDropDown className='AddPetModal-petDateOfBirthDropDownContainer' 
-                                  htmlFor='petDateOfBirth' 
-                                  id='petDateOfBirth' 
-                                  name='petDateOfBirth' 
+                                  htmlFor='petBirthDay' 
+                                  id='petBirthDay' 
+                                  name='petBirthDay' 
                                   title='' 
                                   placeholder='DD' 
                                   options={OPTIONS_DATA.dateOptions} 
-                                  onChange={()=>{}}/>
+                                  onChange={HandleInputChange}/>
 
                 {/* Year DropDown */}
                 <StandardDropDown className='AddPetModal-petYearOfBirthDropDownContainer' 
                                   inputClassName='AddPetModal-petYearOfBirthDropDown' 
-                                  htmlFor='petDateOfBirth' 
-                                  id='petYearOfBirth' 
-                                  name='petDateOfBirth' 
+                                  htmlFor='petBirthYear' 
+                                  id='petBirthYear' 
+                                  name='petBirthYear' 
                                   title='' 
                                   placeholder='YYYY' 
                                   options={OPTIONS_DATA.yearOptions} 
-                                  onChange={()=>{}}/>
+                                  onChange={HandleInputChange}/>
               </div>
 
               {/* Gender DropDown */}
@@ -87,7 +123,7 @@ function AddPetModal({open, OnClose}) {
                                 title='Gender' 
                                 placeholder=' ' 
                                 options={OPTIONS_DATA.genderOptions} 
-                                onChange={()=>{}}/>
+                                onChange={HandleInputChange}/>
             </div>
             {/* Pet Type input field */}
             <StandardInputField className='AddPetModal-inputFieldContainer' 
@@ -97,7 +133,7 @@ function AddPetModal({open, OnClose}) {
                                 name='petType' 
                                 type='text' 
                                 title='Type' 
-                                onChange={()=>{}} />
+                                onChange={HandleInputChange} />
             {/* Pet Breed input field */}
             <StandardInputField className='AddPetModal-lastLeftInputFieldContainer' 
                                 inputClassName='' 
@@ -106,13 +142,13 @@ function AddPetModal({open, OnClose}) {
                                 name='petBreed' 
                                 type='text' 
                                 title='Breed' 
-                                onChange={()=>{}} />
+                                onChange={HandleInputChange} />
           </div>
 
           {/* Buttons */}
           <div className='AddPetModal-leftButtonGroupContainer flexRowCenter'>
-            <StandardButton className='AddPetModal-addButton' type='Primary' title='ADD' onClick={()=>{}}/>
-            <StandardButton className='AddPetModal-cancelButton' type='Secondary' title='CANCEL' onClick={()=>{}}/>
+            <StandardButton className='AddPetModal-addButton' type='Primary' title='ADD' onClick={OnAddPetProfile}/>
+            <StandardButton className='AddPetModal-cancelButton' type='Secondary' title='CANCEL' onClick={OnClose}/>
           </div>
         </div>
 
@@ -123,12 +159,12 @@ function AddPetModal({open, OnClose}) {
             {/* Pet About Text Area Input Field */}
             <TextAreaInputField className='AddPetModal-inputFieldContainer' 
                                 inputClassName='AddPetModal-aboutInputField' 
-                                htmlFor='petAbout' 
-                                id='petAbout'             
-                                name='petAbout' 
+                                htmlFor='description' 
+                                id='description'             
+                                name='description' 
                                 type='text' 
                                 title='About' 
-                                onChange={()=>{}} />
+                                onChange={HandleInputChange} />
 
             {/* Pet Weight Input Field */}
             <StandardInputField className='AddPetModal-inputFieldContainer' 
@@ -138,27 +174,27 @@ function AddPetModal({open, OnClose}) {
                                 name='petWeight' 
                                 type='text' 
                                 title='Weight (lbs)' 
-                                onChange={()=>{}} />
+                                onChange={HandleInputChange} />
 
             {/* Pet Address Line 1 input field */}
             <StandardInputField className='AddPetModal-inputFieldContainer' 
                                 inputClassName='' 
-                                htmlFor='petAddressLine1' 
-                                id='petAddressLine1' 
-                                name='petAddressLine1' 
+                                htmlFor='physicalAddress1' 
+                                id='physicalAddress1' 
+                                name='physicalAddress1' 
                                 type='text'
                                 title='Address Line 1' 
-                                onChange={()=>{}} />
+                                onChange={HandleInputChange} />
 
               {/* Pet Address Line 2 input field */}
             <StandardInputField className='AddPetModal-inputFieldContainer' 
                                 inputClassName='' 
-                                htmlFor='petAddressLine2' 
-                                id='petAddressLine2' 
-                                name='petAddressLine2' 
+                                htmlFor='physicalAddress2' 
+                                id='physicalAddress2' 
+                                name='physicalAddress2' 
                                 type='text' 
                                 title='Address Line 2 (Optional)' 
-                                onChange={()=>{}} />
+                                onChange={HandleInputChange} />
             
             {/* City State Input Group */}
             <div className='AddPetModal-CityStateGroup'>
@@ -166,22 +202,22 @@ function AddPetModal({open, OnClose}) {
               {/* City - Left */}
               <StandardInputField className='AddPetModal-leftGroupInputFieldContainer' 
                                   inputClassName='' 
-                                  htmlFor='petCity' 
-                                  id='petCity' 
-                                  name='petCity' 
+                                  htmlFor='addressCity' 
+                                  id='addressCity' 
+                                  name='addressCity' 
                                   type='text' 
                                   title='City' 
-                                  onChange={()=>{}} />
+                                  onChange={HandleInputChange} />
 
               {/* State DropDown - Right */}
               <StandardDropDown className='AddPetModal-rightGroupInputFieldContainer' 
-                                htmlFor='petState' 
-                                id='petState' 
-                                name='petState' 
+                                htmlFor='addressState' 
+                                id='addressState' 
+                                name='addressState' 
                                 title='State' 
                                 placeholder=' ' 
                                 options={OPTIONS_DATA.stateOptions} 
-                                onChange={()=>{}}/>
+                                onChange={HandleInputChange}/>
             </div>
 
             {/* ZipCode Group */}
@@ -190,22 +226,22 @@ function AddPetModal({open, OnClose}) {
               {/* ZipCode Input Field- Left */}
               <StandardInputField className='AddPetModal-leftGroupInputFieldContainer' 
                                   inputClassName='' 
-                                  htmlFor='petZipCode' 
-                                  id='petZipCode'
-                                  name='petZipCode' 
+                                  htmlFor='addressZip5' 
+                                  id='addressZip5'
+                                  name='addressZip5' 
                                   type='text'
                                   title='Zip Code' 
-                                  onChange={()=>{}} />
+                                  onChange={HandleInputChange} />
 
               {/* ZipCode 4 Input Field - Right */}
               <StandardInputField className='AddPetModal-rightGroupInputFieldContainer' 
                                   inputClassName='' 
-                                  htmlFor='petZipCode4' 
-                                  id='petZipCode4'             
-                                  name='petZipCode4' 
+                                  htmlFor='addressZip4' 
+                                  id='addressZip4'             
+                                  name='addressZip4' 
                                   type='text' 
                                   title={''} 
-                                  onChange={()=>{}} />
+                                  onChange={HandleInputChange} />
             </div>
           </div>
         </div>

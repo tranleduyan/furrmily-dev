@@ -16,9 +16,9 @@ function StandardDropDown(props) {
   const [maxMenuHeight, setMaxMenuHeight] = useState(0);
 
   /* Functions */
-  const handleInputChange = (event) =>{
-    const { name, value } = event.target;
-    onChange(name, value);
+  const handleInputChange = (selectedOption) =>{
+    const { value } = selectedOption;
+    onChange(props.name, value);
   }
   
   /* Component to sub for Drop Down Indicator of 'Select' - Override Icon and Styling Font Size*/
@@ -100,7 +100,7 @@ function StandardDropDown(props) {
               placeholder={props.placeholder}
               components={{DropdownIndicator, IndicatorSeparator}}
               maxMenuHeight={maxMenuHeight}
-              >
+              onChange={handleInputChange}>
       </Select>
     </div>
   );
