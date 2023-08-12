@@ -47,10 +47,6 @@ function SignInPage() {
       return;
     }
   
-    /* API Information - Value */
-    const apiURL = API.signInURL;
-    const apiKey = API.key;
-  
     /* Request Body to post (Include all neccessary information about the user's account for database comparation to sign in) */
     const requestBody = {
       username: userInformation.username,
@@ -59,9 +55,9 @@ function SignInPage() {
   
     /* Post to the apiURL with requestBody and headers (Headers using the key for valid auth) */
     axios
-      .post(apiURL, requestBody, {
+      .post(API.signInURL, requestBody, {
         headers: {
-          'X-API-KEY': apiKey,
+          'X-API-KEY': API.key,
         },
       })
 

@@ -4,6 +4,8 @@ import storage from 'redux-persist/lib/storage'
 
 const initialState = {
     userData: null,
+    petTypes: [],
+    petBreeds:[],
 };
 
 const userSlice = createSlice({
@@ -15,6 +17,12 @@ const userSlice = createSlice({
         },
         signOutUser: (state) => {
             state.userData = null; // Reset user data to null on sign out.
+        },
+        setPetTypes: (state, action) => {
+            state.petTypes = action.payload;
+        },
+        setPetBreeds: (state, action) => {
+            state.petBreeds = action.payload;
         }
     },
 });
@@ -36,6 +44,6 @@ const store = configureStore({
 
 const persistor = persistStore(store);
 
-export const { setUserData, signOutUser } = userSlice.actions;
+export const { setUserData, signOutUser, setPetBreeds, setPetTypes } = userSlice.actions;
 
 export {store, persistor};
