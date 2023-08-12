@@ -8,7 +8,7 @@ import Message from '../../Components/Message/Message'
 import Logo from '../../Components/Logo/Logo'
 import StandardInputField from '../../Components/InputFields/StandardInputField/StandardInputField'
 import StandardButton from '../../Components/Buttons/StandardButton/StandardButton'
-import {UITEXT} from '../../Global/Constants';
+import {API, UITEXT} from '../../Global/Constants';
 import { Converters } from '../../Global/Helpers';
 
 /* Stylings */
@@ -48,8 +48,8 @@ function SignInPage() {
     }
   
     /* API Information - Value */
-    const apiURL = '/api/authentication/sign-in';
-    const apiKey = 'ht8xjWktCv3ocTpjSYjkm3FCBotdJI7s60h6VS8i';
+    const apiURL = API.signInURL;
+    const apiKey = API.key;
   
     /* Request Body to post (Include all neccessary information about the user's account for database comparation to sign in) */
     const requestBody = {

@@ -1,5 +1,5 @@
 .AddPetModal-leftContentPanel, .AddPetModal-rightContentPanel{
-    width: calc(45.2vmin); /* Based on 532px on 1920x1080 */
+    width: calc(55vmin); /* Based on 532px on 1920x1080 */
     height: calc(83.2vmin); /* Based on 894px on 1920x1080 */
     display:flex;
     flex-direction: column;
@@ -69,20 +69,20 @@
 
 .AddPetModal-petMonthOfBirthDropDownContainer{
     margin-right: calc(0.75vmin); /* Based on 8px in 1920x1080 */
-    width: calc(9.895vmin); /* Based on 105px in 1920x1080 */
+    width: calc(12vmin);
 }
 
 .AddPetModal-petDateOfBirthDropDownContainer{
     margin-right: calc(0.75vmin); /* Based on 8px in 1920x1080 */
-    width: calc(9.895vmin); /* Based on 105px in 1920x1080 */
+    width: calc(12vmin);
 }
 
 .AddPetModal-petYearOfBirthDropDownContainer{
-    width: calc(12.8vmin); /* Based on 136px in 1920x1080 */
+    width: calc(14vmin);
 }
 
 .AddPetModal-petGenderDropDownContainer{
-    width: calc(9.41vmin); /* Based on 100px in 1920x1080 */
+    width: calc(13vmin);
 }
 
 .AddPetModal-CityStateGroup{
@@ -94,16 +94,21 @@
 
 .AddPetModal-leftGroupInputFieldContainer{
     margin-right: calc(0.75vmin); /* Based on 8px in 1920x1080 */
-    width: calc(21.7vmin); /* Based on 230px in 1920x1080 */
+    width: calc(25.7vmin); /* Based on 230px in 1920x1080 */
 }
 
 .AddPetModal-rightGroupInputFieldContainer{
     margin-left: calc(0.75vmin); /* Based on 8px in 1920x1080 */
-    width: calc(21.7vmin); /* Based on 230px in 1920x1080 */
+    width: calc(25.7vmin); /* Based on 230px in 1920x1080 */
 }
 
 .AddPetModal-ZipCodeGroup{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+}
+
+.AddPetModal-zipcodeDash{
+    margin-top: calc(2.8vmin); /* Based On 30px in 1920x1080 */
 }

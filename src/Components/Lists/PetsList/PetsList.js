@@ -5,6 +5,7 @@ import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { API } from '../../../Global/Constants';
 
 /* Stylings */
 import '../../../Styles/Components/Lists/PetsList/PetsList.css'
@@ -20,8 +21,8 @@ function PetsList(props) {
   const [message, setMessage] = useState('');
 
   /* API */
-  const apiURL = `/api/pet-profiles/${props.userId}`
-  const apiKey = 'ht8xjWktCv3ocTpjSYjkm3FCBotdJI7s60h6VS8i';
+  const apiURL = `${API.petsListURL}${props.userId}`
+  const apiKey = API.key;
 
   useEffect(()=>{
     /* Get Method */

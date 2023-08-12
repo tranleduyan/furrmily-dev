@@ -1,3 +1,15 @@
+
+//API Information
+export const API = {
+  key: 'ht8xjWktCv3ocTpjSYjkm3FCBotdJI7s60h6VS8i',
+  signInURL: '/api/authentication/sign-in',
+  signUpURL: '/api/authentication/sign-up',
+  petsListURL: '/api/pet-profiles/', //this one will be used to concat with userID
+  petTypesURL:'/api/pet-profiles/pet-types',
+  petBreedsURL:'/api/pet-profiles/pet-breed',
+}
+
+//UI CONSTANTS
 export const UITEXT = {
     GOOD_MORNING_TEXT: 'Good morning,',
     GOOD_AFTERNOON_TEXT: 'Good afternoon,',
@@ -17,6 +29,8 @@ export const UITEXT = {
     INVALID_PHONE_NUMBER_ERROR: 'Please enter valid phone number',
 };
 
+
+// DATA OBJECT
  const DATA = {
     DATE: [],
     MONTH: [],
@@ -69,6 +83,8 @@ const genderOptions = DATA.GENDER.map(gender => ({
     label: state,
   }));
 
+
+//DATA FOR OPTIONS 
 export const OPTIONS_DATA = {
     dateOptions,
     monthOptions,
@@ -76,3 +92,4 @@ export const OPTIONS_DATA = {
     genderOptions,
     stateOptions,
 }
+

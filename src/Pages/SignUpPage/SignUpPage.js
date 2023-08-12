@@ -8,7 +8,7 @@ import StandardInputField from '../../Components/InputFields/StandardInputField/
 import StandardButton from '../../Components/Buttons/StandardButton/StandardButton'
 import LinkButton from '../../Components/Buttons/LinkButton'
 import IconButton from '../../Components/Buttons/IconButton/IconButton'
-import {UITEXT} from '../../Global/Constants'
+import {API, UITEXT} from '../../Global/Constants'
 import { Converters } from '../../Global/Helpers';
 
 /* Stylings */
@@ -64,8 +64,8 @@ function SignUpPage() {
     }
 
     /* API Information - Value */
-    const apiURL = '/api/authentication/sign-up';
-    const apiKey = 'ht8xjWktCv3ocTpjSYjkm3FCBotdJI7s60h6VS8i';
+    const apiURL = API.signUpURL;
+    const apiKey = API.key;
 
     /* Request Body to post (Include all neccessary information about the user and their account for creation) */
     const requestBody = {

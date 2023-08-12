@@ -115,33 +115,31 @@ function AddPetModal({open, OnClose}) {
                                   onChange={HandleInputChange}/>
               </div>
 
-              {/* Gender DropDown */}
+              {/* Pet Gender DropDown */}
               <StandardDropDown className='AddPetModal-petGenderDropDownContainer' 
                                 htmlFor='petGender' 
                                 id='petGender' 
                                 name='petGender' 
                                 title='Gender' 
-                                placeholder=' ' 
+                                placeholder='M/F' 
                                 options={OPTIONS_DATA.genderOptions} 
                                 onChange={HandleInputChange}/>
             </div>
-            {/* Pet Type input field */}
-            <StandardInputField className='AddPetModal-inputFieldContainer' 
-                                inputClassName='' 
+            {/* Pet Type Drop Down */}
+            <StandardDropDown className='AddPetModal-inputFieldContainer' 
                                 htmlFor='petType' 
                                 id='petType' 
                                 name='petType' 
-                                type='text' 
                                 title='Type' 
+                                options={OPTIONS_DATA.genderOptions} 
                                 onChange={HandleInputChange} />
             {/* Pet Breed input field */}
-            <StandardInputField className='AddPetModal-lastLeftInputFieldContainer' 
-                                inputClassName='' 
+            <StandardDropDown className='AddPetModal-lastLeftInputFieldContainer' 
                                 htmlFor='petBreed' 
                                 id='petBreed' 
                                 name='petBreed' 
-                                type='text' 
                                 title='Breed' 
+                                options={OPTIONS_DATA.genderOptions} 
                                 onChange={HandleInputChange} />
           </div>
 
@@ -232,7 +230,7 @@ function AddPetModal({open, OnClose}) {
                                   type='text'
                                   title='Zip Code' 
                                   onChange={HandleInputChange} />
-
+              <p className='heading2 AddPetModal-zipcodeDash'> - </p>
               {/* ZipCode 4 Input Field - Right */}
               <StandardInputField className='AddPetModal-rightGroupInputFieldContainer' 
                                   inputClassName='' 
