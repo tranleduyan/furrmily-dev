@@ -88,7 +88,7 @@ function Dashboard({ userData }) {
 }
 
 const mapStateToProps = state => ({
-  userData: state.userData,
+  userData: state.user.userData,
 });
 
 
