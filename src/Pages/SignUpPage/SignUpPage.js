@@ -1,4 +1,4 @@
-/* Components */
+//#region Import Components
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -10,17 +10,24 @@ import LinkButton from '../../Components/Buttons/LinkButton'
 import IconButton from '../../Components/Buttons/IconButton/IconButton'
 import {API, UITEXT} from '../../Global/Constants'
 import { Converters } from '../../Global/Helpers';
+//#endregion
 
-/* Stylings */
+//#region Import Stylings
 import '../../Styles/Pages/SignUpPage/SignUpPage.css'
+//#endregion
 
-
-/* Icons */
+//#region Import Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+//#endregion
 
 function SignUpPage() {
+
+  //#region Component Usage
   const navigate = useNavigate();
+  //#endregion
+
+  //#region Variables
 
   /* Form State - Personal Information, Account Information, Account Security Information */
   const [currentFormState, setCurrentFormState] = useState('Personal Information');
@@ -44,6 +51,26 @@ function SignUpPage() {
     phoneNumber: '',
   });
 
+    /* API Information - Value */
+    const apiURL = API.signUpURL;
+    const apiKey = API.key;
+
+    /* Request Body to post (Include all neccessary information about the user and their account for creation) */
+    const requestBody = {
+      firstName: userInformation.firstName,
+      middleName: userInformation.middleName,
+      lastName: userInformation.lastName,
+      emailAddress: userInformation.emailAddress.toLowerCase(),
+      phoneNumber: userInformation.phoneNumber,
+      username: userInformation.username.toLowerCase(),
+      password: userInformation.password,
+      userAvatar: 'faUser',
+    };
+
+  //#endregion
+
+  //#region Functions
+
   /* OnContinue - Move to the next state of the form to collect further information about the user for sign up if the input fields are all valid */
   const OnContinue = () => {
     if(IsValid() === false){
@@ -62,22 +89,6 @@ function SignUpPage() {
       setIsError(true);
       return;
     }
-
-    /* API Information - Value */
-    const apiURL = API.signUpURL;
-    const apiKey = API.key;
-
-    /* Request Body to post (Include all neccessary information about the user and their account for creation) */
-    const requestBody = {
-      firstName: userInformation.firstName,
-      middleName: userInformation.middleName,
-      lastName: userInformation.lastName,
-      emailAddress: userInformation.emailAddress.toLowerCase(),
-      phoneNumber: userInformation.phoneNumber,
-      username: userInformation.username.toLowerCase(),
-      password: userInformation.password,
-      userAvatar: 'faUser',
-    };
 
     /* Post to the apiURL with requestBody and headers (Headers using the key for valid auth) */
     axios
@@ -218,6 +229,8 @@ function SignUpPage() {
     }
     setUserInformation({...userInformation, [propertyName]: inputValue});
   }
+
+  //#endregion
 
   return (
     <div className='wrapper SignUpPage-wrapper'>

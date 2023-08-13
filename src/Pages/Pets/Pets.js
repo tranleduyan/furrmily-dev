@@ -1,13 +1,12 @@
-/* Components */
+//#region Import Component
 import React from 'react'
 import SideNavBar from '../../Components/NavBars/SideNavBar/SideNavBar'
 import { connect } from 'react-redux'
+//#endregion
 
-
-/* Stylings */
+//#region Import Stylings
 import '../../Styles/Pages/Pets/Pets.css'
-
-/* Icons */
+//#endregion
 
 function Pets({ userData }) {
   return (
