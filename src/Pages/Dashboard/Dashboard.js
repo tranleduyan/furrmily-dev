@@ -1,22 +1,19 @@
 /* Components */
-import React, { useState } from "react";
-import IconButton from "../../Components/Buttons/IconButton";
-import SideNavBar from "../../Components/NavBars/SideNavBar/SideNavBar";
-import LinkButton from "../../Components/Buttons/LinkButton";
-import PetsList from "../../Components/Lists/PetsList/PetsList";
-import TasksList from "../../Components/Lists/TasksList/TasksList";
-import { connect } from "react-redux";
+import React, { useState } from 'react'
+import IconButton from '../../Components/Buttons/IconButton'
+import SideNavBar from '../../Components/NavBars/SideNavBar/SideNavBar'
+import LinkButton from '../../Components/Buttons/LinkButton'
+import PetsList from '../../Components/Lists/PetsList/PetsList'
+import TasksList from '../../Components/Lists/TasksList/TasksList'
+import AddPetModal from '../../Components/Modals/AddPetModal/AddPetModal'
+import { connect } from 'react-redux'
 
 /* Stylings */
 import "../../Styles/Pages/DashboardPage/Dashboard.css";
 
 /* Icons */
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPlusCircle,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
-import AddPetModal from "../../Components/Modals/AddPetModal/AddPetModal";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusCircle, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 function Dashboard({ userData }) {
   const [isOpenAddPetModal, setIsOpenAddPetModal] = useState(false);
@@ -25,9 +22,9 @@ function Dashboard({ userData }) {
     setIsOpenAddPetModal(true);
   };
 
-  const OnCloseModal = () => {
+  const OnCloseModal = () =>{
     setIsOpenAddPetModal(false);
-  };
+  }
 
   return (
     <div className="wrapper Dashboard-wrapper">
@@ -150,8 +147,8 @@ function Dashboard({ userData }) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  userData: state.userData,
+const mapStateToProps = state => ({
+  userData: state.user.userData,
 });
 
 export default connect(mapStateToProps)(Dashboard);
