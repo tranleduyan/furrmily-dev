@@ -19,7 +19,7 @@ function Tasks({ userData }) {
 }
 
 const mapStateToProps = state => ({
-  userData: state.userData,
+  userData: state.user.userData,
 });
 
 export default connect(mapStateToProps)(Tasks)

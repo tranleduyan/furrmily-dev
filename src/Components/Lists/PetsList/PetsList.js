@@ -103,7 +103,7 @@ function PetsList(props) {
 }
 
 const mapStateToProps = (state) => ({
-  userData: state.userData,
+  userData: state.user.userData,
 });
 
 export default connect(mapStateToProps)(PetsList)
