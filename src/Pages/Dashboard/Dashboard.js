@@ -6,6 +6,7 @@ import LinkButton from '../../Components/Buttons/LinkButton'
 import PetsList from '../../Components/Lists/PetsList/PetsList'
 import AddPetModal from '../../Components/Modals/AddPetModal/AddPetModal'
 import { connect } from 'react-redux'
+import TasksList from '../../Components/Lists/TasksList/TasksList'
 //#endregion
 
 
