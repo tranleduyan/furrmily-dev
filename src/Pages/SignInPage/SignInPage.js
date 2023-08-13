@@ -1,7 +1,7 @@
-/* Components */
+//#region Import Components
 import React, { useState } from 'react'
 import { connect, useDispatch } from 'react-redux';
-import { setUserData } from '../../storage';
+import { setPetBreeds, setPetTypes, setUserData } from '../../storage';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import Message from '../../Components/Message/Message'
@@ -10,17 +10,22 @@ import StandardInputField from '../../Components/InputFields/StandardInputField/
 import StandardButton from '../../Components/Buttons/StandardButton/StandardButton'
 import {API, UITEXT} from '../../Global/Constants';
 import { Converters } from '../../Global/Helpers';
+//#endregion
 
-/* Stylings */
+//#region Import Stylings
 import '../../Styles/Pages/SignInPage/SignInPage.css'
-
-
-/* Icons */
-
+//#endregion
 
 function SignInPage() {
+
+  //#region Component Usage
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  
+  //#endregion
+
+  //#region Variables
   
   /* errorMessage to return visually the message to the user */
   const [errorMessage, setErrorMessage] = useState('');
@@ -34,6 +39,15 @@ function SignInPage() {
     password: '',
   });
 
+  /* Request Body to post (Include all neccessary information about the user's account for database comparation to sign in) */
+  const requestBody = {
+    username: userInformation.username,
+    password: userInformation.password,
+  };
+
+  //#endregion
+
+  //#region Functions
 
   /* NavigateToSignUp - navigate the user to Sign Up Page */
   const NavigateToSignUp = () => {
@@ -46,13 +60,7 @@ function SignInPage() {
       setIsError(true);
       return;
     }
-  
-    /* Request Body to post (Include all neccessary information about the user's account for database comparation to sign in) */
-    const requestBody = {
-      username: userInformation.username,
-      password: userInformation.password,
-    };
-  
+
     /* Post to the apiURL with requestBody and headers (Headers using the key for valid auth) */
     axios
       .post(API.signInURL, requestBody, {
@@ -65,7 +73,32 @@ function SignInPage() {
       .then(response => {
         const userData = response.data.responseObject;
         dispatch(setUserData(userData));
-        navigate('/Dashboard');
+
+        axios
+          .get(API.petTypesURL, {
+            headers: {
+              'X-API-KEY': API.key,
+            }
+          })
+          .then(petTypesResponse => {
+            dispatch(setPetTypes(petTypesResponse.data.responseObject));
+
+            axios.get(API.petBreedsURL, {
+              headers: {
+                'X-API-KEY': API.key,
+              }
+            })
+            .then(petBreedsResponse => {
+              dispatch(setPetBreeds(petBreedsResponse.data.responseObject));
+              navigate('/Dashboard');
+            })
+            .catch(error => {
+              
+            });
+          })
+          .catch(error => {
+
+          });
       })
       .catch(error => {
         /* If there is an error, set the error message display the error to the user */
@@ -98,6 +131,8 @@ function SignInPage() {
     setUserInformation({...userInformation, [propertyName]: inputValue});
   }
 
+  //#endregion
+  
   return (
     <div className='wrapper SignInPage-wrapper'>
 
