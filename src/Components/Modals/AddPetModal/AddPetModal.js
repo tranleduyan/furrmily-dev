@@ -1,4 +1,4 @@
-/* Components */
+//#region Import Components
 import React, { useState } from 'react'
 import GeneralModal from '../GeneralModal/GeneralModal'
 import StandardButton from '../../Buttons/StandardButton/StandardButton'
@@ -7,21 +7,29 @@ import IconButton from '../../Buttons/IconButton/IconButton'
 import TextAreaInputField from '../../InputFields/TextAreaInputField/TextAreaInputField'
 import StandardDropDown from '../../Dropdowns/StandardDropDown/StandardDropDown'
 import { OPTIONS_DATA } from '../../../Global/Constants'
+import { connect } from 'react-redux'
+import { Converters } from '../../../Global/Helpers'
+//#endregion
 
-/* Stylings */
+//#region Import Stylings
 import '../../../Styles/Components/Modals/AddPetModal.css'
+//#endregion
 
-/* Icons */
+
+//#region Import Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage } from '@fortawesome/free-solid-svg-icons'
+//#endregion
 
+function AddPetModal({open, OnClose, petTypes, petBreeds}) {
 
-function AddPetModal({open, OnClose}) {
+  //#region Variables
 
+  /* Error Handler Variables */
   const [errorMessage, setErrorMessage] = useState('');
-
   const [isError, setIsError] = useState(false);
 
+  /* petInformation for input gathering - used for OnAddPetProfile and are updated using HandleInputChange */
   const [petInformation, setPetInformation] = useState({
     petName:'',
     petPhoto:'x',
@@ -41,6 +49,10 @@ function AddPetModal({open, OnClose}) {
     description: '',
   });
 
+  //#endregion
+
+  //#region Functions
+
   /* HandleInputChange - takes the propertyName of the input to updateuserInformation object with the input value */
   const HandleInputChange = (propertyName, inputValue) => {
     if(isError) {
@@ -50,9 +62,28 @@ function AddPetModal({open, OnClose}) {
     setPetInformation({...petInformation, [propertyName]: inputValue});
   }
 
+  /* OnAddPetProfile - TODO: Add Pet Profile using all the input information */
   const OnAddPetProfile = () => {
     console.log(petInformation);
   }
+
+  //#endregion
+
+  //#region Options for Dropdowns
+
+  /* PetTypeOptions */
+  const petTypeOptions = petTypes ? petTypes.map(type => ({
+    value: type.petTypeCode,
+    label: Converters.CapitalConverter(type.petTypeDescription),
+  })) : [];
+
+  /* PetBreedOptions */
+  const petBreedOptions = petBreeds ? petBreeds.map(breed => ({
+    value: breed.petTypeCode,
+    label: breed.breedName,
+  })) : [];
+
+  //#endregion
 
   return (
     <GeneralModal open={open}>
@@ -131,7 +162,7 @@ function AddPetModal({open, OnClose}) {
                                 id='petType' 
                                 name='petType' 
                                 title='Type' 
-                                options={OPTIONS_DATA.genderOptions} 
+                                options={petTypeOptions} 
                                 onChange={HandleInputChange} />
             {/* Pet Breed input field */}
             <StandardDropDown className='AddPetModal-lastLeftInputFieldContainer' 
@@ -139,7 +170,7 @@ function AddPetModal({open, OnClose}) {
                                 id='petBreed' 
                                 name='petBreed' 
                                 title='Breed' 
-                                options={OPTIONS_DATA.genderOptions} 
+                                options={petBreedOptions} 
                                 onChange={HandleInputChange} />
           </div>
 
@@ -248,4 +279,9 @@ function AddPetModal({open, OnClose}) {
   )
 }
 
-export default AddPetModal
+const mapStateToProps = state => ({
+  petTypes: state.options.petTypes,
+  petBreeds: state.options.petBreeds
+});
+
+export default connect(mapStateToProps)(AddPetModal);
