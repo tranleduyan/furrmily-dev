@@ -20,19 +20,28 @@ import AddPetModal from "../../Components/Modals/AddPetModal/AddPetModal";
 
 function Dashboard({ userData }) {
   const [isOpenAddPetModal, setIsOpenAddPetModal] = useState(false);
+  const [isOpenTaskModal, setIsOpenTaskModal] = useState(false);
+
+  const OnAddTaskButtonClick = () => {
+    setIsOpenTaskModal(true);
+  };
+
+  const OnCloseAddTaskModal = () => {
+    setIsOpenTaskModal(false);
+  };
 
   const OnAddPetButtonClick = () => {
     setIsOpenAddPetModal(true);
   };
 
-  const OnCloseModal = () => {
+  const OnCloseAddPetModal = () => {
     setIsOpenAddPetModal(false);
   };
 
   return (
     <div className="wrapper Dashboard-wrapper">
       {/* Add Pet Modal */}
-      <AddPetModal open={isOpenAddPetModal} OnClose={OnCloseModal} />
+      <AddPetModal open={isOpenAddPetModal} OnClose={OnCloseAddPetModal} />
 
       {/* Side Nav Bar */}
       <SideNavBar
@@ -111,7 +120,7 @@ function Dashboard({ userData }) {
                 <IconButton
                   className="flexRowCenter Dashboard-AddButton"
                   icon={<FontAwesomeIcon icon={faPlusCircle} />}
-                  onClick={OnAddPetButtonClick}
+                  onClick={OnAddTaskButtonClick}
                 />
               </div>
 
