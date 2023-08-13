@@ -1,4 +1,4 @@
-/* Components */
+//#region Import Components
 import React, { useState, useEffect }from 'react'
 import PetCard from '../../PetCard/PetCard'
 import SimpleBar from 'simplebar-react';
@@ -6,13 +6,19 @@ import 'simplebar-react/dist/simplebar.min.css';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { API } from '../../../Global/Constants';
+//#endregion
 
-/* Stylings */
+//#region Import Stylings
 import '../../../Styles/Components/Lists/PetsList/PetsList.css'
-
-/* Icons */
+//#endregion
 
 function PetsList(props) {
+
+  //#region Variables
+
+  /* API */
+  const apiURL = `${API.petsListURL}${props.userId}`
+  const apiKey = API.key;
 
   /* Data for Pets List */
   const [petsListData, setPetsListData] = useState([]);
@@ -20,10 +26,10 @@ function PetsList(props) {
   /* Message to display in Pets List */
   const [message, setMessage] = useState('');
 
-  /* API */
-  const apiURL = `${API.petsListURL}${props.userId}`
-  const apiKey = API.key;
+  //#endregion
 
+  //#region Functions
+  
   useEffect(()=>{
     /* Get Method */
     axios
@@ -70,6 +76,8 @@ function PetsList(props) {
     }
     return age;
   }
+
+  //#endregion
 
   const className= ` petsList-Container ${props.className}`;
   return (
