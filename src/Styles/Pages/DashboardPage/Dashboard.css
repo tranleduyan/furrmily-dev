@@ -1,89 +1,119 @@
-.Dashboard-wrapper{
-    display: flex;
-    flex-direction: row;
+.Dashboard-wrapper {
+  display: flex;
+  flex-direction: row;
 }
 
-.Dashboard-content{
-    background-color: var(--White);
-    height:100%;
-    width: calc(100vmax - calc(10px + 26.6vmin)); /*Based on 100vmax - 266px in 1920x1080 */
-
+.Dashboard-content {
+  background-color: var(--White);
+  height: 100%;
+  width: calc(
+    100vmax - calc(10px + 26.6vmin)
+  ); /*Based on 100vmax - 266px in 1920x1080 */
 }
 
-.Dashboard-pageHeaderContainer{
-   height: calc(10.7vmin); /* Based on 112px in 1920x1080 */
-   display: flex;
-   flex-direction: row;
-   justify-content: flex-start;
-   align-items: center;
-   padding: 0px 0px 0px calc(5vmin); /* Based on 48px in 1920x1080 */
+.Dashboard-pageHeaderContainer {
+  height: calc(10.7vmin); /* Based on 112px in 1920x1080 */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 0px 0px calc(5vmin); /* Based on 48px in 1920x1080 */
 }
 
-.Dashboard-pageContentContainer{
-    height: calc(100vmax - calc(11.7vmin));
-    padding: calc(0vmin) calc(5vmin) 0px calc(5vmin); 
+.Dashboard-pageContentContainer {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vmax - calc(11.7vmin));
+  padding: calc(0vmin) calc(5vmin) 0px calc(5vmin);
 }
 
-.Dashboard-contentColumn1{
-    display:flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width:calc(58.8vmin); /* Based on 565px in 1920x1080 */
-    height:100%;
+.Dashboard-contentColumn1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: calc(58.8vmin); /* Based on 565px in 1920x1080 */
+  height: 100%;
 }
 
-.Dashboard-petsContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: calc(45.8vmin); /* Based on 440px in 1920x1080 */
+.Dashboard-contentColumn2 {
+  margin-left: calc(6.7vmin);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: calc(48.7vmin); /* Based on 450px in 1920x1080 */
+  height: 100%;
 }
 
-.Dashboard-friendsContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: calc(18.9vmin); /* Based on 182px in 1920x1080 */
-    margin: calc(3.35vmin) 0px;
+.Dashboard-petsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: calc(45.8vmin); /* Based on 440px in 1920x1080 */
 }
 
-.Dashboard-dailyProgressContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: calc(16.2vmin); /* Based on 156px in 1920x1080 */
+.Dashboard-tasksContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: calc(45.8vmin); /* Based on 440px in 1920x1080 */
 }
 
-.Dashboard-sectionHeaderContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}   
-
-.Dashboard-sectionHeaderText{
-    margin:0px;
+.Dashboard-friendsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: calc(18.9vmin); /* Based on 182px in 1920x1080 */
+  margin: calc(3.35vmin) 0px;
 }
 
-.Dashboard-AddButton{
-    padding-top:0px;
-    font-size: calc(3.35vmin);
+.Dashboard-upcomingAppointmentsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: calc(38.45vmin); /* Based on 355px in 1920x1080 */
+  margin: calc(3.35vmin) 0px;
 }
 
-.Dashboard-ContinueButton{
-    padding-top: 0px;
-    font-size: calc(2.1vmin); /* Based on 20px in 1920x1080 */
+.Dashboard-dailyProgressContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: calc(16.2vmin); /* Based on 156px in 1920x1080 */
 }
 
-.Dashboard-SeeAllButtonIcon{
-    font-size:calc(1.46vmin);
-    padding-top: 0px;
-    margin-left:calc(0.45vmin); /* Based on 4px in 1920x1080 */
-    color: var(--Blue1);
+.Dashboard-sectionHeaderContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.Dashboard-petsListContainer{
-    margin:calc(1.65vmin) 0px;
-    height: calc(36.3vmin); /* Based on 344px in 1920x1080 */
+.Dashboard-sectionHeaderText {
+  margin: 0px;
 }
 
+.Dashboard-AddButton {
+  padding-top: 0px;
+  font-size: calc(3.35vmin);
+}
 
+.Dashboard-ContinueButton {
+  padding-top: 0px;
+  font-size: calc(2.1vmin); /* Based on 20px in 1920x1080 */
+}
+
+.Dashboard-SeeAllButtonIcon {
+  font-size: calc(1.46vmin);
+  padding-top: 0px;
+  margin-left: calc(0.45vmin); /* Based on 4px in 1920x1080 */
+  color: var(--Blue1);
+}
+
+.Dashboard-petsListContainer {
+  margin: calc(1.65vmin) 0px;
+  height: calc(36.3vmin); /* Based on 344px in 1920x1080 */
+}
+
+.Dashboard-tasksListContainer {
+  margin: calc(1.65vmin) 0px;
+  height: calc(36.3vmin);
+}
