@@ -1,7 +1,7 @@
 /* Components */
 import React, { useState } from 'react'
 import { connect, useDispatch } from 'react-redux';
-import { setUserData } from '../../storage';
+import { setPetBreeds, setPetTypes, setUserData } from '../../storage';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import Message from '../../Components/Message/Message'
@@ -65,7 +65,32 @@ function SignInPage() {
       .then(response => {
         const userData = response.data.responseObject;
         dispatch(setUserData(userData));
-        navigate('/Dashboard');
+
+        axios
+          .get(API.petTypesURL, {
+            headers: {
+              'X-API-KEY': API.key,
+            }
+          })
+          .then(petTypesResponse => {
+            dispatch(setPetTypes(petTypesResponse.data.responseObject));
+
+            axios.get(API.petBreedsURL, {
+              headers: {
+                'X-API-KEY': API.key,
+              }
+            })
+            .then(petBreedsResponse => {
+              dispatch(setPetBreeds(petBreedsResponse.data.responseObject));
+              navigate('/Dashboard');
+            })
+            .catch(error => {
+              
+            });
+          })
+          .catch(error => {
+
+          });
       })
       .catch(error => {
         /* If there is an error, set the error message display the error to the user */
