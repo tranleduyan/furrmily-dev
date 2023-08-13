@@ -1,0 +1,11 @@
+.TasksList-container {
+  /*
+    width:calc(48.7vmin); Based on 450px in 1920x1080 
+    height: calc(40.5vmin); Based on 389px in 1920x1080 
+    */
+}
+
+.TasksList-message {
+  text-align: center;
+  margin: 25% 0px;
+}

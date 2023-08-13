@@ -1,0 +1,40 @@
+.TaskCard-taskCompleteIconContainer {
+  width: calc(6.7vmin); /* Based on 128px in 1920x1080 */
+  height: calc(6.7vmin); /* Based on 128px in 1920x1080 */
+  border-radius: 50%;
+  background-color: var(--Green2);
+  color: var(--Green1);
+  font-size: calc(3.35vmin); /* Based on 32px in 1920x1080 */
+}
+
+.TaskCard-taskInProgressIconContainer {
+  width: calc(6.7vmin); /* Based on 128px in 1920x1080 */
+  height: calc(6.7vmin); /* Based on 128px in 1920x1080 */
+  border-radius: 50%;
+  background-color: var(--Orange2);
+  color: var(--Orange1);
+  font-size: calc(3.35vmin); /* Based on 32px in 1920x1080 */
+}
+
+.TaskCard-taskStatusContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: calc(9.63vmin);
+}
+
+.TaskCard-taskInformationContainer {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - calc(9.63vmin));
+  justify-content: center;
+}
+
+.TaskCard-taskNameContainer {
+  padding: 0 calc(1.65vmin); /* Based on 20px on 1920x1080 */
+  font-weight: bold;
+}
+
+.TaskCard-taskDueDateContainer {
+  padding: 0 calc(1.65vmin); /* Based on 20px on 1920x1080 */
+}
