@@ -1,30 +1,45 @@
-/* Components */
+//#region Import Components
 import React, { useState } from 'react'
 import IconButton from '../../Components/Buttons/IconButton'
 import SideNavBar from '../../Components/NavBars/SideNavBar/SideNavBar'
 import LinkButton from '../../Components/Buttons/LinkButton'
 import PetsList from '../../Components/Lists/PetsList/PetsList'
-import TasksList from '../../Components/Lists/TasksList/TasksList'
 import AddPetModal from '../../Components/Modals/AddPetModal/AddPetModal'
 import { connect } from 'react-redux'
+import TasksList from '../../Components/Lists/TasksList/TasksList'
+//#endregion
 
-/* Stylings */
-import "../../Styles/Pages/DashboardPage/Dashboard.css";
 
-/* Icons */
+//#region Import Stylings
+import '../../Styles/Pages/DashboardPage/Dashboard.css'
+//#endregion
+
+//#region Import Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+//#endregion
 
 function Dashboard({ userData }) {
-  const [isOpenAddPetModal, setIsOpenAddPetModal] = useState(false);
 
+  //#region Variables
+  
+  const [isOpenAddPetModal, setIsOpenAddPetModal] = useState(false);
+ 
+  //#endregion
+
+ //#region Functions
+ 
+ //OnAddPetButtonClick  - Open Pet Modal
   const OnAddPetButtonClick = () => {
     setIsOpenAddPetModal(true);
-  };
+  }
 
+  //OnCloseModal - Close the Modal that is currently opened
   const OnCloseModal = () =>{
     setIsOpenAddPetModal(false);
   }
+  
+  //#endregion
 
   return (
     <div className="wrapper Dashboard-wrapper">
