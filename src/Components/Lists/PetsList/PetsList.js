@@ -23,30 +23,29 @@ function PetsList(props) {
   const apiURL = `${API.petsListURL}${props.userId}`;
   const apiKey = API.key;
 
-  // useEffect(()=>{
-  //   /* Get Method */
-  //   axios
-  //     .get(apiURL, {
-  //       headers: {
-  //         'X-API-KEY': apiKey
-  //       }
-  //     })
-  //     .then(response => {
-  //       /* If success, set message to empty */
-  //       if(response.status === 200){
+  useEffect(() => {
+    /* Get Method */
+    axios
+      .get(apiURL, {
+        headers: {
+          "X-API-KEY": apiKey,
+        },
+      })
+      .then((response) => {
+        /* If success, set message to empty */
+        if (response.status === 200) {
+          /* Stringify Response to parse for setting data for Pets List*/
+          const JSONFormat = JSON.stringify(response.data.responseObject);
+          setPetsListData(JSON.parse(JSONFormat));
+          setMessage("");
+        }
+      })
 
-  //         /* Stringify Response to parse for setting data for Pets List*/
-  //         const JSONFormat = JSON.stringify(response.data.responseObject);
-  //         setPetsListData(JSON.parse(JSONFormat));
-  //         setMessage('');
-  //       }
-  //     })
-
-  //     /* Set error to the message */
-  //     .catch(error => {
-  //       setMessage(error.response.data.message);
-  //     })
-  // }, [apiURL, apiKey]);
+      /* Set error to the message */
+      .catch((error) => {
+        setMessage(error.response.data.message);
+      });
+  }, [apiURL, apiKey]);
 
   /* Calculate Age using date of birth object passed in */
   const CalculateAge = (dob) => {
@@ -75,10 +74,10 @@ function PetsList(props) {
   const className = ` petsList-Container ${props.className}`;
   return (
     <SimpleBar className={className}>
-      {/* {petsListData.length === 0 ? (
-          <p className='petsList-Message paragraph2'>{message}</p>
-        ) : (
-          petsListData.map(pet => (
+      {petsListData.length === 0 ? (
+        <p className="petsList-Message paragraph2">{message}</p>
+      ) : (
+        petsListData.map((pet) => (
           <PetCard
             key={pet.ppId}
             petAvatar={pet.photo}
@@ -88,9 +87,8 @@ function PetsList(props) {
             petBreed={pet.petBreed}
             ownerAvatar={props.userData.userAvatar}
           />
-          ))
-        )
-      } */}
+        ))
+      )}
     </SimpleBar>
   );
 }
