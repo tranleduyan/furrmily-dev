@@ -35,6 +35,10 @@ export const UITEXT = {
     DATE: [],
     MONTH: [],
     YEAR: [],
+    MINUTE: [],
+    HOUR: [],
+    XM: ["AM", "PM"],
+    TASKSTATUS: ["In-progress","Complete"],
     GENDER: ['M', 'F'],
     STATE: ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE',
             'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS',
@@ -58,6 +62,24 @@ for(let year = currentYear; year > currentYear - 50; year--){
     DATA.YEAR.push(year.toString());
 }
 
+for(let minute = 0; minute <= 60; minute++){
+  let minuteString = ""
+  if(minute < 10){
+    minuteString = "0"
+  }
+  minuteString += minute.toString();
+  DATA.MINUTE.push(minuteString);
+}
+
+for(let hour = 0; hour <= 12; hour++){
+  let hourString = ""
+  if(hour < 10){
+    hourString = "0"
+  }
+  hourString += hour.toString();
+  DATA.HOUR.push(hourString);
+}
+
 const dateOptions = DATA.DATE.map(date => ({
     value: date,
     label: date,
@@ -71,6 +93,26 @@ const monthOptions = DATA.MONTH.map(month => ({
 const yearOptions = DATA.YEAR.map(year => ({
     value: year,
     label: year,
+  }));
+
+const minuteOptions = DATA.MINUTE.map(minute => ({
+    value: minute,
+    label: minute,
+  }));
+
+const hourOptions = DATA.HOUR.map(hour => ({
+    value: hour,
+    label: hour,
+  }));
+
+const xmOptions = DATA.XM.map(xm => ({
+    value: xm,
+    label: xm,
+  }));
+
+const taskStatusOptions = DATA.TASKSTATUS.map(taskStatus => ({
+    value: taskStatus === "In-progress" ? "IP" : "C",
+    label: taskStatus,
   }));
 
 const genderOptions = DATA.GENDER.map(gender => ({
@@ -89,6 +131,10 @@ export const OPTIONS_DATA = {
     dateOptions,
     monthOptions,
     yearOptions,
+    minuteOptions,
+    hourOptions,
+    xmOptions,
+    taskStatusOptions,
     genderOptions,
     stateOptions,
 }
