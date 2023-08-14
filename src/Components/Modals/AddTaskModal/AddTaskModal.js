@@ -15,7 +15,7 @@ import '../../../Styles/Components/Modals/AddTaskModal.css'
 
 //#region Import Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+//#endregion
 function AddTaskModal({open, OnClose}) {
     const dummyOption = []
     return (
@@ -47,7 +47,7 @@ function AddTaskModal({open, OnClose}) {
                                     title='Task Name' 
                                     onChange={() => {}} />
 
-                        {/* Task Name Input Field */}
+                        {/* Task Description Input Field */}
                         <StandardInputField className='AddTaskModal-lastLeftInputFieldContainer' 
                                     inputClassName='' 
                                     htmlFor='taskDescription' 
@@ -71,7 +71,7 @@ function AddTaskModal({open, OnClose}) {
                         <h1 className='heading1 AddTaskModal-placeholderAddTaskHeader'></h1>
                         {/* Date Drop Down Group */}
                         <div className='AddTaskModal-dropDownGroup'>
-                            {/* Pet Date of Birth Drop Downs Group */}
+                            {/*Task Date Drop Downs Group */}
                             <div className='flexRowCenter'>
                                 {/* Month DropDown */}
                                 <StandardDropDown className='AddTaskModal-taskDateMonthDropDownContainer' 
@@ -105,7 +105,7 @@ function AddTaskModal({open, OnClose}) {
                                                 onChange={() => {}}/>
                             </div>
                         </div>
-                        {/* Time Drop Down Group */}
+                        {/* Task Time Drop Down Group */}
                         <div className='AddTaskModal-dropDownGroup'>
                             {/* Time Drop Downs Group */}
                             <div className='flexRowCenter'>

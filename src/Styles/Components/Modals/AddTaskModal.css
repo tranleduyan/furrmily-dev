@@ -1,13 +1,8 @@
 .AddTaskModal-leftContentPanel, .AddTaskModal-rightContentPanel{
-    width: calc(48.7vmin); /* Based on 450px on 1920x1080 */
     height: calc(55.2vmin);/* Based on 510px on 1920x1080 */
     display:flex;
     flex-direction: column;
     align-items: center;
-}
-
-.AddTaskModal-rightContentPanel{
-    width: calc(39.95vmin); /* Based on 370px on 1920x1080 */
 }
 
 .AddTaskModal-addTaskHeader {
@@ -20,10 +15,12 @@
 }
 
 .AddTaskModal-leftContentPanel{
+    width: calc(48.7vmin); /* Based on 450px on 1920x1080 */
     padding-right: calc(6.7vmin); /* Based on 64px on 1920x1080 */
 }
 
 .AddTaskModal-rightContentPanel{
+    width: calc(39.95vmin); /* Based on 370px on 1920x1080 */
     padding-left: calc(6.7vmin); /* Based on 64px on 1920x1080 */
 }
 
