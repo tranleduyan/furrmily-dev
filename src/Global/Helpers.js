@@ -38,10 +38,15 @@ const CapitalConverter = (str) => {
     return words.join(" ");
 };
 
+const DateTimeConverter = (str) => {
+    return new Date(str);
+}
+
 export const Converters = {
     UpperCaseConverter,
     LowerCaseConverter,
     CapitalConverter,
+    DateTimeConverter,
 }
 
 /* Helpers */
