@@ -1,0 +1,81 @@
+.AddTaskModal-leftContentPanel, .AddTaskModal-rightContentPanel{
+    width: calc(48.7vmin); /* Based on 450px on 1920x1080 */
+    height: calc(55.2vmin);/* Based on 510px on 1920x1080 */
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.AddTaskModal-rightContentPanel{
+    width: calc(39.95vmin); /* Based on 370px on 1920x1080 */
+}
+
+.AddTaskModal-addTaskHeader {
+    margin-bottom: calc(1.65vmin);
+}
+
+.AddTaskModal-placeholderAddTaskHeader{
+    min-height: calc(5vmin); /* Based on 48px in 1920x1080 */
+    margin-bottom: calc(1.67vmin);
+}
+
+.AddTaskModal-leftContentPanel{
+    padding-right: calc(6.7vmin); /* Based on 64px on 1920x1080 */
+}
+
+.AddTaskModal-rightContentPanel{
+    padding-left: calc(6.7vmin); /* Based on 64px on 1920x1080 */
+}
+
+.AddTaskModal-petNameDropDownContainer, .AddTaskModal-taskAssigneeDropDownContainer {
+    margin-bottom: calc(1.65vmin); /* Based on 16px in 1920x1080 */
+}
+
+.AddTaskModal-inputFieldContainer {
+    margin-bottom: calc(1.65vmin); /* Based on 16px in 1920x1080 */
+}
+
+.AddTaskModal-leftInputGroupContainer, .AddTaskModal-rightInputGroupContainer {
+    width:100%;   
+}
+
+.AddTaskModal-lastLeftInputFieldContainer{
+    margin-bottom: calc(4.8vmin); /* Based on 52px in 1920x1080 */
+}
+
+.AddTaskModal-leftButtonGroupContainer{
+    width:100%;
+}
+
+.AddTaskModal-taskStatusDropDownContainer  {
+    width:100%;
+}
+
+.AddTaskModal-addButton {
+    margin-right: calc(1.25vmin); /* Based on 12px in 1920x1080 */
+}
+
+.AddTaskModal-cancelButton{
+    margin-left: calc(1.25vmin); /* Based on 12px in 1920x1080 */
+}
+
+.AddTaskModal-dropDownGroup {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: calc(1.65vmin); /* Based on 16px in 1920x1080 */
+}
+
+.AddTaskModal-taskDateMonthDropDownContainer, .AddTaskModal-taskDateDayDropDownContainer  {
+    margin-right: calc(0.75vmin); /* Based on 8px in 1920x1080 */
+    width: calc(12vmin);
+}
+
+.AddTaskModal-taskDateYearDropDownContainer, .AddTaskModal-taskTimeXMDropDownContainer {
+    width: calc(14vmin);
+}
+
+.AddTaskModal-taskTimeHourDropDownContainer, .AddTaskModal-taskTimeMinuteDropDownContainer {
+    margin-right: calc(0.75vmin); /* Based on 8px in 1920x1080 */
+    width: calc(12vmin);
+}
