@@ -7,6 +7,7 @@ import PetsList from '../../Components/Lists/PetsList/PetsList'
 import AddPetModal from '../../Components/Modals/AddPetModal/AddPetModal'
 import { connect } from 'react-redux'
 import TasksList from '../../Components/Lists/TasksList/TasksList'
+import AddTaskModal from '../../Components/Modals/AddTaskModal/AddTaskModal'
 //#endregion
 
 
@@ -24,28 +25,40 @@ function Dashboard({ userData }) {
   //#region Variables
   
   const [isOpenAddPetModal, setIsOpenAddPetModal] = useState(false);
- 
+  const [isOpenAddTaskModal, setIsOpenAddTaskModal] = useState(false);
+
   //#endregion
 
  //#region Functions
  
- //OnAddPetButtonClick  - Open Pet Modal
-  const OnAddPetButtonClick = () => {
+ //OnOpenAddPetModal  - Open Add Pet Modal
+  const OnOpenAddPetModal = () => {
     setIsOpenAddPetModal(true);
-  }
+  };
 
-  //OnCloseModal - Close the Modal that is currently opened
-  const OnCloseModal = () =>{
+  //OnCloseAddPetModal - Close Add Pet Modal that is currently opened
+  const OnCloseAddPetModal = () => {
     setIsOpenAddPetModal(false);
-  }
+  };
   
+  //OnOpenAddTaskModal - Open Task Modal 
+  const OnOpenAddTaskModal = () => {
+    setIsOpenAddTaskModal(true);
+  };
+
+  //OnCloseAddTaskModal - Close Add Task Modal that is currently opened
+  const OnCloseAddTaskModal = () => {
+    setIsOpenAddTaskModal(false);
+  } 
+
   //#endregion
 
   return (
     <div className="wrapper Dashboard-wrapper">
       {/* Add Pet Modal */}
-      <AddPetModal open={isOpenAddPetModal} OnClose={OnCloseModal} />
-
+      <AddPetModal open={isOpenAddPetModal} OnClose={OnCloseAddPetModal} />
+      {/* Add Task Modal */}
+      <AddTaskModal open={isOpenAddTaskModal} OnClose={OnCloseAddTaskModal} />
       {/* Side Nav Bar */}
       <SideNavBar
         userAvatar={userData.userAvatar}
@@ -66,7 +79,7 @@ function Dashboard({ userData }) {
                 <IconButton
                   className="flexRowCenter Dashboard-AddButton"
                   icon={<FontAwesomeIcon icon={faPlusCircle} />}
-                  onClick={OnAddPetButtonClick}
+                  onClick={OnOpenAddPetModal}
                 />
               </div>
 
@@ -123,7 +136,7 @@ function Dashboard({ userData }) {
                 <IconButton
                   className="flexRowCenter Dashboard-AddButton"
                   icon={<FontAwesomeIcon icon={faPlusCircle} />}
-                  onClick={OnAddPetButtonClick}
+                  onClick={OnOpenAddTaskModal}
                 />
               </div>
 
