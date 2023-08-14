@@ -7,6 +7,7 @@ export const API = {
   petsListURL: '/api/pet-profiles/', //this one will be used to concat with userID
   petTypesURL:'/api/pet-profiles/pet-types',
   petBreedsURL:'/api/pet-profiles/pet-breed',
+  addPetURL: '/api/pet-profiles/create',
 }
 
 //UI CONSTANTS
