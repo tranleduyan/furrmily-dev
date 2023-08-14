@@ -11,7 +11,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 function StandardDropDown(props) {
 
-  const {onChange, error, options} = props;
+  const {onChange, error, options, isDisabled } = props;
   const className=`${props.className} StandardDropDown-container`;
   const [maxMenuHeight, setMaxMenuHeight] = useState(0);
 
@@ -79,12 +79,12 @@ function StandardDropDown(props) {
       paddingRight: 'calc(1.65vmin)',
       backgroundColor: error || state.isFocused ? 'var(--White)' 
                                                 : 'var(--Gray1)',
-      border: error ? 'solid 3px var(--Red1)' 
-                    : state.isFocused ? 'solid 3px var(--Black)' 
-                    : 'solid 3px var(--Gray1)',
+      border: error ? 'solid 2px var(--Red1)' 
+                    : state.isFocused ? 'solid 2px var(--Black)' 
+                    : 'solid 2px var(--Gray1)',
       boxShadow: 'none',
       '&:hover': {
-        border: 'solid 3px var(--Black)',
+        border: 'solid 2px var(--Black)',
     }
     }),
   }
@@ -100,7 +100,8 @@ function StandardDropDown(props) {
               placeholder={props.placeholder}
               components={{DropdownIndicator, IndicatorSeparator}}
               maxMenuHeight={maxMenuHeight}
-              onChange={handleInputChange}>
+              onChange={handleInputChange}
+              isDisabled={isDisabled}>
       </Select>
     </div>
   );

@@ -32,8 +32,8 @@ function TaskCard(props) {
 
       {/* Task Information Section */}
       <div className="TaskCard-taskInformationContainer">
-        <div className="TaskCard-taskDueDateContainer">{taskDueDate}</div>
-        <div className="TaskCard-taskNameContainer">{taskName}</div>
+        <p className="paragraph2 TaskCard-taskDueDateContainer">{taskDueDate}</p>
+        <p className="paragraph2 TaskCard-taskNameContainer">{taskName}</p>
       </div>
     </GeneralCard>
   );
