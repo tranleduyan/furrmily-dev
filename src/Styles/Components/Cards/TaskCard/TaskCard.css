@@ -4,7 +4,7 @@
   border-radius: 50%;
   background-color: var(--Green2);
   color: var(--Green1);
-  font-size: calc(3.35vmin); /* Based on 32px in 1920x1080 */
+  font-size: calc(3vmin); /* Based on 32px in 1920x1080 */
 }
 
 .TaskCard-taskInProgressIconContainer {
@@ -13,7 +13,7 @@
   border-radius: 50%;
   background-color: var(--Orange2);
   color: var(--Orange1);
-  font-size: calc(3.35vmin); /* Based on 32px in 1920x1080 */
+  font-size: calc(2.5vmin); /* Based on 32px in 1920x1080 */
 }
 
 .TaskCard-taskStatusContainer {
@@ -31,10 +31,9 @@
 }
 
 .TaskCard-taskNameContainer {
-  padding: 0 calc(1.65vmin); /* Based on 20px on 1920x1080 */
   font-weight: bold;
 }
 
 .TaskCard-taskDueDateContainer {
-  padding: 0 calc(1.65vmin); /* Based on 20px on 1920x1080 */
+
 }
