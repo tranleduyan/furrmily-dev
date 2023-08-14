@@ -111,7 +111,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
   /* PetBreedOptions */
   const petBreedOptions = petBreeds ? petBreeds.map(breed => ({
     value: breed.breedName,
-    label: breed.breedName,
+    label: Converters.CapitalConverter(breed.breedName),
   })) : [];
 
   //#endregion
