@@ -51,7 +51,6 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
   });
 
   /* requestBody for API upon adding */
-
   const requestBody = {
     userId: userData.userId,
     petName: petInformation.petName,
@@ -83,9 +82,8 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
     setPetInformation({...petInformation, [propertyName]: inputValue});
   }
 
-  /* OnAddPetProfile - TODO: Add Pet Profile using all the input information */
+  /* OnAddPetProfile - Add Pet Profile using all the input information and then reload page*/
   const OnAddPetProfile = () => {
-    console.log(requestBody);
     axios
       .post(API.addPetURL, requestBody, {
         headers: {
