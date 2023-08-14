@@ -1,12 +1,13 @@
 //#region Import Components
 import React, { useState } from 'react'
+import axios from 'axios'
 import GeneralModal from '../GeneralModal/GeneralModal'
 import StandardButton from '../../Buttons/StandardButton/StandardButton'
 import StandardInputField from '../../InputFields/StandardInputField'
 import IconButton from '../../Buttons/IconButton/IconButton'
 import TextAreaInputField from '../../InputFields/TextAreaInputField/TextAreaInputField'
 import StandardDropDown from '../../Dropdowns/StandardDropDown/StandardDropDown'
-import { OPTIONS_DATA } from '../../../Global/Constants'
+import { API, OPTIONS_DATA } from '../../../Global/Constants'
 import { connect } from 'react-redux'
 import { Converters } from '../../../Global/Helpers'
 //#endregion
@@ -21,7 +22,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage } from '@fortawesome/free-solid-svg-icons'
 //#endregion
 
-function AddPetModal({open, OnClose, petTypes, petBreeds}) {
+function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
 
   //#region Variables
 
@@ -49,6 +50,26 @@ function AddPetModal({open, OnClose, petTypes, petBreeds}) {
     description: '',
   });
 
+  /* requestBody for API upon adding */
+
+  const requestBody = {
+    userId: userData.userId,
+    petName: petInformation.petName,
+    petPhoto: 'x', //TODO: FutureSprint allows upload photo
+    petDateOfBirth: Converters.DateTimeConverter(`${petInformation.petBirthYear}-${petInformation.petBirthMonth}-${petInformation.petBirthDay}`),
+    petType: petInformation.petType,
+    petBreed: petInformation.petBreed,
+    petGender: petInformation.petGender,
+    petWeight: petInformation.petWeight,
+    physicalAddress1: petInformation.physicalAddress1,
+    physicalAddress2: petInformation.physicalAddress2,
+    addressCity: petInformation.addressCity,
+    addressState: petInformation.addressState,
+    addressZip4: petInformation.addressZip4,
+    addressZip5: petInformation.addressZip5,
+    description: petInformation.description,
+  }
+
   //#endregion
 
   //#region Functions
@@ -64,7 +85,19 @@ function AddPetModal({open, OnClose, petTypes, petBreeds}) {
 
   /* OnAddPetProfile - TODO: Add Pet Profile using all the input information */
   const OnAddPetProfile = () => {
-    console.log(petInformation);
+    console.log(requestBody);
+    axios
+      .post(API.addPetURL, requestBody, {
+        headers: {
+          'X-API-KEY': API.key,
+        }
+      })
+      .then(response => {
+        window.location.reload();  // Refresh Page
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   //#endregion
@@ -79,7 +112,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds}) {
 
   /* PetBreedOptions */
   const petBreedOptions = petBreeds ? petBreeds.map(breed => ({
-    value: breed.petTypeCode,
+    value: breed.breedName,
     label: breed.breedName,
   })) : [];
 
@@ -281,7 +314,8 @@ function AddPetModal({open, OnClose, petTypes, petBreeds}) {
 
 const mapStateToProps = state => ({
   petTypes: state.options.petTypes,
-  petBreeds: state.options.petBreeds
+  petBreeds: state.options.petBreeds,
+  userData: state.user.userData,
 });
 
 export default connect(mapStateToProps)(AddPetModal);
