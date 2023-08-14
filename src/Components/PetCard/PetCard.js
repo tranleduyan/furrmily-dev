@@ -1,6 +1,7 @@
 //#region Import Component
 import React from 'react'
 import PetMemberCard from '../PetMemberCard/PetMemberCard';
+import { Converters } from '../../Global/Helpers';
 //#endregion
 
 //#region Import Stylings
@@ -17,8 +18,8 @@ function PetCard(props) {
   //#region Variables
 
   const petAge = `Age: ${props.petAge} years old`;
-  const petType = `Type: ${props.petType}`;
-  const petBreed = `Breed: ${props.petBreed}`;
+  const petType = `Type: ${Converters.CapitalConverter(props.petType)}`;
+  const petBreed = `Breed: ${Converters.CapitalConverter(props.petBreed)}`;
   const extraMemberAmount = `0`;
   const lastPetMemberCardClassName = (extraMemberAmount > 0) ? `flexColumnCenter lastPetMemberCard` : `hidden`
 
