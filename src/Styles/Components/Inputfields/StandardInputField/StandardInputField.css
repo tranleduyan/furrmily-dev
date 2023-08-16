@@ -10,8 +10,8 @@
 }
 
 .inputField{
-    border: solid calc(0.15vmin); /* Based on 2px */
-    height:calc(7.54vmin); /* Based on 72px in 1920x1080 */
+    border: solid calc(0.31vmin); /* Based on 3px in 1920x1080 */
+    height:calc(7.4vmin); /* Based on 72px in 1920x1080 */
     border-color: var(--Gray1);
     background-color: var(--Gray1);
     border-radius: 5px;
@@ -21,7 +21,7 @@
     padding-right: calc(2.1vmin); /* Based on 20px in 1920x1080 */
 }
 .inputField:focus{
-    border: solid calc(0.15vmin); /* Based on 2px */
+    border: solid calc(0.31vmin); /* Based on 3px in 1920x1080 */
     border-color:var(--Black);
     background-color: var(--White);
     color: var(--Black);
@@ -32,14 +32,14 @@
 }
 
 .inputFieldError{
-    border: solid calc(0.15vmin); /* Based on 2px */
+    border: solid calc(0.31vmin); /* Based on 3px in 1920x1080 */
     border-color:var(--Red1);
     background-color: var(--White);
     color: var(--Black);
 }
 
 .inputField:hover{
-    box-shadow: inset 0 0 0 calc(0.115vmin) var(--Black);
+    box-shadow: inset 0 0 0 calc(0vmin) var(--Black);
     border-color:var(--Black);
     background-color: var(--White);
     color: var(--Black);
