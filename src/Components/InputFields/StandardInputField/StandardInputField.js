@@ -25,7 +25,8 @@ function StandardInputField(props) {
              id={props.id} 
              className={inputClassName} 
              value={props.value} 
-             onChange={handleInputChange}/>
+             onChange={handleInputChange}
+             maxLength={props.maxLength || undefined}/>
   </div>
   )
 }
