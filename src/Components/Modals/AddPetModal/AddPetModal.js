@@ -100,6 +100,28 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
         setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
         return false;
        }
+
+    if(petInformation.petName.length > 15){
+      setIsError(true);
+      setErrorMessage(UITEXT.LONG_PETNAME_ERROR);
+      return false;
+    }
+
+    /* Check for valid weight */   
+    const weightRefex = /^\d+$/;
+    if(!weightRefex.test(petInformation.petWeight)){
+      setIsError(true);
+      setErrorMessage(UITEXT.INVALID_WEIGHT_ERROR);
+      return false;
+    }
+
+    /* Check for valid zip code 5 */
+    const zipCode5Regex = /^\d{5}$/;
+    if(!zipCode5Regex.test(petInformation.addressZip5)){
+      setIsError(true);
+      setErrorMessage(UITEXT.INVALID_ZIPCODE5_ERROR);
+      return false;
+    }
     return true;
   }
 
@@ -172,7 +194,8 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 type='text' 
                                 title='Name' 
                                 onChange={HandleInputChange}
-                                error={isError}/>
+                                error={isError}
+                                />
             {/* Drop Down Group */}
             <div className='AddPetModal-dropDownGroup'>
 
@@ -287,7 +310,8 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 type='text'
                                 title='Address Line 1' 
                                 onChange={HandleInputChange}
-                                error={isError}/>
+                                error={isError}
+                                maxLength={255}/>
 
               {/* Pet Address Line 2 input field */}
             <StandardInputField className='AddPetModal-inputFieldContainer' 
@@ -298,7 +322,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 type='text' 
                                 title='Address Line 2 (Optional)' 
                                 onChange={HandleInputChange} 
-                                />
+                                maxLength={255}/>
             
             {/* City State Input Group */}
             <div className='AddPetModal-CityStateGroup'>
@@ -312,7 +336,8 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                   type='text' 
                                   title='City' 
                                   onChange={HandleInputChange} 
-                                  error={isError}/>
+                                  error={isError}
+                                  maxLength={255}/>
 
               {/* State DropDown - Right */}
               <StandardDropDown className='AddPetModal-rightGroupInputFieldContainer' 
@@ -335,7 +360,8 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                   type='text'
                                   title='Zip Code' 
                                   onChange={HandleInputChange} 
-                                  error={isError}/>
+                                  error={isError}
+                                  maxLength={5}/>
           </div>
         </div>
       </div>
