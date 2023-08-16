@@ -1,4 +1,5 @@
 .messageContainer{
+    min-height: calc(3.78vmin); /* Based on 40px in 1920x1080 */
     width:100%;
     display: flex;
     flex-direction: row;
@@ -20,8 +21,8 @@
 }
 
 .warningIcon, .errorIcon{
-    margin-right:10px;
-    margin-bottom:2px;
+    margin-right:calc(0.95vmin); /* Based on 10px in 1920x1080 */
+    margin-bottom: calc(0.15vmin); /* Based on 2px in 1920x1080 */
 }
 
 .hide {
