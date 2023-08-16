@@ -79,12 +79,12 @@ function StandardDropDown(props) {
       paddingRight: 'calc(1.65vmin)',
       backgroundColor: error || state.isFocused ? 'var(--White)' 
                                                 : 'var(--Gray1)',
-      border: error ? 'solid 2px var(--Red1)' 
-                    : state.isFocused ? 'solid 2px var(--Black)' 
-                    : 'solid 2px var(--Gray1)',
+      border: error ? 'solid calc(0.31vmin) var(--Red1)' 
+                    : state.isFocused ? 'solid calc(0.31vmin) var(--Black)' 
+                    : 'solid calc(0.31vmin) var(--Gray1)',
       boxShadow: 'none',
       '&:hover': {
-        border: 'solid 2px var(--Black)',
+        border: 'solid calc(0.31vmin) var(--Black)',
     }
     }),
   }
