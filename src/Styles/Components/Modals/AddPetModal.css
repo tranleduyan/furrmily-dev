@@ -32,17 +32,18 @@
     width:100%;
 }
 
-.AddPetModal-inputFieldContainer{
+.AddPetModal-firstRightInputFieldContainer, .AddPetModal-inputFieldContainer{
     margin-bottom: calc(1.65vmin); /* Based on 16px in 1920x1080 */
 }
 
-.AddPetModal-lastLeftInputFieldContainer{
-    margin-bottom: calc(5.45vmin); /* Based on 52px in 1920x1080 */
+.AddPetModal-lastLeftInputFieldContainer, .AddPetModal-lastRightInputFieldContainer{
+    margin-bottom: 0px; /* Based on 52px in 1920x1080 */
 }
 
-.AddPetModal-lastRightInputFieldContainer{
-    margin-bottom: 0; /* Based on 16px in 1920x1080 */
+.AddPetModal-firstRightInputFieldContainer{
+    margin-top:-6px;
 }
+
 
 .AddPetModal-leftButtonGroupContainer{
     width:100%;
@@ -94,12 +95,12 @@
 
 .AddPetModal-leftGroupInputFieldContainer{
     margin-right: calc(0.75vmin); /* Based on 8px in 1920x1080 */
-    width: calc(25.7vmin); /* Based on 230px in 1920x1080 */
+    width: calc(26.3vmin); /* Based on 230px in 1920x1080 */
 }
 
 .AddPetModal-rightGroupInputFieldContainer{
     margin-left: calc(0.75vmin); /* Based on 8px in 1920x1080 */
-    width: calc(25.7vmin); /* Based on 230px in 1920x1080 */
+    width: calc(26.3vmin); /* Based on 230px in 1920x1080 */
 }
 
 .AddPetModal-ZipCodeGroup{
