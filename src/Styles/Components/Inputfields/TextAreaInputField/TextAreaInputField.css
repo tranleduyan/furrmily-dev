@@ -9,7 +9,7 @@
 }
 
 .TextArea-inputField{
-    border: solid 2px;
+    border: solid calc(0.31vmin); /* Based on 3px in 1920x1080 */
     border-color: var(--Gray1);
     background-color: var(--Gray1);
     border-radius: 5px;
@@ -20,7 +20,7 @@
     resize: none;
 }
 .TextArea-inputField:focus{
-    border: solid 2px;
+    border: solid calc(0.31vmin); /* Based on 3px in 1920x1080 */
     border-color:var(--Black);
     background-color: var(--White);
     color: var(--Black);
@@ -31,7 +31,7 @@
 }
 
 .TextArea-inputFieldError{
-    border: solid 2px;
+    border: solid calc(0.31vmin); /* Based on 3px in 1920x1080 */
     border-color:var(--Red1);
     background-color: var(--White);
     color: var(--Black);
@@ -40,3 +40,9 @@
 .TextArea-inputField::-webkit-scrollbar {
     display: none;
   }
+
+.TextArea-inputField:hover{
+    border-color:var(--Black);
+    background-color: var(--White);
+    color: var(--Black);
+}
