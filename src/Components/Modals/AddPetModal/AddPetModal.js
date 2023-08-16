@@ -7,7 +7,7 @@ import StandardInputField from '../../InputFields/StandardInputField'
 import IconButton from '../../Buttons/IconButton/IconButton'
 import TextAreaInputField from '../../InputFields/TextAreaInputField/TextAreaInputField'
 import StandardDropDown from '../../Dropdowns/StandardDropDown/StandardDropDown'
-import { API, OPTIONS_DATA } from '../../../Global/Constants'
+import { API, OPTIONS_DATA, UITEXT } from '../../../Global/Constants'
 import { connect } from 'react-redux'
 import { Converters } from '../../../Global/Helpers'
 //#endregion
@@ -20,6 +20,7 @@ import '../../../Styles/Components/Modals/AddPetModal.css'
 //#region Import Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage } from '@fortawesome/free-solid-svg-icons'
+import Message from '../../Message/Message'
 //#endregion
 
 function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
@@ -82,8 +83,31 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
     setPetInformation({...petInformation, [propertyName]: inputValue});
   }
 
+  /* IsValid - Check for required fields */
+  const IsValid = () => {
+    if(!petInformation.petName 
+       || !petInformation.petBirthMonth 
+       || !petInformation.petBirthDay 
+       || !petInformation.petBirthYear 
+       || !petInformation.petType 
+       || !petInformation.petBreed 
+       || !petInformation.petGender 
+       || !petInformation.physicalAddress1 
+       || !petInformation.addressCity 
+       || !petInformation.addressState 
+       || !petInformation.addressZip5){
+        setIsError(true);
+        setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+        return false;
+       }
+    return true;
+  }
+
   /* OnAddPetProfile - Add Pet Profile using all the input information and then reload page*/
   const OnAddPetProfile = () => {
+    if(!IsValid()){
+      return;
+    }
     axios
       .post(API.addPetURL, requestBody, {
         headers: {
@@ -96,6 +120,15 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
       .catch(error => {
         console.log(error);
       });
+  }
+
+  /* OnCloseModal - if there is error, set error to false and clear error message, close the modal. */
+  const OnCloseModal = () => {
+    if(isError) {
+      setIsError(false);
+      setErrorMessage('');
+    }
+    OnClose();
   }
 
   //#endregion
@@ -138,7 +171,8 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 name='petName' 
                                 type='text' 
                                 title='Name' 
-                                onChange={HandleInputChange} />
+                                onChange={HandleInputChange}
+                                error={isError}/>
             {/* Drop Down Group */}
             <div className='AddPetModal-dropDownGroup'>
 
@@ -153,7 +187,8 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                   title='Birth Date' 
                                   placeholder='MM' 
                                   options={OPTIONS_DATA.monthOptions} 
-                                  onChange={HandleInputChange}/>
+                                  onChange={HandleInputChange}
+                                  error={isError}/>
 
                 {/* Date DropDown */}
                 <StandardDropDown className='AddPetModal-petDateOfBirthDropDownContainer' 
@@ -163,7 +198,8 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                   title='' 
                                   placeholder='DD' 
                                   options={OPTIONS_DATA.dateOptions} 
-                                  onChange={HandleInputChange}/>
+                                  onChange={HandleInputChange}
+                                  error={isError}/>
 
                 {/* Year DropDown */}
                 <StandardDropDown className='AddPetModal-petYearOfBirthDropDownContainer' 
@@ -174,7 +210,8 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                   title='' 
                                   placeholder='YYYY' 
                                   options={OPTIONS_DATA.yearOptions} 
-                                  onChange={HandleInputChange}/>
+                                  onChange={HandleInputChange}
+                                  error={isError}/>
               </div>
 
               {/* Pet Gender DropDown */}
@@ -185,7 +222,8 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 title='Gender' 
                                 placeholder='M/F' 
                                 options={OPTIONS_DATA.genderOptions} 
-                                onChange={HandleInputChange}/>
+                                onChange={HandleInputChange}
+                                error={isError}/>
             </div>
             {/* Pet Type Drop Down */}
             <StandardDropDown className='AddPetModal-inputFieldContainer' 
@@ -194,7 +232,8 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 name='petType' 
                                 title='Type' 
                                 options={petTypeOptions} 
-                                onChange={HandleInputChange} />
+                                onChange={HandleInputChange}
+                                error={isError}/>
             {/* Pet Breed input field */}
             <StandardDropDown className='AddPetModal-lastLeftInputFieldContainer' 
                                 htmlFor='petBreed' 
@@ -202,13 +241,14 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 name='petBreed' 
                                 title='Breed' 
                                 options={petBreedOptions} 
-                                onChange={HandleInputChange} />
+                                onChange={HandleInputChange}
+                                error={isError}/>
           </div>
-
+          <Message className='' messageType='error' visibility={isError} content={errorMessage}/>
           {/* Buttons */}
           <div className='AddPetModal-leftButtonGroupContainer flexRowCenter'>
             <StandardButton className='AddPetModal-addButton' type='Primary' title='ADD' onClick={OnAddPetProfile}/>
-            <StandardButton className='AddPetModal-cancelButton' type='Secondary' title='CANCEL' onClick={OnClose}/>
+            <StandardButton className='AddPetModal-cancelButton' type='Secondary' title='CANCEL' onClick={OnCloseModal}/>
           </div>
         </div>
 
@@ -217,14 +257,15 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
           <div className='AddPetModal-rightInputGroupContainer'>
 
             {/* Pet About Text Area Input Field */}
-            <TextAreaInputField className='AddPetModal-inputFieldContainer' 
+            <TextAreaInputField className='AddPetModal-firstRightInputFieldContainer' 
                                 inputClassName='AddPetModal-aboutInputField' 
                                 htmlFor='description' 
                                 id='description'             
                                 name='description' 
                                 type='text' 
                                 title='About' 
-                                onChange={HandleInputChange} />
+                                onChange={HandleInputChange}
+                                error={isError}/>
 
             {/* Pet Weight Input Field */}
             <StandardInputField className='AddPetModal-inputFieldContainer' 
@@ -233,8 +274,9 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 id='petWeight' 
                                 name='petWeight' 
                                 type='text' 
-                                title='Weight (lbs)' 
-                                onChange={HandleInputChange} />
+                                title='Weight (Optional - lbs)' 
+                                onChange={HandleInputChange}
+                                />
 
             {/* Pet Address Line 1 input field */}
             <StandardInputField className='AddPetModal-inputFieldContainer' 
@@ -244,7 +286,8 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 name='physicalAddress1' 
                                 type='text'
                                 title='Address Line 1' 
-                                onChange={HandleInputChange} />
+                                onChange={HandleInputChange}
+                                error={isError}/>
 
               {/* Pet Address Line 2 input field */}
             <StandardInputField className='AddPetModal-inputFieldContainer' 
@@ -254,7 +297,8 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 name='physicalAddress2' 
                                 type='text' 
                                 title='Address Line 2 (Optional)' 
-                                onChange={HandleInputChange} />
+                                onChange={HandleInputChange} 
+                                />
             
             {/* City State Input Group */}
             <div className='AddPetModal-CityStateGroup'>
@@ -267,7 +311,8 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                   name='addressCity' 
                                   type='text' 
                                   title='City' 
-                                  onChange={HandleInputChange} />
+                                  onChange={HandleInputChange} 
+                                  error={isError}/>
 
               {/* State DropDown - Right */}
               <StandardDropDown className='AddPetModal-rightGroupInputFieldContainer' 
@@ -277,32 +322,20 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 title='State' 
                                 placeholder=' ' 
                                 options={OPTIONS_DATA.stateOptions} 
-                                onChange={HandleInputChange}/>
+                                onChange={HandleInputChange}
+                                error={isError}/>
             </div>
-
-            {/* ZipCode Group */}
-            <div className='AddPetModal-ZipCodeGroup'>
-              
+      
               {/* ZipCode Input Field- Left */}
-              <StandardInputField className='AddPetModal-leftGroupInputFieldContainer' 
+              <StandardInputField className='AddPetModal-lastRightInputFieldContainer' 
                                   inputClassName='' 
                                   htmlFor='addressZip5' 
                                   id='addressZip5'
                                   name='addressZip5' 
                                   type='text'
                                   title='Zip Code' 
-                                  onChange={HandleInputChange} />
-              <p className='heading2 AddPetModal-zipcodeDash'> - </p>
-              {/* ZipCode 4 Input Field - Right */}
-              <StandardInputField className='AddPetModal-rightGroupInputFieldContainer' 
-                                  inputClassName='' 
-                                  htmlFor='addressZip4' 
-                                  id='addressZip4'             
-                                  name='addressZip4' 
-                                  type='text' 
-                                  title={''} 
-                                  onChange={HandleInputChange} />
-            </div>
+                                  onChange={HandleInputChange} 
+                                  error={isError}/>
           </div>
         </div>
       </div>
