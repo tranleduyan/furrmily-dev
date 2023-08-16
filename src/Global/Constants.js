@@ -28,6 +28,9 @@ export const UITEXT = {
     INVALID_EMAIL_ADDRESS_ERROR: 'Please enter valid email address',
     EMAIL_MISMATCHED_ERROR: 'The emails do not match',
     INVALID_PHONE_NUMBER_ERROR: 'Please enter valid phone number',
+    LONG_PETNAME_ERROR: 'Pet name can only be 15 characters or less',
+    INVALID_WEIGHT_ERROR: 'Please enter valid weight',
+    INVALID_ZIPCODE5_ERROR: 'Please enter valid Zip Code 5',
 };
 
 
