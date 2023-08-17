@@ -74,7 +74,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
 
   //#region Functions
 
-  /* HandleInputChange - takes the propertyName of the input to updateuserInformation object with the input value */
+  /* HandleInputChange - takes the propertyName of the input to update petInformation object with the input value */
   const HandleInputChange = (propertyName, inputValue) => {
     if(isError) {
       setIsError(false);
