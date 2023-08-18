@@ -1,5 +1,5 @@
 .AddTaskModal-leftContentPanel, .AddTaskModal-rightContentPanel{
-    height: calc(55.2vmin);/* Based on 510px on 1920x1080 */
+    height: calc(56vmin);/* Based on 510px (55.2vmin) on 1920x1080 */
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -24,28 +24,29 @@
     padding-left: calc(6.7vmin); /* Based on 64px on 1920x1080 */
 }
 
-.AddTaskModal-petNameDropDownContainer, .AddTaskModal-taskAssigneeDropDownContainer {
-    margin-bottom: calc(1.65vmin); /* Based on 16px in 1920x1080 */
-}
-
+.AddTaskModal-petNameDropDownContainer, 
+.AddTaskModal-taskAssigneeDropDownContainer,
 .AddTaskModal-inputFieldContainer {
     margin-bottom: calc(1.65vmin); /* Based on 16px in 1920x1080 */
 }
 
-.AddTaskModal-leftInputGroupContainer, .AddTaskModal-rightInputGroupContainer {
+.AddTaskModal-leftInputGroupContainer,
+.AddTaskModal-rightInputGroupContainer,
+.AddTaskModal-leftButtonGroupContainer,
+.AddTaskModal-taskStatusDropDownContainer  {
     width:100%;   
 }
 
 .AddTaskModal-lastLeftInputFieldContainer{
-    margin-bottom: calc(4.8vmin); /* Based on 52px in 1920x1080 */
+    margin-bottom: 0px;
 }
 
-.AddTaskModal-leftButtonGroupContainer{
-    width:100%;
+.AddTaskModal-taskAssigneeDropDownContainer  {
+    margin-bottom: calc(2.45vmin);
 }
 
-.AddTaskModal-taskStatusDropDownContainer  {
-    width:100%;
+.AddTaskModal-taskStatusDropDownContainer:hover{
+    cursor: not-allowed;
 }
 
 .AddTaskModal-addButton {
@@ -60,7 +61,7 @@
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: calc(1.65vmin); /* Based on 16px in 1920x1080 */
+    margin-bottom: calc(1.8vmin);
 }
 
 .AddTaskModal-taskDateMonthDropDownContainer, .AddTaskModal-taskDateDayDropDownContainer  {

@@ -31,6 +31,8 @@ export const UITEXT = {
     LONG_PETNAME_ERROR: 'Pet name can only be 15 characters or less',
     INVALID_WEIGHT_ERROR: 'Please enter valid weight',
     INVALID_ZIPCODE5_ERROR: 'Please enter valid Zip Code 5',
+    LONG_TASKNAME_ERROR: 'Task name can only be 30 characters or less',
+
 };
 
 

@@ -103,7 +103,7 @@ function SignUpPage() {
     })
     .catch(error => {
       /* Handle existing username or email error */
-      if(error.response.status === 401){
+      if(error.response.status === 400){
         const apiErrorMessage = error.response.data.message;
         setErrorMessage(Converters.UpperCaseConverter(apiErrorMessage));
       }
