@@ -92,10 +92,20 @@ const GetAvatarIcon = (avatarName) => {
           return faOtter;
       default:
           return faUser;
-  }
-}
+  };
+};
+
+/* IsValidDate - The function works by attempting to create a Date object with the provided year, month, and day. 
+If the resulting date doesn't match the provided parameters because of the rollover behavior of the Date object for invalid dates
+, the function returns false.*/
+const IsValidDate = (month, day, year) => {
+    const date = new Date(year, month - 1, day);
+
+    return date.getFullYear() === year && date.getMonth() === month && date.getDate() === day;
+};
 
 export const Helpers = {
     GetAvatarIcon,
+    IsValidDate,
 }
 
