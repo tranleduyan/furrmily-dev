@@ -10,6 +10,7 @@ import StandardDropDown from '../../Dropdowns/StandardDropDown/StandardDropDown'
 import { API, OPTIONS_DATA, UITEXT } from '../../../Global/Constants'
 import { connect } from 'react-redux'
 import { Converters, Helpers } from '../../../Global/Helpers'
+import Message from '../../Message/Message'
 //#endregion
 
 //#region Import Stylings
@@ -20,7 +21,6 @@ import '../../../Styles/Components/Modals/AddPetModal.css'
 //#region Import Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage } from '@fortawesome/free-solid-svg-icons'
-import Message from '../../Message/Message'
 //#endregion
 
 function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
