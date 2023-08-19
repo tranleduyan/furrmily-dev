@@ -9,7 +9,8 @@ import TextAreaInputField from '../../InputFields/TextAreaInputField/TextAreaInp
 import StandardDropDown from '../../Dropdowns/StandardDropDown/StandardDropDown'
 import { API, OPTIONS_DATA, UITEXT } from '../../../Global/Constants'
 import { connect } from 'react-redux'
-import { Converters } from '../../../Global/Helpers'
+import { Converters, Helpers } from '../../../Global/Helpers'
+import Message from '../../Message/Message'
 //#endregion
 
 //#region Import Stylings
@@ -20,7 +21,6 @@ import '../../../Styles/Components/Modals/AddPetModal.css'
 //#region Import Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage } from '@fortawesome/free-solid-svg-icons'
-import Message from '../../Message/Message'
 //#endregion
 
 function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
@@ -30,6 +30,17 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
   /* Error Handler Variables */
   const [errorMessage, setErrorMessage] = useState('');
   const [isError, setIsError] = useState(false);
+  const [petNameError, setPetNameError] = useState(false);
+  const [petBirthDateError, setPetBirthDateError] = useState(false);
+  const [petTypeError, setPetTypeError] = useState(false);
+  const [petBreedError, setPetBreedError] = useState(false);
+  const [petGenderError, setPetGenderError] = useState(false);
+  const [petWeightError, setPetWeightError] = useState(false);
+  const [physicalAddress1Error, setPhysicalAddress1Error] = useState(false);
+  const [addressCityError, setAddressCityError] = useState(false);
+  const [addressStateError, setAddressStateError] = useState(false);
+  const [addressZip5Error, setAddressZip5Error] = useState(false);
+  const [descriptionError, setDescriptionError] = useState(false);
 
   /* petInformation for input gathering - used for OnAddPetProfile and are updated using HandleInputChange */
   const [petInformation, setPetInformation] = useState({
@@ -78,6 +89,17 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
   const HandleInputChange = (propertyName, inputValue) => {
     if(isError) {
       setIsError(false);
+      setPetNameError(false);
+      setPetBirthDateError(false);
+      setPetGenderError(false);
+      setPetTypeError(false);
+      setPetBreedError(false);
+      setDescriptionError(false);
+      setPetWeightError(false);
+      setPhysicalAddress1Error(false);
+      setAddressCityError(false);
+      setAddressStateError(false);
+      setAddressZip5Error(false);
       setErrorMessage('');
     }
     setPetInformation({...petInformation, [propertyName]: inputValue});
@@ -85,44 +107,143 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
 
   /* IsValid - Check for required fields */
   const IsValid = () => {
-    if(!petInformation.petName 
-       || !petInformation.petBirthMonth 
-       || !petInformation.petBirthDay 
-       || !petInformation.petBirthYear 
-       || !petInformation.petType 
-       || !petInformation.petBreed 
-       || !petInformation.petGender 
-       || !petInformation.physicalAddress1 
-       || !petInformation.addressCity 
-       || !petInformation.addressState 
-       || !petInformation.addressZip5){
-        setIsError(true);
-        setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
-        return false;
-       }
+    let isValid = true;
+
+    if(!petInformation.petName){
+      setPetNameError(true);
+      setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+      isValid = false;
+    }
+
+    if(!petInformation.petBirthDay || !petInformation.petBirthMonth || !petInformation.petBirthYear){
+      setPetBirthDateError(true);
+      setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+      isValid = false;
+    }
+
+    else if(!Helpers.IsValidDate(petInformation.petBirthMonth, petInformation.petBirthDay, petInformation.petBirthYear)){
+      setPetBirthDateError(true);
+      setPetNameError(false);
+      setPetGenderError(false);
+      setPetTypeError(false);
+      setPetBreedError(false);
+      setDescriptionError(false);
+      setPetWeightError(false);
+      setPhysicalAddress1Error(false);
+      setAddressCityError(false);
+      setAddressStateError(false);
+      setAddressZip5Error(false);
+      setIsError(true);
+      setErrorMessage(UITEXT.INVALID_DATE_OF_BIRTH);
+      return false;
+    }
+
+    if(!petInformation.petGender){
+      setPetGenderError(true);
+      setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+      isValid = false;
+    }
+
+    if(!petInformation.petType){
+      setPetTypeError(true);
+      setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+      isValid = false;
+    }
+
+    if(!petInformation.petBreed){
+      setPetBreedError(true);
+      setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+      isValid = false;
+    }
+
+    if(!petInformation.description){
+      setDescriptionError(true);
+      setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+      isValid = false;
+    }
+
+    if(!petInformation.physicalAddress1){
+      setPhysicalAddress1Error(true);
+      setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+      isValid = false;
+    }
+
+    if(!petInformation.addressCity){
+      setAddressCityError(true);
+      setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+      isValid = false;
+    }
+
+    if(!petInformation.addressState){
+      setAddressStateError(true);
+      setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+      isValid = false;
+    }
+
+    if(!petInformation.addressZip5){
+      setAddressZip5Error(true);
+      setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+      isValid = false;
+    }
 
     if(petInformation.petName.length > 15){
-      setIsError(true);
+      setPetNameError(true);
+      setPetBirthDateError(false);
+      setPetGenderError(false);
+      setPetTypeError(false);
+      setPetBreedError(false);
+      setDescriptionError(false);
+      setPetWeightError(false);
+      setPhysicalAddress1Error(false);
+      setAddressCityError(false);
+      setAddressStateError(false);
+      setAddressZip5Error(false);
       setErrorMessage(UITEXT.LONG_PETNAME_ERROR);
-      return false;
+      setIsError(true);
+      isValid = false;
     }
 
     /* Check for valid weight */   
     const weightRefex = /^\d+$/;
-    if(!weightRefex.test(petInformation.petWeight)){
+    if(petInformation.petWeight && !weightRefex.test(petInformation.petWeight)){
+      setPetWeightError(true);
+      setPetNameError(false);
+      setPetBirthDateError(false);
+      setPetGenderError(false);
+      setPetTypeError(false);
+      setPetBreedError(false);
+      setDescriptionError(false);
+      setPhysicalAddress1Error(false);
+      setAddressCityError(false);
+      setAddressStateError(false);
+      setAddressZip5Error(false);
       setIsError(true);
       setErrorMessage(UITEXT.INVALID_WEIGHT_ERROR);
-      return false;
+      isValid = false;
     }
 
     /* Check for valid zip code 5 */
     const zipCode5Regex = /^\d{5}$/;
-    if(!zipCode5Regex.test(petInformation.addressZip5)){
+    if(petInformation.addressZip5 && !zipCode5Regex.test(petInformation.addressZip5)){
+      setAddressZip5Error(true);
+      setPetNameError(false);
+      setPetBirthDateError(false);
+      setPetGenderError(false);
+      setPetTypeError(false);
+      setPetBreedError(false);
+      setDescriptionError(false);
+      setPetWeightError(false);
+      setPhysicalAddress1Error(false);
+      setAddressCityError(false);
+      setAddressStateError(false);
       setIsError(true);
       setErrorMessage(UITEXT.INVALID_ZIPCODE5_ERROR);
-      return false;
+      isValid = false;
     }
-    return true;
+
+    setIsError(!isValid);
+
+    return isValid;
   }
 
   /* OnAddPetProfile - Add Pet Profile using all the input information and then reload page*/
@@ -148,6 +269,17 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
   const OnCloseModal = () => {
     if(isError) {
       setIsError(false);
+      setPetNameError(false);
+      setPetBirthDateError(false);
+      setPetGenderError(false);
+      setPetTypeError(false);
+      setPetBreedError(false);
+      setDescriptionError(false);
+      setPetWeightError(false);
+      setPhysicalAddress1Error(false);
+      setAddressCityError(false);
+      setAddressStateError(false);
+      setAddressZip5Error(false);
       setErrorMessage('');
     }
     OnClose();
@@ -194,7 +326,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 type='text' 
                                 title='Name' 
                                 onChange={HandleInputChange}
-                                error={isError}
+                                error={petNameError}
                                 />
             {/* Drop Down Group */}
             <div className='AddPetModal-dropDownGroup'>
@@ -211,7 +343,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                   placeholder='MM' 
                                   options={OPTIONS_DATA.monthOptions} 
                                   onChange={HandleInputChange}
-                                  error={isError}/>
+                                  error={petBirthDateError}/>
 
                 {/* Date DropDown */}
                 <StandardDropDown className='AddPetModal-petDateOfBirthDropDownContainer' 
@@ -222,7 +354,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                   placeholder='DD' 
                                   options={OPTIONS_DATA.dateOptions} 
                                   onChange={HandleInputChange}
-                                  error={isError}/>
+                                  error={petBirthDateError}/>
 
                 {/* Year DropDown */}
                 <StandardDropDown className='AddPetModal-petYearOfBirthDropDownContainer' 
@@ -234,7 +366,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                   placeholder='YYYY' 
                                   options={OPTIONS_DATA.yearOptions} 
                                   onChange={HandleInputChange}
-                                  error={isError}/>
+                                  error={petBirthDateError}/>
               </div>
 
               {/* Pet Gender DropDown */}
@@ -246,7 +378,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 placeholder='M/F' 
                                 options={OPTIONS_DATA.genderOptions} 
                                 onChange={HandleInputChange}
-                                error={isError}/>
+                                error={petGenderError}/>
             </div>
             {/* Pet Type Drop Down */}
             <StandardDropDown className='AddPetModal-inputFieldContainer' 
@@ -256,7 +388,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 title='Type' 
                                 options={petTypeOptions} 
                                 onChange={HandleInputChange}
-                                error={isError}/>
+                                error={petTypeError}/>
             {/* Pet Breed input field */}
             <StandardDropDown className='AddPetModal-lastLeftInputFieldContainer' 
                                 htmlFor='petBreed' 
@@ -265,7 +397,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 title='Breed' 
                                 options={petBreedOptions} 
                                 onChange={HandleInputChange}
-                                error={isError}/>
+                                error={petBreedError}/>
           </div>
           <Message className='' messageType='error' visibility={isError} content={errorMessage}/>
           {/* Buttons */}
@@ -288,7 +420,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 type='text' 
                                 title='About' 
                                 onChange={HandleInputChange}
-                                error={isError}/>
+                                error={descriptionError}/>
 
             {/* Pet Weight Input Field */}
             <StandardInputField className='AddPetModal-inputFieldContainer' 
@@ -299,7 +431,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 type='text' 
                                 title='Weight (Optional - lbs)' 
                                 onChange={HandleInputChange}
-                                />
+                                error={petWeightError}/>
 
             {/* Pet Address Line 1 input field */}
             <StandardInputField className='AddPetModal-inputFieldContainer' 
@@ -310,7 +442,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 type='text'
                                 title='Address Line 1' 
                                 onChange={HandleInputChange}
-                                error={isError}
+                                error={physicalAddress1Error}
                                 maxLength={255}/>
 
               {/* Pet Address Line 2 input field */}
@@ -336,7 +468,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                   type='text' 
                                   title='City' 
                                   onChange={HandleInputChange} 
-                                  error={isError}
+                                  error={addressCityError}
                                   maxLength={255}/>
 
               {/* State DropDown - Right */}
@@ -348,7 +480,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 placeholder=' ' 
                                 options={OPTIONS_DATA.stateOptions} 
                                 onChange={HandleInputChange}
-                                error={isError}/>
+                                error={addressStateError}/>
             </div>
       
               {/* ZipCode Input Field- Left */}
@@ -360,7 +492,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                   type='text'
                                   title='Zip Code' 
                                   onChange={HandleInputChange} 
-                                  error={isError}
+                                  error={addressZip5Error}
                                   maxLength={5}/>
           </div>
         </div>

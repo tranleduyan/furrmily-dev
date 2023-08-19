@@ -7,6 +7,7 @@ import StandardDropDown from '../../Dropdowns/StandardDropDown/StandardDropDown'
 import { OPTIONS_DATA } from '../../../Global/Constants'
 import { UITEXT } from '../../../Global/Constants'
 import Message from '../../Message/Message'
+import { Helpers } from '../../../Global/Helpers'
 //#endregion
 
 //#region Import Stylings
@@ -23,6 +24,11 @@ function AddTaskModal({open, OnClose}) {
     /* Error Handler Variables */
     const [errorMessage, setErrorMessage] = useState('');
     const [isError, setIsError] = useState(false);
+    const [taskNameError, setTaskNameError] = useState(false);
+    const [petProfileError, setPetProfileError] = useState(false);
+    const [taskDescriptionError, setTaskDescriptionError] = useState(false);
+    const [taskDueDateError, setTaskDueDateError] = useState(false);
+    const [taskAssigneeError, setTaskAssigneeError] = useState(false);
 
     /* taskInformation for input gathering - used for OnAddTask and are updated using HandleInputChange */
     const [taskInformation, setTaskInformation] = useState({
@@ -52,35 +58,76 @@ function AddTaskModal({open, OnClose}) {
     /* HandleInputChange - takes the propertyName of the input to update taskInformation object with the input value */
     const HandleInputChange = (propertyName, inputValue) => {
         if(isError) {
-        setIsError(false);
-        setErrorMessage('');
+            setTaskDueDateError(false);
+            setTaskNameError(false);
+            setPetProfileError(false);
+            setTaskDescriptionError(false);
+            setTaskAssigneeError(false);
+            setIsError(false);
+            setErrorMessage('');
         }
         setTaskInformation({...taskInformation, [propertyName]: inputValue});
     }
 
     /* IsValid - Check for required fields */
     const IsValid = () => {
-        if(!taskInformation.ppId
-           || !taskInformation.taskName
-           || !taskInformation.taskDescription
-           || !taskInformation.taskDueDay
-           || !taskInformation.taskDueMonth
-           || !taskInformation.taskDueYear
-           || !taskInformation.taskDueHour
-           || !taskInformation.taskDueMinute
-           || !taskInformation.taskDueXM
-           || !taskInformation.taskAssignee){
-            setIsError(true);
+        let isValid = true;
+
+        if(!taskInformation.ppId){
+            setPetProfileError(true);
             setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
-            return false;
+            isValid = false;
+        }
+
+        if(!taskInformation.taskName){
+            setTaskNameError(true);
+            setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+            isValid = false;
+        }
+
+        if(!taskInformation.taskDueDay || !taskInformation.taskDueMonth || !taskInformation.taskDueYear
+            || !taskInformation.taskDueHour || !taskInformation.taskDueMinute || !taskInformation.taskDueXM){
+                setTaskDueDateError(true);
+                setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+                isValid = false;
         }
         
-        if(taskInformation.taskName.length > 30){
+        else if(!Helpers.IsValidDate(taskInformation.taskDueMonth, taskInformation.taskDueDay, taskInformation.taskDueYear)){
+            setTaskDueDateError(true);
+            setTaskNameError(false);
+            setPetProfileError(false);
+            setTaskDescriptionError(false);
+            setTaskAssigneeError(false);
             setIsError(true);
-            setErrorMessage(UITEXT.LONG_TASKNAME_ERROR);
+            setErrorMessage(UITEXT.INVALID_DATE);
             return false;
         }
-        return true;
+
+        if(!taskInformation.taskDescription){
+            setTaskDescriptionError(true);
+            setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+            isValid = false;
+        }
+
+        if(!taskInformation.taskAssignee){
+            setTaskAssigneeError(true);
+            setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+            isValid = false;
+        }
+
+        if(taskInformation.taskName.length > 30){
+            setTaskNameError(true);
+            setPetProfileError(false);
+            setTaskDueDateError(false);
+            setTaskDescriptionError(false);
+            setTaskAssigneeError(false);
+            setErrorMessage(UITEXT.LONG_TASKNAME_ERROR);
+            isValid = false;
+        }
+
+        setIsError(!isValid);
+
+        return isValid;
     }
     /* OnAddTask - TODO: Add Task using all the input information and then reload page*/
     const OnAddTask = () => {
@@ -93,8 +140,13 @@ function AddTaskModal({open, OnClose}) {
     /* OnCloseModal - if there is error, set error to false and clear error message, close the modal. */
     const OnCloseModal = () => {
         if(isError) {
-        setIsError(false);
-        setErrorMessage('');
+            setTaskDueDateError(false);
+            setTaskNameError(false);
+            setPetProfileError(false);
+            setTaskDescriptionError(false);
+            setTaskAssigneeError(false);
+            setIsError(false);
+            setErrorMessage('');
         }
         OnClose();
     }
@@ -118,7 +170,7 @@ function AddTaskModal({open, OnClose}) {
                                     placeholder='' 
                                     options={dummyOption} 
                                     onChange={HandleInputChange}
-                                    error={isError}/>
+                                    error={petProfileError}/>
 
                         {/* Task Name Input Field */}
                         <StandardInputField className='AddTaskModal-inputFieldContainer' 
@@ -129,7 +181,7 @@ function AddTaskModal({open, OnClose}) {
                                     type='text' 
                                     title='Task Name' 
                                     onChange={HandleInputChange}
-                                    error={isError} />
+                                    error={taskNameError} />
 
                         {/* Task Description Input Field */}
                         <StandardInputField className='AddTaskModal-lastLeftInputFieldContainer' 
@@ -140,7 +192,7 @@ function AddTaskModal({open, OnClose}) {
                                     type='text' 
                                     title='Description' 
                                     onChange={HandleInputChange} 
-                                    error={isError}/>
+                                    error={taskDescriptionError}/>
 
                     </div>
                     <Message className='' messageType='error' visibility={isError} content={errorMessage}/>
@@ -168,7 +220,7 @@ function AddTaskModal({open, OnClose}) {
                                                 placeholder='MM' 
                                                 options={OPTIONS_DATA.monthOptions} 
                                                 onChange={HandleInputChange}
-                                                error={isError}/>
+                                                error={taskDueDateError}/>
 
                                 {/* Date DropDown */}
                                 <StandardDropDown className='AddTaskModal-taskDateDayDropDownContainer' 
@@ -179,7 +231,7 @@ function AddTaskModal({open, OnClose}) {
                                                 placeholder='DD' 
                                                 options={OPTIONS_DATA.dateOptions} 
                                                 onChange={HandleInputChange}
-                                                error={isError}/>
+                                                error={taskDueDateError}/>
 
                                 {/* Year DropDown */}
                                 <StandardDropDown className='AddTaskModal-taskDateYearDropDownContainer' 
@@ -191,7 +243,7 @@ function AddTaskModal({open, OnClose}) {
                                                 placeholder='YYYY' 
                                                 options={OPTIONS_DATA.yearOptions} 
                                                 onChange={HandleInputChange}
-                                                error={isError}/>
+                                                error={taskDueDateError}/>
                             </div>
                         </div>
                         {/* Task Time Drop Down Group */}
@@ -207,7 +259,7 @@ function AddTaskModal({open, OnClose}) {
                                                 placeholder='HH' 
                                                 options={OPTIONS_DATA.hourOptions} 
                                                 onChange={HandleInputChange}
-                                                error={isError}/>
+                                                error={taskDueDateError}/>
 
                                 {/* Minute DropDown */}
                                 <StandardDropDown className='AddTaskModal-taskTimeMinuteDropDownContainer' 
@@ -218,7 +270,7 @@ function AddTaskModal({open, OnClose}) {
                                                 placeholder='MM' 
                                                 options={OPTIONS_DATA.minuteOptions} 
                                                 onChange={HandleInputChange}
-                                                error={isError}/>
+                                                error={taskDueDateError}/>
 
                                 {/* AM/PM DropDown */}
                                 <StandardDropDown className='AddTaskModal-taskTimeXMDropDownContainer' 
@@ -230,7 +282,7 @@ function AddTaskModal({open, OnClose}) {
                                                 placeholder='XM' 
                                                 options={OPTIONS_DATA.xmOptions} 
                                                 onChange={HandleInputChange}
-                                                error={isError}/>
+                                                error={taskDueDateError}/>
                             </div>
                         </div>
                          {/* Task Assignee Dropdown Field */}
@@ -242,7 +294,7 @@ function AddTaskModal({open, OnClose}) {
                                     placeholder='' 
                                     options={dummyOption} 
                                     onChange={() => {}}
-                                    error={isError}/>
+                                    error={taskAssigneeError}/>
                         {/* Task Status Dropdown Field */}
                         <StandardDropDown className='AddTaskModal-taskStatusDropDownContainer' 
                                     htmlFor='taskStatus' 
