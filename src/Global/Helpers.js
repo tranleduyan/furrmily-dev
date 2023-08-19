@@ -96,10 +96,7 @@ const GetAvatarIcon = (avatarName) => {
 };
 
 const IsValidDate = (month, day, year) => {
-    if(!month || !day || !year){
-        return false;
-    }
-    if(month === '2' && day > '29'){
+    if((!month || !day || !year) || (month === '2' && day > '29')){
         return false;
     }
 
@@ -107,7 +104,7 @@ const IsValidDate = (month, day, year) => {
         return IsLeapYear(year);
     }
     
-    if(day === '31'){
+    else if(day === '31'){
         if(month === '1' || month === '3' || month === '5' 
         || month === '7' || month === '8' || month === '10' || month === '12'){
             return false;
