@@ -105,14 +105,14 @@ function AddTaskModal({open, OnClose}) {
 
         if(!taskInformation.taskDescription){
             setTaskDescriptionError(true);
-            setIsError(true);
             setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+            isValid = false;
         }
 
         if(!taskInformation.taskAssignee){
             setTaskAssigneeError(true);
-            setIsError(true);
             setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
+            isValid = false;
         }
 
         if(taskInformation.taskName.length > 30){
@@ -121,9 +121,8 @@ function AddTaskModal({open, OnClose}) {
             setTaskDueDateError(false);
             setTaskDescriptionError(false);
             setTaskAssigneeError(false);
-            setIsError(true);
             setErrorMessage(UITEXT.LONG_TASKNAME_ERROR);
-            return false;
+            isValid = false;
         }
 
         setIsError(!isValid);
