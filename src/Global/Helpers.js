@@ -95,17 +95,37 @@ const GetAvatarIcon = (avatarName) => {
   };
 };
 
-/* IsValidDate - The function works by attempting to create a Date object with the provided year, month, and day. 
-If the resulting date doesn't match the provided parameters because of the rollover behavior of the Date object for invalid dates
-, the function returns false.*/
 const IsValidDate = (month, day, year) => {
-    const date = new Date(year, month - 1, day);
+    if(!month || !day || !year){
+        return false;
+    }
+    if(month === '2' && day > '29'){
+        return false;
+    }
 
-    return date.getFullYear() === year && date.getMonth() === month && date.getDate() === day;
+    else if(month === '2' && day === '29'){
+        return IsLeapYear(year);
+    }
+    
+    if(day === '31'){
+        if(month === '1' || month === '3' || month === '5' 
+        || month === '7' || month === '8' || month === '10' || month === '12'){
+            return false;
+        }
+    }
+    return true;
 };
+
+const IsLeapYear = (year) => {
+    if (((0 === year % 4) && (0 !== year % 100)) || (0 === year % 400)) {
+        return true;
+    } 
+    return false;
+}
 
 export const Helpers = {
     GetAvatarIcon,
     IsValidDate,
+    IsLeapYear,
 }
 
