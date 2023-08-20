@@ -83,26 +83,77 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
 
   //#endregion
 
+  //#region Options for Dropdowns
+
+  const [filteredPetBreeds, setFilteredPetBreeds] = useState(petBreeds);
+
+  /* Values for DropDown (Object type) - To access and mofify, change this will only change the value of the dropdown, not the petInformation (must update with petInformation) */
+  const [selectedPetType, setSelectedPetType] = useState({});
+  const [selectedPetBreed, setSelectedPetBreed] = useState({});
+
+  /* PetTypeOptions */
+  let petTypeOptions = petTypes ? petTypes.map(type => ({
+    value: type.petTypeCode,
+    label: Converters.CapitalConverter(type.petTypeDescription),
+  })) : [];
+
+  /* PetBreedOptions */
+  let petBreedOptions = filteredPetBreeds ? filteredPetBreeds.map(breed => ({
+    value: breed.breedName,
+    label: Converters.CapitalConverter(breed.breedName),
+  })) : [];
+
+  //#endregion
+
   //#region Functions
 
   /* HandleInputChange - takes the propertyName of the input to update petInformation object with the input value */
   const HandleInputChange = (propertyName, inputValue) => {
     if(isError) {
-      setIsError(false);
-      setPetNameError(false);
-      setPetBirthDateError(false);
-      setPetGenderError(false);
-      setPetTypeError(false);
-      setPetBreedError(false);
-      setDescriptionError(false);
-      setPetWeightError(false);
-      setPhysicalAddress1Error(false);
-      setAddressCityError(false);
-      setAddressStateError(false);
-      setAddressZip5Error(false);
-      setErrorMessage('');
+      ClearError();
     }
     setPetInformation({...petInformation, [propertyName]: inputValue});
+  }
+
+  /* HandleInputPetTypeChange  - Filter to have the pet breed values based on inputValue (petType), update the FilteredPetBreeds to update pet breed options
+     update property name (petType) in petInformation and set petInformation.petBreed to be the first value of the new filtered breed options. Set petType dropdown value and
+     the pet breed dropdown value. */
+  const HandleInputPetTypeChange = (propertyName, inputValue) => {
+    if(isError){
+      ClearError();
+    }
+    if(inputValue){
+      const breeds = petBreeds.filter(breed => breed.petTypeCode === inputValue);
+      setFilteredPetBreeds(breeds);
+      setPetInformation({
+        ...petInformation, 
+        [propertyName]: inputValue, 
+        petBreed: breeds[0].breedName,
+    });
+    setSelectedPetType(petTypes.find(type => type.petTypeCode === inputValue));
+    setSelectedPetBreed(breeds[0]);
+    }
+  }
+
+  /* HandleInputPetBreedChange  - set the pet Type values based on inputValue (petBreed). Get the current Pet Breed and find it in petTypes. If they are the same, no need to update
+     pet type dropdown value (else, update). Set petInformation for the petbreed and pet type since we changed them both. Set the dropdown value for petbreed*/  
+  const HandleInputPetBreedChange = (propertyName, inputValue) => {
+    if(isError){
+      ClearError();
+    }
+    if(inputValue){
+      const currPetBreed =  petBreeds.find(breed => breed.breedName === inputValue);
+      const currPetType = petTypes.find(type => type.petTypeCode === currPetBreed.petTypeCode);
+      if(currPetType.petTypeCode !== selectedPetType.value){
+        setSelectedPetType(currPetType);
+      }
+      setPetInformation({
+        ...petInformation,
+        [propertyName]: inputValue, 
+        petType: currPetType.petTypeCode
+      });
+      setSelectedPetBreed(currPetBreed);
+    }
   }
 
   /* IsValid - Check for required fields */
@@ -268,38 +319,52 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
   /* OnCloseModal - if there is error, set error to false and clear error message, close the modal. */
   const OnCloseModal = () => {
     if(isError) {
-      setIsError(false);
-      setPetNameError(false);
-      setPetBirthDateError(false);
-      setPetGenderError(false);
-      setPetTypeError(false);
-      setPetBreedError(false);
-      setDescriptionError(false);
-      setPetWeightError(false);
-      setPhysicalAddress1Error(false);
-      setAddressCityError(false);
-      setAddressStateError(false);
-      setAddressZip5Error(false);
-      setErrorMessage('');
+      ClearError();
     }
+    ClearPetInformation();
     OnClose();
   }
 
-  //#endregion
+  /* ClearError - set all error properties to false */
+  const ClearError = () => {
+    setIsError(false);
+    setPetNameError(false);
+    setPetBirthDateError(false);
+    setPetGenderError(false);
+    setPetTypeError(false);
+    setPetBreedError(false);
+    setDescriptionError(false);
+    setPetWeightError(false);
+    setPhysicalAddress1Error(false);
+    setAddressCityError(false);
+    setAddressStateError(false);
+    setAddressZip5Error(false);
+    setErrorMessage('');
+  }
 
-  //#region Options for Dropdowns
-
-  /* PetTypeOptions */
-  const petTypeOptions = petTypes ? petTypes.map(type => ({
-    value: type.petTypeCode,
-    label: Converters.CapitalConverter(type.petTypeDescription),
-  })) : [];
-
-  /* PetBreedOptions */
-  const petBreedOptions = petBreeds ? petBreeds.map(breed => ({
-    value: breed.breedName,
-    label: Converters.CapitalConverter(breed.breedName),
-  })) : [];
+  /* ClearPetInformation - reset all petInformation related variables to false */
+  const ClearPetInformation = () => {
+    setPetInformation({
+        petName: '',
+        petPhoto: 'x',
+        petBirthMonth: '',
+        petBirthDay: '',
+        petBirthYear: '',
+        petType: '',
+        petBreed: '',
+        petGender: '',
+        petWeight: '',
+        physicalAddress1: '',
+        physicalAddress2: '',
+        addressCity: '',
+        addressState: '',
+        addressZip4: '',
+        addressZip5: '',
+        description: '',
+    });
+    setSelectedPetBreed({});
+    setSelectedPetType({});
+};
 
   //#endregion
 
@@ -386,8 +451,9 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 id='petType' 
                                 name='petType' 
                                 title='Type' 
+                                value={selectedPetType.petTypeCode}
                                 options={petTypeOptions} 
-                                onChange={HandleInputChange}
+                                onChange={HandleInputPetTypeChange}
                                 error={petTypeError}/>
             {/* Pet Breed input field */}
             <StandardDropDown className='AddPetModal-lastLeftInputFieldContainer' 
@@ -395,8 +461,9 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 id='petBreed' 
                                 name='petBreed' 
                                 title='Breed' 
+                                value={selectedPetBreed.breedName}
                                 options={petBreedOptions} 
-                                onChange={HandleInputChange}
+                                onChange={HandleInputPetBreedChange}
                                 error={petBreedError}/>
           </div>
           <Message className='' messageType='error' visibility={isError} content={errorMessage}/>
