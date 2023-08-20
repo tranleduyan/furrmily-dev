@@ -3,48 +3,51 @@ import React, { useState, useEffect } from "react";
 import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 import TaskCard from "../../Cards/TaskCard/TaskCard";
+import { API } from "../../../Global/Constants";
+import axios from "axios";
 
 /* Stylings */
 import "../../../Styles/Components/Lists/TasksList/TasksList.css";
 
 function TasksList(props) {
   /* Empty Tasks List Message */
-  let message = "";
+  const [message, setMessage] = useState('');
+
+  const apiURL = `${API.getUserTasksListURL}${props.userId}`;
+  const apiKey = API.key;
 
   /* Data for Tasks List */
-  const [tasksListData, setTasksListData] = useState([
-    {
-      taskId: 1,
-      taskName: "Walk to the park.",
-      taskDescription: "Time to get starbuck.",
-      taskStatus: "C",
-      taskDueDate: "7/12/2023 - 9:45AM",
-    },
-    {
-      taskId: 2,
-      taskName: "Walk to the park.",
-      taskDescription: "Time to get starbuck.",
-      taskStatus: "C",
-      taskDueDate: "7/12/2023 - 9:45AM",
-    },
-    {
-      taskId: 3,
-      taskName: "Walk to the park.",
-      taskDescription: "Time to get starbuck.",
-      taskStatus: "C",
-      taskDueDate: "7/12/2023 - 9:45AM",
-    },
-    {
-      taskId: 4,
-      taskName: "Walk to the park.",
-      taskDescription: "Time to get starbuck.",
-      taskStatus: "IC",
-      taskDueDate: "7/12/2023 - 9:45AM",
-    },
-  ]);
+  const [tasksListData, setTasksListData] = useState([]);
 
   /* className for SimpleBar */
   const className = ` TasksList-container ${props.className}`;
+
+  //#region Functions 
+
+  useEffect(() => {
+    /* Get Method */
+    axios
+      .get(apiURL, {
+        headers: {
+          'X-API-KEY': apiKey,
+        }
+      })
+      .then(response => {
+        if(response.status === 200){
+          const JSONFormat = JSON.stringify(response.data.responseObject);
+          setTasksListData(JSON.parse(JSONFormat));
+          setMessage('');
+        }
+        else{
+          setMessage(response.data.message);
+        }
+      })
+      .catch(error => {
+        setMessage(error.response.data.message);
+      })
+  }, [apiURL, apiKey])
+
+  //#endregion
 
   return (
     <SimpleBar className={className}>
@@ -64,4 +67,4 @@ function TasksList(props) {
   );
 }
 
-export default TasksList;
+export default (TasksList);
