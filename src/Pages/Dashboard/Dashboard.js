@@ -86,6 +86,7 @@ function Dashboard({ userData }) {
               {/* Content - Pets List */}
               <PetsList
                 userId={userData.userId}
+                userAvatar={userData.userAvatar}
                 className="Dashboard-petsListContainer"
               />
 
@@ -141,7 +142,9 @@ function Dashboard({ userData }) {
               </div>
 
               {/* Content - Task List */}
-              <TasksList className="Dashboard-tasksListContainer" />
+              <TasksList
+                userId={userData.userId} 
+                className="Dashboard-tasksListContainer" />
 
               {/* See All Button */}
               <div className="flexRowCenter">
