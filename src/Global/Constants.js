@@ -4,10 +4,11 @@ export const API = {
   key: 'ht8xjWktCv3ocTpjSYjkm3FCBotdJI7s60h6VS8i',
   signInURL: '/api/authentication/sign-in',
   signUpURL: '/api/authentication/sign-up',
-  petsListURL: '/api/pet-profiles/', //this one will be used to concat with userID
+  petsListURL: '/api/pet-profiles/', //this one will be used to concat with userId
   petTypesURL:'/api/pet-profiles/pet-types',
   petBreedsURL:'/api/pet-profiles/pet-breed',
   addPetURL: '/api/pet-profiles/create',
+  getUserTasksListURL: '/api/users/tasks/', //this one will be used to concat with userId
 }
 
 //UI CONSTANTS
