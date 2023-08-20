@@ -120,9 +120,31 @@ const IsLeapYear = (year) => {
     return false;
 }
 
+const ConvertTimeStamp = (timeStamp) => {
+    const date = new Date(timeStamp);
+    
+    const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
+    const day = date.getUTCDate().toString().padStart(2, '0');
+    const year = date.getUTCFullYear();
+
+    const hours = date.getUTCHours();
+    const minutes = date.getUTCMinutes().toString().padStart(2,'0');
+
+    const period = hours < 12 ? 'AM' : 'PM';
+
+    const hours12 = hours % 12;
+
+    const formattedHours = (hours12 === 0 && period === 'PM') ? '12' : hours12;
+
+    const formattedHoursString = formattedHours.toString().padStart(2, '0');
+
+    return `${month}/${day}/${year} @ ${formattedHoursString}:${minutes} ${period}`;
+}
+
 export const Helpers = {
     GetAvatarIcon,
     IsValidDate,
     IsLeapYear,
+    ConvertTimeStamp,
 }
 
