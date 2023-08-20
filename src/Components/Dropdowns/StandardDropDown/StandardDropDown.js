@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 function StandardDropDown(props) {
-
+  
   const {onChange, error, options, isDisabled } = props;
   const className=`${props.className} StandardDropDown-container`;
   const [maxMenuHeight, setMaxMenuHeight] = useState(0);
@@ -20,7 +20,7 @@ function StandardDropDown(props) {
     const { value } = selectedOption;
     onChange(props.name, value);
   }
-  
+
   /* Component to sub for Drop Down Indicator of 'Select' - Override Icon and Styling Font Size*/
   const DropdownIndicator = props => {
     return (
@@ -94,7 +94,7 @@ function StandardDropDown(props) {
       <label htmlFor={props.htmlFor} className='heading3 StandardDropDown-title'>{props.title}</label>
       <Select name={props.name} 
               id={props.id} 
-              value={props.value} 
+              value={options.find(option => option.value === props.value)}
               options={options}
               styles={customStyles}
               placeholder={props.placeholder}
