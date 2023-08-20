@@ -4,7 +4,6 @@ import PetCard from '../../PetCard/PetCard'
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
 import axios from 'axios';
-import { connect } from 'react-redux';
 import { API } from '../../../Global/Constants';
 //#endregion
 
@@ -93,7 +92,7 @@ function PetsList(props) {
             petAge={CalculateAge(pet.petDateOfBirth)}
             petType={pet.petType}
             petBreed={pet.petBreed}
-            ownerAvatar={props.userData.userAvatar}
+            ownerAvatar={props.userAvatar}
           />
           ))
         )
@@ -102,8 +101,4 @@ function PetsList(props) {
   )
 }
 
-const mapStateToProps = (state) => ({
-  userData: state.user.userData,
-});
-
-export default connect(mapStateToProps)(PetsList)
+export default (PetsList)
