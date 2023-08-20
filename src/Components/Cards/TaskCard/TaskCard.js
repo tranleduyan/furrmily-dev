@@ -1,6 +1,7 @@
 /* Components */
 import React, { useState } from "react";
 import GeneralCard from "../GeneralCard/GeneralCard";
+import { Helpers } from "../../../Global/Helpers";
 
 /* Styling */
 import "../../../Styles/Components/Cards/TaskCard/TaskCard.css";
@@ -13,7 +14,7 @@ function TaskCard(props) {
   const taskId = props.taskId;
   const taskName = `${props.taskName}`;
   const taskStatus = `${props.taskStatus}`;
-  const taskDueDate = `${props.taskDueDate}`;
+  const taskDueDate = `${Helpers.ConvertTimeStamp(props.taskDueDate)}`;
   const taskStatusClassName =
     taskStatus === "C" || taskStatus === "c"
       ? "flexColumnCenter TaskCard-taskCompleteIconContainer" //If taskStatus is C - means Complete (C)
