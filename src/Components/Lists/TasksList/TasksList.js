@@ -1,15 +1,20 @@
-/* Components */
+//#region Import Components
 import React, { useState, useEffect } from "react";
 import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 import TaskCard from "../../Cards/TaskCard/TaskCard";
 import { API } from "../../../Global/Constants";
 import axios from "axios";
+//#endregion
 
-/* Stylings */
+//#region Import Stylings
 import "../../../Styles/Components/Lists/TasksList/TasksList.css";
+//#endregion
 
 function TasksList(props) {
+
+  //#region Variables
+
   /* Empty Tasks List Message */
   const [message, setMessage] = useState('');
 
@@ -21,6 +26,8 @@ function TasksList(props) {
 
   /* className for SimpleBar */
   const className = ` TasksList-container ${props.className}`;
+  
+  //#endregion
 
   //#region Functions 
 

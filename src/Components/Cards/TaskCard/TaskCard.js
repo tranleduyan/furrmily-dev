@@ -1,16 +1,21 @@
-/* Components */
-import React, { useState } from "react";
+//#region Import Components
+import React from "react";
 import GeneralCard from "../GeneralCard/GeneralCard";
 import { Helpers } from "../../../Global/Helpers";
+//#endregion
 
-/* Styling */
+//#region Import Stylings 
 import "../../../Styles/Components/Cards/TaskCard/TaskCard.css";
+//#endregion
 
-/* Icons */
+//#region Import Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faBolt } from "@fortawesome/free-solid-svg-icons";
+//#endregion
 
 function TaskCard(props) {
+
+  //#region Variables
   const taskId = props.taskId;
   const taskName = `${props.taskName}`;
   const taskStatus = `${props.taskStatus}`;
@@ -21,6 +26,7 @@ function TaskCard(props) {
       : "flexColumnCenter TaskCard-taskInProgressIconContainer"; //If taskStatus is not C - means In Progress (IP)
   const taskStatusIcon =
     taskStatus === "C" || taskStatus === "c" ? faCheck : faBolt; //Use faCheck icon if taskStaus is C, faBolt if taskStatus is not C
+  //#endregion
 
   return (
     <GeneralCard>
