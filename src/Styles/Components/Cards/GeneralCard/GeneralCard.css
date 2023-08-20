@@ -1,8 +1,12 @@
 .GeneralCard-container {
-  height: calc(9.63vmin); /* Based on 104px in 1920x1080 */
+  height: calc(10.7vmin); /* Based on 113.5px in 1920x1080 */
   border-radius: 5px;
-  border: 1px solid var(--Gray4);
+  border: 1px solid var(--Gray2);
   margin-bottom: calc(1.7vmin); /*Based on 16px in 1920x1080 */
   display: flex;
   flex-direction: row;
+}
+
+.GeneralCard-container:last-child {
+  margin-bottom: 0px;
 }
