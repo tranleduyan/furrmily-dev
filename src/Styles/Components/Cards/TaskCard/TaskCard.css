@@ -1,19 +1,19 @@
 .TaskCard-taskCompleteIconContainer {
-  width: calc(6.7vmin); /* Based on 128px in 1920x1080 */
-  height: calc(6.7vmin); /* Based on 128px in 1920x1080 */
+  width: calc(6.42vmin); /* Based on 68px in 1920x1080 */
+  height: calc(6.42vmin); /* Based on 68px in 1920x1080 */
   border-radius: 50%;
   background-color: var(--Green2);
   color: var(--Green1);
-  font-size: calc(3vmin); /* Based on 32px in 1920x1080 */
+  font-size: calc(2.5vmin); /* Based on 24px in 1920x1080 */
 }
 
 .TaskCard-taskInProgressIconContainer {
-  width: calc(6.7vmin); /* Based on 128px in 1920x1080 */
-  height: calc(6.7vmin); /* Based on 128px in 1920x1080 */
+  width: calc(6.42vmin); /* Based on 68px in 1920x1080 */
+  height: calc(6.42vmin); /* Based on 68px in 1920x1080 */
   border-radius: 50%;
   background-color: var(--Orange2);
   color: var(--Orange1);
-  font-size: calc(2.5vmin); /* Based on 32px in 1920x1080 */
+  font-size: calc(1.88vmin); /* Based on 20px in 1920x1080 */
 }
 
 .TaskCard-taskStatusContainer {
