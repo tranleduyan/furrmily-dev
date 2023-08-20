@@ -87,7 +87,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
 
   const [filteredPetBreeds, setFilteredPetBreeds] = useState(petBreeds);
 
-  /* Values for DropDown (Object type) - To access and mofify, change this will only change the value of the dropdown, not the petInformation (must update with petInformation) */
+  /* Values for DropDown (Object type) - To access and mofify, change this will only change the value of the dropdown, and it is not update the petInformation, you will need to set petInformation useState to update 'petInformation. */
   const [selectedPetType, setSelectedPetType] = useState({});
   const [selectedPetBreed, setSelectedPetBreed] = useState({});
 
