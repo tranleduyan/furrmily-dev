@@ -53,10 +53,31 @@ const optionsSlice = createSlice({
 
 //#endregion
 
+//#region User Pet Profiles
+
+//Initial State
+const petProfilesInitialState = {
+    data: [],
+};
+
+//Slice
+const petProfilesSlice = createSlice({
+    name: 'petProfiles',
+    initialState: petProfilesInitialState,
+    reducers: {
+        setPetProfilesData: (state, action) => {
+            state.data = action.payload;
+        },
+    },
+});
+
+//#endregion
+
 //Reducers
 const rootReducer = combineReducers({
     user: userSlice.reducer,
-    options: optionsSlice.reducer
+    options: optionsSlice.reducer,
+    petProfiles: petProfilesSlice.reducer,
 });
 
 //#region Persist
@@ -89,6 +110,8 @@ const persistor = persistStore(store);
 export const { setUserData, signOutUser } = userSlice.actions;
 
 export const { setPetBreeds, setPetTypes } = optionsSlice.actions;
+
+export const { setPetProfilesData } = petProfilesSlice.actions;
 
 export {store, persistor};
 //#endregion
