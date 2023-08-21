@@ -17,7 +17,6 @@ import Message from '../../Message/Message'
 import '../../../Styles/Components/Modals/AddPetModal.css'
 //#endregion
 
-
 //#region Import Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage } from '@fortawesome/free-solid-svg-icons'
@@ -63,22 +62,22 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
   });
 
   /* requestBody for API upon adding */
-  const requestBody = {
-    userId: userData.userId,
-    petName: petInformation.petName,
+  let requestBody = {
+    userId: '',
+    petName: '',
     petPhoto: 'x', //TODO: FutureSprint allows upload photo
-    petDateOfBirth: Converters.DateTimeConverter(`${petInformation.petBirthYear}-${petInformation.petBirthMonth}-${petInformation.petBirthDay}`),
-    petType: petInformation.petType,
-    petBreed: petInformation.petBreed,
-    petGender: petInformation.petGender,
-    petWeight: petInformation.petWeight,
-    physicalAddress1: petInformation.physicalAddress1,
-    physicalAddress2: petInformation.physicalAddress2,
-    addressCity: petInformation.addressCity,
-    addressState: petInformation.addressState,
-    addressZip4: petInformation.addressZip4,
-    addressZip5: petInformation.addressZip5,
-    description: petInformation.description,
+    petDateOfBirth: '',
+    petType: '',
+    petBreed: '',
+    petGender: '',
+    petWeight: '',
+    physicalAddress1: '',
+    physicalAddress2: '',
+    addressCity: '',
+    addressState: '',
+    addressZip4: '',
+    addressZip5: '',
+    description: '',
   }
 
   //#endregion
@@ -297,10 +296,27 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
     return isValid;
   }
 
-  /* OnAddPetProfile - Add Pet Profile using all the input information and then reload page*/
+  /* OnAddPetProfile - Add Pet Profile using all the input information put into requestBody to post to API and then reload page upon success */
   const OnAddPetProfile = () => {
     if(!IsValid()){
       return;
+    }
+    requestBody = {
+      userId: userData.userId,
+      petName: petInformation.petName,
+      petPhoto: 'x', //TODO: FutureSprint allows upload photo
+      petDateOfBirth: Converters.DateTimeConverter(`${petInformation.petBirthYear}-${petInformation.petBirthMonth}-${petInformation.petBirthDay}`),
+      petType: petInformation.petType,
+      petBreed: petInformation.petBreed,
+      petGender: petInformation.petGender,
+      petWeight: petInformation.petWeight,
+      physicalAddress1: petInformation.physicalAddress1,
+      physicalAddress2: petInformation.physicalAddress2,
+      addressCity: petInformation.addressCity,
+      addressState: petInformation.addressState,
+      addressZip4: petInformation.addressZip4,
+      addressZip5: petInformation.addressZip5,
+      description: petInformation.description,
     }
     axios
       .post(API.addPetURL, requestBody, {
@@ -342,7 +358,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
     setErrorMessage('');
   }
 
-  /* ClearPetInformation - reset all petInformation related variables to false */
+  /* ClearPetInformation - reset all petInformation related variables to empty */
   const ClearPetInformation = () => {
     setPetInformation({
         petName: '',
