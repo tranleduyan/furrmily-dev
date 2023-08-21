@@ -1,6 +1,8 @@
 //#region Import Components
-import React, { useState, useEffect }from 'react'
-import PetCard from '../../PetCard/PetCard'
+import React, { useState, useEffect }from 'react';
+import { useDispatch } from 'react-redux';
+import { setPetProfilesData } from '../../../storage';
+import PetCard from '../../PetCard/PetCard';
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
 import axios from 'axios';
@@ -12,6 +14,12 @@ import '../../../Styles/Components/Lists/PetsList/PetsList.css'
 //#endregion
 
 function PetsList(props) {
+
+  //#region Component Usages
+  
+  const dispatch = useDispatch();
+
+  //#endregion
 
   //#region Variables
 
@@ -44,6 +52,7 @@ function PetsList(props) {
           /* Stringify Response to parse for setting data for Pets List*/
           const JSONFormat = JSON.stringify(response.data.responseObject);
           setPetsListData(JSON.parse(JSONFormat));
+          dispatch(setPetProfilesData(JSON.parse(JSONFormat)));
           setMessage('');
         }
       })
