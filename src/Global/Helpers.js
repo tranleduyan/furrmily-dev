@@ -42,11 +42,34 @@ const DateTimeConverter = (str) => {
     return new Date(str);
 }
 
+const DateTimeStringConverter = (year, month, day, hour = 0, minute = 0, xm = 'AM') => {
+
+    let convertedHour = parseInt(hour, 10);
+
+    //Convert to 24Hour format
+    if(xm === 'PM' && convertedHour !== 12){
+        convertedHour += 12;
+    }
+    else if(xm === 'AM' && convertedHour === 12){
+        convertedHour = 0;
+    }
+
+    //Set it to be in format of 00 - 2 digits format for date conversion
+    const formattedHour = convertedHour.toString().padStart(2,'0');
+    const formattedMinute = minute.toString().padStart(2,'0');
+    const formattedDay = day.toString().padStart(2, '0');
+    const formattedMonth = month.toString().padStart(2, '0');
+
+    //Return date convertable string
+    return `${year}-${formattedMonth}-${formattedDay}T${formattedHour}:${formattedMinute}:00.000Z`;
+}
+
 export const Converters = {
     UpperCaseConverter,
     LowerCaseConverter,
     CapitalConverter,
     DateTimeConverter,
+    DateTimeStringConverter,
 }
 
 /* Helpers */
