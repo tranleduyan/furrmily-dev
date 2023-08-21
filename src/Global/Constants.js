@@ -9,6 +9,7 @@ export const API = {
   petBreedsURL:'/api/pet-profiles/pet-breed',
   addPetURL: '/api/pet-profiles/create',
   getUserTasksListURL: '/api/users/tasks/', //this one will be used to concat with userId
+  createTaskURL: '/api/tasks/create',
 }
 
 //UI CONSTANTS
