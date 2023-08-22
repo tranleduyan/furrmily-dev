@@ -115,7 +115,7 @@ function AddTaskModal({open, OnClose, petProfiles}) {
         }
         if(inputValue){
             setSelectedPetProfileAssignee(inputValue);
-            setTaskInformation({...taskInformation, [propertyName]: [inputValue]});
+            setTaskInformation({...taskInformation, [propertyName]: inputValue});
         }
     }
 
@@ -159,7 +159,7 @@ function AddTaskModal({open, OnClose, petProfiles}) {
             isValid = false;
         }
 
-        if(!taskInformation.taskAssigneeIds){
+        if(!taskInformation.taskAssigneeIds || taskInformation.taskAssigneeIds.length === 0){
             setTaskAssigneeError(true);
             setErrorMessage(UITEXT.EMPTY_FIELD_ERROR);
             isValid = false;
@@ -393,7 +393,8 @@ function AddTaskModal({open, OnClose, petProfiles}) {
                                     value={selectedPetProfileAssignee.memberUserId}
                                     options={petProfileAssigneeOptions} 
                                     onChange={HandleInputAssigneeChange}
-                                    error={taskAssigneeError}/>
+                                    error={taskAssigneeError}
+                                    isMulti={true}/>
                         {/* Task Status Dropdown Field */}
                         <StandardDropDown className='AddTaskModal-taskStatusDropDownContainer' 
                                     htmlFor='taskStatus' 
