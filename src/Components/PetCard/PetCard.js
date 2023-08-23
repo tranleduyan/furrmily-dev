@@ -25,7 +25,7 @@ function PetCard(props) {
 
   //#endregion
   return (
-    <div className='petCard'>
+    <div className='petCard' onClick={()=>{console.log('petcard')}}>
         {(props.petAvatar && props.petAvatar !== 'x') && ( 
           <>
             <img src={props.petAvatar} alt='Pet Avatar' className='petAvatar'/>
