@@ -17,8 +17,14 @@ function StandardDropDown(props) {
 
   /* Functions */
   const handleInputChange = (selectedOption) =>{
-    const { value } = selectedOption;
-    onChange(props.name, value);
+    if(props.isMulti){
+      const values = selectedOption.map(option => option.value);
+      onChange(props.name, values);
+    }
+    else{
+      const { value } = selectedOption;
+      onChange(props.name, value);
+    }
   }
 
   /* Component to sub for Drop Down Indicator of 'Select' - Override Icon and Styling Font Size*/
@@ -101,10 +107,15 @@ function StandardDropDown(props) {
               components={{DropdownIndicator, IndicatorSeparator}}
               maxMenuHeight={maxMenuHeight}
               onChange={handleInputChange}
-              isDisabled={isDisabled}>
+              isDisabled={isDisabled}
+              isMulti={props.isMulti}>
       </Select>
     </div>
   );
 }
+
+StandardDropDown.defaultProps = {
+  isMulti: false
+};
 
 export default StandardDropDown
