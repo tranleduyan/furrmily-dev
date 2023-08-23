@@ -7,6 +7,7 @@
     flex-direction: row;
     align-items: center;
     padding: 0px calc(2.5vmin);
+    background-color: var(--White);
 }
 
 .petCard:last-child{
@@ -37,6 +38,7 @@
     height: calc(13.32vmin); /* Based on 128px in 1920x1080 */
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     margin-right: calc(1.65vmin); /* Based on 16px in 1920x1080 */
 
 }
@@ -64,4 +66,13 @@
     color: var(--White);
     font-size: calc(2.5vmin); /* Based on 24px in 1920x1080px */
     margin-left: 0px;
+}
+
+.petCard:hover{
+    cursor: pointer;
+    box-shadow: inset 0 0 0 calc(0.2vmin) var(--Black);
+}
+
+.petCardActive{
+    box-shadow: inset 0 0 0 calc(0.2vmin) var(--Black);
 }
