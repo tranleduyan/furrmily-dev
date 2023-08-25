@@ -1,5 +1,6 @@
 # Furrmily - Collaborating Pet Care Management Web Application
-## Authors/Developers: Le Duy An Tran, Le Thien An Tran, Matthew Negasi, Anudari Batsaikhan, Mohammed Mahmood
+## Authors/Developers
+Le Duy An Tran, Le Thien An Tran, Matthew Negasi, Anudari Batsaikhan, Mohammed Mahmood
 ### About
 Furrmily revolutionizes how pet families and owners coordinate pet care responsibilities. The application intends to provide pet owners with a collaborative experience to reduce their workload and ensure the well-being of their beloved pets. It offers all the essential requirements to meet pet owners' needs. Users can create and manage pet profiles, chat, and invite and join pet profiles to access each pet's needs and information. The application encourages communication among pet profile members, allowing real-time updates and discussion through an in-app chat platform and task status updates. The chat feature will enable users to track all pet-related discussions and important pet updates. It also provides an in-app calendar for scheduling pet activities and appointments. Furthermore, any member in a pet profile can assign and re-assign others with newly created pet care tasks. The assignment ensures all members know their responsibilities for the pets' well-being.
 ### Core Tech Stack
