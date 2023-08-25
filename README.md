@@ -41,3 +41,16 @@ pets.
 - **Share Pet Care Task Status:** Users should be able to update the status of a task for other members to reflect.
 - **Update Pet Calendar:** Users within a pet profile should be able to add appointments and scheduled activities to the pet profile’s calendar.
 - **View Pet Profile:** Users should be able to view all pet profiles they are associated with.
+#### Version 2.0
+Collaboration and communication are essential factors for Furrmily to be
+an outstanding application.
+- **Leave Note:** The system must let profile members leave notes after creating a task, updating a task status, or adding new scheduled activities. The notes serve as task progression updates, instructions, feedback, or any other purposes. The system must let profile members fully view, edit, and remove the notes.
+- **Report Pet Location:** The system must let any profile members who keep the pet report their location. The system must periodically ask any recent nearby members to
+update the location. This procedure ensures the location’s
+accuracy and reliability. It will stop until the pet’s place is at
+home.
+- **View Nearby Emergency Contacts:** The system must allow users to look for nearby emergency
+contacts based on their location or pets. The system must display necessary contact details, such as phone
+number, address, and name.The system must let users act directly with the emergency
+contacts, such as showing map directions and dialing phone
+numbers.
