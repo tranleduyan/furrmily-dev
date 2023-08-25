@@ -5,14 +5,14 @@ Furrmily revolutionizes how pet families and owners coordinate pet care responsi
 ### Core Tech Stack
 1. **Frontend Library/Framework:** React.js
 2. **Backend Framework:** Express.js
-3. **Runtime Environment**: Node.js
+3. **Runtime Environment:** Node.js
 4. **Cloud Services and Infrastructure:** AWS Lambda, AWS API Gateway, and AWS RDS MySQL
 ### Features
 1. **Sign In User Account:** Users should be able to access their accounts using their credentials.
 2. **Create User Account:** Users should be able to create new accounts by providing personal information and choosing unique usernames.
 3. **Reset User Account Password:** Users should be able to reset their account password to a new one.
 4. **Create Pet Profile:** Users should be able to create pet profiles with information about each pet.
-5. **Share Pet Profile:** Users should be able to invite other users to join, and access shared pet profiles using usernames.
+5. **Share Pet Profile:** Users should be able to invite other users to join and access shared pet profiles using usernames.
 6. **Join Pet Profile:** Users should be able to accept or reject invitations to join shared pet profiles.
 7. **View Pet Profile Member:** Users should be able to view all members in a particular pet profile.
 8. **Remove Pet Profile Member:** The original member of a pet profile should be able to remove any member from the profile.
