@@ -3,11 +3,74 @@
     flex-direction: row;
 }
 
+.Pets-pageHeaderContainer {
+  height: calc(10.7vmin); /* Based on 112px in 1920x1080 */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 0px 0px calc(5vmin); /* Based on 48px in 1920x1080 */
+}
+
+.Pets-contentColumn1{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: calc(58.8vmin); /* Based on 565px in 1920x1080 */
+  height: 100%;
+}
+
+.Pets-contentColumn2{
+  margin-left: calc(6.7vmin);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: calc(48.7vmin); /* Based on 450px in 1920x1080 */
+  height: 100%;
+}
+
+.Pets-petsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: calc(65.4vmin); /* Based on 624px in 1920x1080 */
+}
+
+.Pets-petsListFilterContainer{
+  display:flex;
+  flex-direction: row;
+}
+
+.Pets-petsListFilter{
+  background-color: var(--Gray1);
+  padding: 5px calc(2.5vmin); /* Based on 5px and 24px in 1920x1080 */
+  border-radius: 20px;
+  margin-right: calc(1.65vmin);
+}
+
+.Pets-petsListFilter:last-child{
+  margin-right: 0px;
+}
+
+.Pets-petsListContainer {
+  margin: calc(1.65vmin) 0px;
+  max-height: calc(55.2vmin); /* Based on 528px in 1920x1080 */
+}
+
+.Pets-membersContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: calc(18.9vmin); /* Based on 182px in 1920x1080 */
+  margin: calc(3.35vmin) 0px;
+}
+
+
 .Pets-pageContentContainer {
     display: flex;
     flex-direction: row;
     height: calc(100vmax - calc(11.7vmin));
-    padding: calc(0vmin) calc(5vmin) 0px calc(5vmin);
+    padding: 0px calc(5vmin) 0px calc(5vmin);
   }
 
 .Pets-content{
@@ -16,72 +79,64 @@
     width: calc(100vmax - calc(10px + 26.6vmin)); /*Based on 100vmax - 266px in 1920x1080 */
 }
 
-.Pets-pageHeaderContainer {
-    height: calc(10.7vmin); /* Based on 112px in 1920x1080 */
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0px 0px 0px calc(5vmin); /* Based on 48px in 1920x1080 */
-  }
+.Pets-sectionHeaderText {
+  margin: 0px;
+}
+
+.Pets-sectionHeaderIconButton{
+  padding-top: 0px;
+  font-size: calc(3.35vmin);
+}
   
-  .Pets-contentColumn1{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: calc(58.8vmin); /* Based on 565px in 1920x1080 */
-    height: 100%;
-  }
+.Pets-sectionHeaderContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .Pets-petsContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 624px; /* Based on 440px in 1920x1080 */
-  }
+.Pets-contentContainer{
 
-  .Pets-petsListFilterContainer{
-    display:flex;
-    flex-direction: row;
-  }
+}
 
-  .Pets-petsListFilter{
-    background-color: var(--Gray1);
-    padding: 5px 24px;
-    border-radius: 20px;
-    margin-right: 16px;
-  }
+.Pets-petAvatarPlaceholder{
+  width: calc(12.6vmin); /* Based on 120px in 1920x1080 */
+  height: calc(12.6vmin); /* Based on 120x in 1920x1080 */
+  border-radius: 50%;
+  margin-top: calc(1.65vmin); /* Based on 16px in 1920x1080 */
+  background-color: var(--Gray1);
+  color: var(--Gray2);
+  font-size: calc(3.35vmin); /* Based on 32px in 1920x1080 */
+}
 
-  .Pets-petsListFilter:last-child{
-    margin-right: 0px;
-  }
+.Pets-petDescriptionHeader{
+  margin: calc(2.5vmin) 0px; /* Based on 24px in 1920x1080 */
+}
 
-  .Pets-petsListContainer {
-    margin: calc(1.65vmin) 0px;
-    max-height: 528px; /* Based on 344px in 1920x1080 */
-  }
+.Pets-petInformationContainer{
+  width:100%;
+  height:calc(57.1vmin); /* Based on 545px in 1920x1080 */
+  overflow: scroll;
+}
 
-  .Pets-sectionHeaderContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
+.Pets-petAboutCard{
+  min-height: calc((10.9vmin));
+  max-height: calc(27.8vmin); /* Based on 258px in 1920x1080 */
+  box-sizing: border-box;
+}
 
-  .Pets-sectionHeaderText {
-    margin: 0px;
-  }
+.Pets-petAboutContainer{
+  overflow: scroll;
+}
 
-  .Pets-AddButton {
-    padding-top: 0px;
-    font-size: calc(3.35vmin);
-  }
-  
+.Pets-petAboutContainer::-webkit-scrollbar {
+  display: none;
+}
 
-  .Pets-membersContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: calc(18.9vmin); /* Based on 182px in 1920x1080 */
-    margin: calc(3.35vmin) 0px;
-  }
+.Pets-petInformationContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.Pets-petInformationIconCard{
+  height:calc(13vmin); /* Based on 104px in 1920x1080 */
+}
