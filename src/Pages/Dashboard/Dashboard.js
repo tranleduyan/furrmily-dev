@@ -8,6 +8,7 @@ import AddPetModal from '../../Components/Modals/AddPetModal/AddPetModal'
 import { connect } from 'react-redux'
 import TasksList from '../../Components/Lists/TasksList/TasksList'
 import AddTaskModal from '../../Components/Modals/AddTaskModal/AddTaskModal'
+import { useNavigate } from 'react-router-dom'
 //#endregion
 
 
@@ -21,6 +22,10 @@ import { faPlusCircle, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 //#endregion
 
 function Dashboard({ userData }) {
+
+  //#region Component usages
+  const navigate = useNavigate();
+  //#endregion
 
   //#region Variables
   
@@ -50,6 +55,11 @@ function Dashboard({ userData }) {
   const OnCloseAddTaskModal = () => {
     setIsOpenAddTaskModal(false);
   } 
+
+  //OnPetCardClick - Navigate to Pets page and selected the selected pet card
+  const OnPetCardClick = () => {
+    navigate('/Pets');
+  }
 
   //#endregion
 
@@ -88,6 +98,7 @@ function Dashboard({ userData }) {
                 userId={userData.userId}
                 userAvatar={userData.userAvatar}
                 className="Dashboard-petsListContainer"
+                onClick={OnPetCardClick}
               />
 
               {/* See More Button */}

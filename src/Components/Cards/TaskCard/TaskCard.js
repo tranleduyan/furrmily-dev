@@ -1,7 +1,7 @@
 //#region Import Components
 import React from "react";
 import GeneralCard from "../GeneralCard/GeneralCard";
-import { Helpers } from "../../../Global/Helpers";
+import { Converters } from "../../../Global/Helpers";
 //#endregion
 
 //#region Import Stylings 
@@ -19,7 +19,7 @@ function TaskCard(props) {
   const taskId = props.taskId;
   const taskName = `${props.taskName}`;
   const taskStatus = `${props.taskStatus}`;
-  const taskDueDate = `${Helpers.ConvertTimeStamp(props.taskDueDate)}`;
+  const taskDueDate = `${Converters.TimeStampConverter(props.taskDueDate)}`;
   const taskStatusClassName =
     taskStatus === "C" || taskStatus === "c"
       ? "flexColumnCenter TaskCard-taskCompleteIconContainer" //If taskStatus is C - means Complete (C)
@@ -29,7 +29,7 @@ function TaskCard(props) {
   //#endregion
 
   return (
-    <GeneralCard>
+    <GeneralCard className="TaskCard-container">
       {/* Task Status Icon Section */}
       <div className="flexRowCenter TaskCard-taskStatusContainer">
         <div className={taskStatusClassName}>

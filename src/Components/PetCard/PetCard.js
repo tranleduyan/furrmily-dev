@@ -1,7 +1,7 @@
 //#region Import Component
 import React from 'react'
 import PetMemberCard from '../PetMemberCard/PetMemberCard';
-import { Converters } from '../../Global/Helpers';
+import { Converters, Helpers } from '../../Global/Helpers';
 //#endregion
 
 //#region Import Stylings
@@ -16,23 +16,62 @@ import { faPaw } from '@fortawesome/free-solid-svg-icons';
 function PetCard(props) {
 
   //#region Variables
-
-  const petAge = `Age: ${props.petAge} years old`;
-  const petType = `Type: ${Converters.CapitalConverter(props.petType)}`;
-  const petBreed = `Breed: ${Converters.CapitalConverter(props.petBreed)}`;
+  const age = Helpers.CalculateAge(props.dateOfBirth);
+  const petAge = `Age: ${age} years old`;
+  const petType = `Type: ${Converters.CapitalConverter(props.type)}`;
+  const petBreed = `Breed: ${Converters.CapitalConverter(props.breed)}`;
   const extraMemberAmount = `0`;
+
   const lastPetMemberCardClassName = (extraMemberAmount > 0) ? `flexColumnCenter lastPetMemberCard` : `hidden`
+  const className = props.id === props.selectedPetId ? 'petCard petCardActive' : 'petCard';
+
+  const petDetails = {
+    id: props.id,
+    name: props.name,
+    avatar: props.avatar,
+    dateOfBirth: props.dateOfBirth,
+    age: age,
+    type: props.type,
+    breed: props.breed,
+    gender: props.gender,
+    weight: props.weight,
+    physicalAddress1: props.physicalAddress1,
+    physicalAddress2: props.physicalAddress2,
+    addressCity: props.addressCity,
+    addressState: props.addressState,
+    addressZip4: props.addressZip4,
+    addressZip5: props.addressZip5,
+    about: props.about,
+    profileMembers: props.profileMembers,
+    ownerAvatar: props.ownerAvatar,
+  }
 
   //#endregion
+
+  //#region Functions
+
+  //OnCardClicked - perform the action when the card is clicked
+  const OnCardClicked = () => {
+    // If it does have parameter, provide the petDetails
+    if (props.onClick.length) {
+      props.onClick(petDetails);
+    } 
+    // Otherwise, just invoke the function
+    else {
+      props.onClick();
+    }
+  }
+  //#endregion
+
   return (
-    <div className='petCard'>
-        {(props.petAvatar && props.petAvatar !== 'x') && ( 
+    <div className={className} onClick={OnCardClicked}>
+        {(props.avatar && props.avatar !== 'x') && ( 
           <>
-            <img src={props.petAvatar} alt='Pet Avatar' className='petAvatar'/>
+            <img src={props.avatar} alt='Pet Avatar' className='petAvatar'/>
           </>
         )}
 
-        {(!props.petAvatar || props.petAvatar === 'x') && (
+        {(!props.avatar || props.avatar === 'x') && (
           <>
             <div className='flexColumnCenter petAvatarPlaceholder'>
               <FontAwesomeIcon icon={faPaw}/>
@@ -41,7 +80,7 @@ function PetCard(props) {
         )}
 
       <div className='petInformationContainer'>
-        <h2 className='heading2'>{props.petName}</h2>
+        <h2 className='heading2'>{props.name}</h2>
           <p className='paragraph2'>{petAge}</p>
           <p className='paragraph2'>{petType}</p>
           <p className='paragraph2'>{petBreed}</p>

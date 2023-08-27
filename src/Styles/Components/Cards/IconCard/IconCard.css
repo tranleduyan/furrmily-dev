@@ -1,0 +1,26 @@
+.IconCard-container{
+    padding: calc(2.1vmin) calc(3.35vmin) calc(2.1vmin) calc(4.3vmin);
+    width:100%;
+    box-sizing: border-box;
+}
+
+.IconCard-containerHeight{
+    height:calc(13vmin); /* Based on 104px in 1920x1080 */
+}
+
+.IconCard-iconContainer{
+    font-size: calc(3.35vmin);
+}
+
+.IconCard-informationContainer{
+    margin-left: calc(2.5vmin);
+    width:100%;
+}
+
+.IconCard-actionInformationContainer{
+    margin-right: calc(2.5vmin);
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
