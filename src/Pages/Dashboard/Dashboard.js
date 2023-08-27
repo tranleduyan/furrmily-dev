@@ -88,6 +88,7 @@ function Dashboard({ userData }) {
                 userId={userData.userId}
                 userAvatar={userData.userAvatar}
                 className="Dashboard-petsListContainer"
+                onClick={()=>{}}
               />
 
               {/* See More Button */}
