@@ -63,28 +63,6 @@ function PetsList(props) {
       })
   }, [apiURL, apiKey]);
 
-  /* Calculate Age using date of birth object passed in */
-  const CalculateAge = (dob) => {
-    
-    /* Convert 'dob' to Date */
-    const birthDate = new Date(dob);
-
-    /* Get today's Date */
-    const today = new Date();
-
-    /* Calculate age by difference between today's year and birth year */
-    let age = today.getFullYear() - birthDate.getFullYear();
-
-    /* To calculate if there is a birthday */
-    const monthDifference = today.getMonth() - birthDate.getMonth();
-
-    /* If month difference less than 0 or if in the birthday month but have not the birth date yet, then no birthday this year, minus age by 1 */
-    if(monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())){
-      age--;
-    }
-    return age;
-  }
-
   //#endregion
 
   const className= ` petsList-Container ${props.className}`;
@@ -96,12 +74,23 @@ function PetsList(props) {
           petsListData.map(pet => (
           <PetCard
             key={pet.ppId}
-            petAvatar={pet.photo}
-            petName={pet.petName}
-            petAge={CalculateAge(pet.petDateOfBirth)}
-            petType={pet.petType}
-            petBreed={pet.petBreed}
+            name={pet.petName}
+            avatar={pet.photo}
+            dateOfBirth={pet.petDateOfBirth}
+            type={pet.petType}
+            breed={pet.petBreed}
+            gender={pet.petGender}
+            weight={pet.petWeight}
+            physicalAddress1={pet.physicalAddress1}
+            physicalAddress2={pet.physicalAddress2}
+            addressCity={pet.addressCity}
+            addressState={pet.addressState}
+            addressZip4={pet.addressZip4}
+            addressZip5={pet.addressZip5}
+            about={pet.description}
+            profileMembers={pet.petProfileMembers}
             ownerAvatar={props.userAvatar}
+            onClick={props.onClick}
           />
           ))
         )
