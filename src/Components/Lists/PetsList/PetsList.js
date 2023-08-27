@@ -66,6 +66,7 @@ function PetsList(props) {
   //#endregion
 
   const className= ` petsList-Container ${props.className}`;
+
   return (
     <SimpleBar className={className}>
       {petsListData.length === 0 ? (
@@ -74,6 +75,7 @@ function PetsList(props) {
           petsListData.map(pet => (
           <PetCard
             key={pet.ppId}
+            id={pet.ppId}
             name={pet.petName}
             avatar={pet.photo}
             dateOfBirth={pet.petDateOfBirth}
@@ -90,6 +92,7 @@ function PetsList(props) {
             about={pet.description}
             profileMembers={pet.petProfileMembers}
             ownerAvatar={props.userAvatar}
+            selectedPetId={props.selectedPetId}
             onClick={props.onClick}
           />
           ))
@@ -98,5 +101,9 @@ function PetsList(props) {
     </SimpleBar>
   )
 }
+
+PetsList.defaultProps = {
+  selectedPetId: null,
+};
 
 export default (PetsList)

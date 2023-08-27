@@ -5,11 +5,11 @@ import { connect } from 'react-redux'
 import IconButton from '../../Components/Buttons/IconButton/IconButton'
 import PetsList from '../../Components/Lists/PetsList/PetsList'
 import IconCard from '../../Components/Cards/IconCard/IconCard'
+import { Converters } from '../../Global/Helpers'
 //#endregion
 
 //#region Import Stylings
 import '../../Styles/Pages/Pets/Pets.css'
-
 //#endregion
 
 //#region Import Icons
@@ -18,11 +18,24 @@ import { faPlusCircle, faPaw, faNoteSticky, faLocationDot, faGift, faPenToSquare
 //#endregion
 
 function Pets({ userData, petProfiles }) {
-  const [selectedPet, setSelectedPet] = useState(null);
 
+  //#region Variables
+  
+  //Selected Pet Information
+  const [selectedPet, setSelectedPet] = useState(null);
+  const [selectedPetId, setSelectedPetId] = useState(null);
+  
+  //#endregion
+
+  //#region Functions
+
+  //OnPetCardClicked - set the information of selected pet information
   const OnPetCardClicked = (petDetails) => {
     setSelectedPet(petDetails);
+    setSelectedPetId(petDetails.id);
   }
+
+  //#endregion
 
   return (
     <div className='wrapper Pets-wrapper'>
@@ -59,6 +72,7 @@ function Pets({ userData, petProfiles }) {
                 userAvatar={userData.userAvatar}
                 className="Pets-petsListContainer"
                 onClick={OnPetCardClicked}
+                selectedPetId={selectedPetId}
               />
               <div className="flexRowCenter">
                 <p className='paragraph2'>
@@ -117,7 +131,7 @@ function Pets({ userData, petProfiles }) {
                     <IconCard icon={faGift} 
                               layout={['ColumnCenter']}
                               className='Pets-petInformationIconCard'>
-                      <p className='paragraph2'>{selectedPet.dateOfBirth}</p>
+                      <p className='paragraph2'>{Converters.FormatDateConverter(selectedPet.dateOfBirth)}</p>
                       <p className='paragraph2'>{selectedPet.age} years old</p>
                     </IconCard>
                     <IconCard 

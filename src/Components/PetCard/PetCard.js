@@ -21,9 +21,12 @@ function PetCard(props) {
   const petType = `Type: ${Converters.CapitalConverter(props.type)}`;
   const petBreed = `Breed: ${Converters.CapitalConverter(props.breed)}`;
   const extraMemberAmount = `0`;
+
   const lastPetMemberCardClassName = (extraMemberAmount > 0) ? `flexColumnCenter lastPetMemberCard` : `hidden`
+  const className = props.id === props.selectedPetId ? 'petCard petCardActive' : 'petCard';
 
   const petDetails = {
+    id: props.id,
     name: props.name,
     avatar: props.avatar,
     dateOfBirth: props.dateOfBirth,
@@ -45,6 +48,9 @@ function PetCard(props) {
 
   //#endregion
 
+  //#region Functions
+
+  //OnCardClicked - perform the action when the card is clicked
   const OnCardClicked = () => {
     // If it does have parameter, provide the petDetails
     if (props.onClick.length) {
@@ -55,8 +61,10 @@ function PetCard(props) {
       props.onClick();
     }
   }
+  //#endregion
+
   return (
-    <div className='petCard' onClick={OnCardClicked}>
+    <div className={className} onClick={OnCardClicked}>
         {(props.avatar && props.avatar !== 'x') && ( 
           <>
             <img src={props.avatar} alt='Pet Avatar' className='petAvatar'/>
