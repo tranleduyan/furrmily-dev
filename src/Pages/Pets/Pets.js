@@ -4,6 +4,7 @@ import SideNavBar from '../../Components/NavBars/SideNavBar/SideNavBar'
 import { connect } from 'react-redux'
 import IconButton from '../../Components/Buttons/IconButton/IconButton'
 import PetsList from '../../Components/Lists/PetsList/PetsList'
+import IconCard from '../../Components/Cards/IconCard/IconCard'
 //#endregion
 
 //#region Import Stylings
@@ -14,11 +15,9 @@ import '../../Styles/Pages/Pets/Pets.css'
 //#region Import Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle, faPaw, faNoteSticky, faLocationDot, faGift, faPenToSquare, faSquarePlus } from '@fortawesome/free-solid-svg-icons'
-import IconCard from '../../Components/Cards/IconCard/IconCard'
 //#endregion
 
 function Pets({ userData, petProfiles }) {
-
   const [selectedPet, setSelectedPet] = useState(null);
 
   const OnPetCardClicked = (petDetails) => {
