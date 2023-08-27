@@ -100,8 +100,8 @@
 }
 
 .Pets-petAvatarPlaceholder{
-  width: calc(12.6vmin); /* Based on 120px in 1920x1080 */
-  height: calc(12.6vmin); /* Based on 120x in 1920x1080 */
+  width: calc(14.65vmin); /* Based on 140px in 1920x1080 */
+  height: calc(14.65vmin); /* Based on 140px in 1920x1080 */
   border-radius: 50%;
   margin-top: calc(1.65vmin); /* Based on 16px in 1920x1080 */
   background-color: var(--Gray1);
@@ -115,13 +115,12 @@
 
 .Pets-petInformationContainer{
   width:100%;
-  height:calc(57.1vmin); /* Based on 545px in 1920x1080 */
+  height: calc(55vmin); /* Based on 526px in 1920x1080 */
   overflow: scroll;
 }
 
 .Pets-petAboutCard{
-  min-height: calc((10.9vmin));
-  max-height: calc(27.8vmin); /* Based on 258px in 1920x1080 */
+  height: calc(12.6vmin);
   box-sizing: border-box;
 }
 
@@ -138,5 +137,5 @@
 }
 
 .Pets-petInformationIconCard{
-  height:calc(13vmin); /* Based on 104px in 1920x1080 */
+  height: calc(12.5vmin);
 }
