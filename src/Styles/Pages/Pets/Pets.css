@@ -139,3 +139,7 @@
 .Pets-petInformationIconCard{
   height: calc(12.63vmin);
 }
+
+.Pets-petsListFilter:hover{
+  cursor: pointer;
+}
