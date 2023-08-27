@@ -46,7 +46,7 @@ function PetCard(props) {
   //#endregion
 
   const OnCardClicked = () => {
-    // If it does, provide the petDetails
+    // If it does have parameter, provide the petDetails
     if (props.onClick.length) {
       props.onClick(petDetails);
     } 
