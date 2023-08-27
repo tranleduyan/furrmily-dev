@@ -29,7 +29,7 @@ function TaskCard(props) {
   //#endregion
 
   return (
-    <GeneralCard>
+    <GeneralCard className="TaskCard-container">
       {/* Task Status Icon Section */}
       <div className="flexRowCenter TaskCard-taskStatusContainer">
         <div className={taskStatusClassName}>
