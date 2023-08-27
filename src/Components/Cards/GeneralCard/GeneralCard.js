@@ -4,10 +4,10 @@ import React from "react";
 /* Stylings */
 import "../../../Styles/Components/Cards/GeneralCard/GeneralCard.css";
 
-function GeneralCard({ children }) {
+function GeneralCard({ children, className='' }) {
   return (
     <>
-      <div className="GeneralCard-container">{children}</div>
+      <div className={`${className} GeneralCard-container`}>{children}</div>
     </>
   );
 }
