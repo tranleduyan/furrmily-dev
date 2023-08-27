@@ -6,6 +6,7 @@ import IconButton from '../../Components/Buttons/IconButton/IconButton'
 import PetsList from '../../Components/Lists/PetsList/PetsList'
 import IconCard from '../../Components/Cards/IconCard/IconCard'
 import { Converters } from '../../Global/Helpers'
+import AddPetModal from '../../Components/Modals/AddPetModal/AddPetModal'
 //#endregion
 
 //#region Import Stylings
@@ -21,6 +22,8 @@ function Pets({ userData, petProfiles }) {
 
   //#region Variables
   
+  const [isOpenAddPetModal, setIsOpenAddPetModal] = useState(false);
+
   //Selected Pet Information
   const [selectedPet, setSelectedPet] = useState(null);
   const [selectedPetId, setSelectedPetId] = useState(null);
@@ -35,10 +38,23 @@ function Pets({ userData, petProfiles }) {
     setSelectedPetId(petDetails.id);
   }
 
+  //OnOpenAddPetModal  - Open Add Pet Modal
+  const OnOpenAddPetModal = () => {
+    setIsOpenAddPetModal(true);
+  };
+
+  //OnCloseAddPetModal - Close Add Pet Modal that is currently opened
+  const OnCloseAddPetModal = () => {
+    setIsOpenAddPetModal(false);
+  };
+
   //#endregion
 
   return (
     <div className='wrapper Pets-wrapper'>
+      {/* Add Pet Modal */}
+      <AddPetModal open={isOpenAddPetModal} OnClose={OnCloseAddPetModal} />
+      {/* SideNavBar */}
       <SideNavBar 
         userAvatar={userData.userAvatar} 
         userName={userData.firstName}/>
@@ -48,8 +64,10 @@ function Pets({ userData, petProfiles }) {
         </div>
         <div className='Pets-pageContentContainer'>
           <div className='Pets-contentColumn1'>
+            {/* Pets Section */}
             <section className='Pets-petsContainer'>
               <div className='Pets-sectionHeaderContainer'>
+                {/* Pets List Filter Options */}
                 <div className='Pets-petsListFilterContainer'>
                   <div className='Pets-petsListFilter flexRowCenter'>
                     <p className='paragraph2'>All</p>
@@ -61,12 +79,14 @@ function Pets({ userData, petProfiles }) {
                     <p className='paragraph2'>In Care</p>
                   </div>
                 </div>
+                {/* Add Pet Button */}
                 <IconButton
                   className="flexRowCenter Pets-sectionHeaderIconButton"
                   icon={<FontAwesomeIcon icon={faPlusCircle} />}
-                  onClick={()=>{}}
+                  onClick={OnOpenAddPetModal}
                 />
               </div>
+              {/* Pets List */}
               <PetsList
                 userId={userData.userId}
                 userAvatar={userData.userAvatar}
@@ -74,6 +94,7 @@ function Pets({ userData, petProfiles }) {
                 onClick={OnPetCardClicked}
                 selectedPetId={selectedPetId}
               />
+              {/* Total Pets */}
               <div className="flexRowCenter">
                 <p className='paragraph2'>
                   {`Total: ${petProfiles.length} ${(petProfiles.length > 1) ? 'Pets' : 'Pet'}`}
@@ -91,13 +112,14 @@ function Pets({ userData, petProfiles }) {
                   icon={<FontAwesomeIcon icon={faPlusCircle} />}
                 />
               </div>
-
             </section>
           </div>
+          {/* Pet Profile Details */}
           {(selectedPet) && 
             <>
               <div className='Pets-contentColumn2'>
                 <div className='Pets-sectionHeaderContainer'>
+                  {/* Pet Name */}
                   <p className='heading2'>{selectedPet.name}</p>
                   <IconButton
                         className="flexRowCenter Pets-sectionHeaderIconButton"
@@ -106,15 +128,19 @@ function Pets({ userData, petProfiles }) {
                   />
                 </div>
                 <div className='flexColumnCenter Pets-contentContainer'>
+                  {/* Pet Avatar Placeholder*/}
                   <div className='Pets-petAvatarPlaceholder flexColumnCenter'>
                     <FontAwesomeIcon icon={faPaw}/>
                   </div>
+                  {/* Pet Brief Information Section */}
                   <section className='Pets-petDescriptionHeader flexColumnCenter'>
                     <p className='heading4'>{selectedPet.breed}</p>
                     <p className='paragraph2'>{selectedPet.type}</p>
                     <p className='paragraph2'>({selectedPet.weight} lbs)</p>
                   </section>
+                  {/* Pet Information Section */}
                   <section className='Pets-petInformationContainer'>
+                    {/* Pet About Card */}
                     <IconCard className='Pets-petAboutCard' 
                               icon={faNoteSticky}>
                       <p className='paragraph2'>About</p>
@@ -122,18 +148,21 @@ function Pets({ userData, petProfiles }) {
                         <p className='paragraph2'>“{selectedPet.about}”</p>
                       </div>
                     </IconCard>
+                    {/* Pet Address Card */}
                     <IconCard icon={faLocationDot} 
                               layout={['ColumnCenter']}
                               className='Pets-petInformationIconCard'>
                       <p className='paragraph2'>{selectedPet.physicalAddress1} {(selectedPet.physicalAddress2) ? ',' : ''} {selectedPet.physicalAddress2}</p>
                       <p className='paragraph2'>{selectedPet.addressCity}, {selectedPet.addressState}, {selectedPet.addressZip5} {(selectedPet.addressZip4) ? '-': ''} {selectedPet.addressZip4}</p>
                     </IconCard>
+                    {/* Pet Birthday Card */}
                     <IconCard icon={faGift} 
                               layout={['ColumnCenter']}
                               className='Pets-petInformationIconCard'>
                       <p className='paragraph2'>{Converters.FormatDateConverter(selectedPet.dateOfBirth)}</p>
                       <p className='paragraph2'>{selectedPet.age} years old</p>
                     </IconCard>
+                    {/* Pet Add More Information Button Card */}
                     <IconCard 
                       icon={faSquarePlus} 
                       layout={['ColumnCenter']}
