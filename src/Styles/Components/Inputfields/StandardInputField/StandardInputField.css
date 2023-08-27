@@ -5,7 +5,7 @@
 }
 
 .inputFieldTitle{
-    min-height: calc(2.8vmin); /* Based on 32px in 1920x1080 */
+    min-height: calc(2.8vmin);
     margin-bottom: calc(0.4vmin); /* Based on 4px in 1920x1080 */
 }
 
