@@ -80,6 +80,8 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
     description: '',
   }
 
+  let addPetModalAboutTitle = `About (${petInformation.description.length}/160)`;
+
   //#endregion
 
   //#region Options for Dropdowns
@@ -249,6 +251,23 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
       setAddressStateError(false);
       setAddressZip5Error(false);
       setErrorMessage(UITEXT.LONG_PETNAME_ERROR);
+      setIsError(true);
+      isValid = false;
+    }
+
+    if(petInformation.description.length > 160){
+      setPetNameError(false);
+      setPetBirthDateError(false);
+      setPetGenderError(false);
+      setPetTypeError(false);
+      setPetBreedError(false);
+      setDescriptionError(true);
+      setPetWeightError(false);
+      setPhysicalAddress1Error(false);
+      setAddressCityError(false);
+      setAddressStateError(false);
+      setAddressZip5Error(false);
+      setErrorMessage(UITEXT.LONG_PET_DESCRIPTION_ERROR);
       setIsError(true);
       isValid = false;
     }
@@ -501,7 +520,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 id='description'             
                                 name='description' 
                                 type='text' 
-                                title='About' 
+                                title={addPetModalAboutTitle} 
                                 onChange={HandleInputChange}
                                 error={descriptionError}/>
 
@@ -512,7 +531,7 @@ function AddPetModal({open, OnClose, petTypes, petBreeds, userData}) {
                                 id='petWeight' 
                                 name='petWeight' 
                                 type='text' 
-                                title='Weight (Optional - lbs)' 
+                                title='Weight (lbs)' 
                                 onChange={HandleInputChange}
                                 error={petWeightError}/>
 

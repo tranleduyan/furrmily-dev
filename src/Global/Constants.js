@@ -36,6 +36,7 @@ export const UITEXT = {
     LONG_TASKNAME_ERROR: 'Task name can only be 30 characters or less',
     INVALID_DATE_OF_BIRTH: 'Please enter valid date of birth',
     INVALID_DATE: 'Please enter valid date',
+    LONG_PET_DESCRIPTION_ERROR: 'Pet description can only be 160 characters or less',
 
 };
 
