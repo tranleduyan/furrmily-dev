@@ -1,3 +1,6 @@
+.TaskCard-container{
+  height: calc(10.7vmin); /* Based on 113.5px in 1920x1080 */
+}
 .TaskCard-taskCompleteIconContainer {
   width: calc(6.42vmin); /* Based on 68px in 1920x1080 */
   height: calc(6.42vmin); /* Based on 68px in 1920x1080 */
@@ -13,7 +16,7 @@
   border-radius: 50%;
   background-color: var(--Orange2);
   color: var(--Orange1);
-  font-size: calc(1.88vmin); /* Based on 20px in 1920x1080 */
+  font-size: calc(1.88vmin);
 }
 
 .TaskCard-taskStatusContainer {
