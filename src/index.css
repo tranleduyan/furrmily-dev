@@ -136,6 +136,18 @@ body {
   align-items: center;
 }
 
+.flexColumnCenterStart{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flexColumn{
+  display: flex;
+  flex-direction: column;
+}
+
+
 .hidden {
   visibility: hidden;
 }
