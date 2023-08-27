@@ -22,7 +22,8 @@ function IconCard({icon, children, layout, className, type = 'regular'}) {
                                                                               : ''} IconCard-iconContainer`}>
                     <FontAwesomeIcon icon={icon}/>
                 </div>
-                <div className='IconCard-informationContainer'>
+                <div className={`${(layout && layout.includes('ColumnCenter')) ? 'flexColumnCenterStart' 
+                                                                              : 'flexColumn'} IconCard-informationContainer`}>
                     {children}
                 </div>
             </>}
