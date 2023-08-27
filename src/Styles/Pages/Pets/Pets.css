@@ -115,12 +115,12 @@
 
 .Pets-petInformationContainer{
   width:100%;
-  height: calc(55vmin); /* Based on 526px in 1920x1080 */
+  height: calc(55.45vmin); /* Based on 526px in 1920x1080 */
   overflow: scroll;
 }
 
 .Pets-petAboutCard{
-  height: calc(12.6vmin);
+  height: calc(12.45vmin);
   box-sizing: border-box;
 }
 
@@ -137,5 +137,5 @@
 }
 
 .Pets-petInformationIconCard{
-  height: calc(12.5vmin);
+  height: calc(12.63vmin);
 }
