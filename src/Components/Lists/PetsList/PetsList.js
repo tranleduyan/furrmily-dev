@@ -7,6 +7,7 @@ import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
 import axios from 'axios';
 import { API } from '../../../Global/Constants';
+import { Helpers } from '../../../Global/Helpers';
 //#endregion
 
 //#region Import Stylings
@@ -29,6 +30,8 @@ function PetsList(props) {
 
   /* Data for Pets List */
   const [petsListData, setPetsListData] = useState([]);
+
+  const [selectedPetId, setSelectedPetId] = useState(props.selectedPetId);
 
   /* Message to display in Pets List */
   const [message, setMessage] = useState('');
@@ -65,6 +68,37 @@ function PetsList(props) {
 
   //#endregion
 
+  useEffect(() => {
+    setSelectedPetId(props.selectedPetId);
+  }, [props.selectedPetId]);
+
+  useEffect(() => {
+    if(props.defaultSelect && petsListData.length > 0){
+      setSelectedPetId(petsListData[0].ppId);
+      const petDetails = {
+        id: petsListData[0].ppId,
+        name: petsListData[0].petName,
+        avatar: petsListData[0].petPhoto,
+        dateOfBirth: petsListData[0].petDateOfBirth,
+        age: Helpers.CalculateAge(petsListData[0].petDateOfBirth),
+        type: petsListData[0].petType,
+        breed: petsListData[0].petBreed,
+        gender: petsListData[0].petGender,
+        weight: petsListData[0].petWeight,
+        physicalAddress1: petsListData[0].physicalAddress1,
+        physicalAddress2: petsListData[0].physicalAddress2,
+        addressCity: petsListData[0].addressCity,
+        addressState: petsListData[0].addressState,
+        addressZip4: petsListData[0].addressZip4,
+        addressZip5: petsListData[0].addressZip5,
+        about: petsListData[0].description,
+        profileMembers: petsListData[0].petProfileMembers,
+        ownerAvatar: props.userAvatar,
+      }
+      props.onClick(petDetails);
+    }
+  }, [petsListData])
+
   const className= ` petsList-Container ${props.className}`;
 
   return (
@@ -92,7 +126,7 @@ function PetsList(props) {
             about={pet.description}
             profileMembers={pet.petProfileMembers}
             ownerAvatar={props.userAvatar}
-            selectedPetId={props.selectedPetId}
+            selectedPetId={selectedPetId}
             onClick={props.onClick}
           />
           ))
@@ -104,6 +138,7 @@ function PetsList(props) {
 
 PetsList.defaultProps = {
   selectedPetId: null,
+  defaultSelect: false,
 };
 
 export default (PetsList)

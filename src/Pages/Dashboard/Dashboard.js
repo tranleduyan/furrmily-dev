@@ -57,8 +57,8 @@ function Dashboard({ userData }) {
   } 
 
   //OnPetCardClick - Navigate to Pets page and selected the selected pet card
-  const OnPetCardClick = () => {
-    navigate('/Pets');
+  const OnPetCardClick = (petDetails) => {
+    navigate('/Pets', {state: {petDetails}});
   }
 
   //#endregion

@@ -1,5 +1,6 @@
 //#region Import Component
 import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import SideNavBar from '../../Components/NavBars/SideNavBar/SideNavBar'
 import { connect } from 'react-redux'
 import IconButton from '../../Components/Buttons/IconButton/IconButton'
@@ -20,14 +21,19 @@ import { faPlusCircle, faPaw, faNoteSticky, faLocationDot, faGift, faPenToSquare
 
 function Pets({ userData, petProfiles }) {
 
+  //#region Component Usage
+  const location = useLocation();
+  //#endregion
+
   //#region Variables
   
   const [isOpenAddPetModal, setIsOpenAddPetModal] = useState(false);
 
   //Selected Pet Information
-  const [selectedPet, setSelectedPet] = useState(null);
-  const [selectedPetId, setSelectedPetId] = useState(null);
-  
+  const [selectedPet, setSelectedPet] = useState((location.state?.petDetails));
+  const [selectedPetId, setSelectedPetId] = useState((location.state?.petDetails.id));
+  const [defaulSelectPet, setDefaultSelectPet] = useState((location.state) ? false : true);
+
   //#endregion
 
   //#region Functions
@@ -92,6 +98,7 @@ function Pets({ userData, petProfiles }) {
                 userAvatar={userData.userAvatar}
                 className="Pets-petsListContainer"
                 onClick={OnPetCardClicked}
+                defaultSelect={defaulSelectPet}
                 selectedPetId={selectedPetId}
               />
               {/* Total Pets */}
