@@ -68,6 +68,9 @@ const petProfilesSlice = createSlice({
         setPetProfilesData: (state, action) => {
             state.data = action.payload;
         },
+        clearPetProfilesData: (state) => {
+            state.data = [];
+        }
     },
 });
 
@@ -111,7 +114,7 @@ export const { setUserData, signOutUser } = userSlice.actions;
 
 export const { setPetBreeds, setPetTypes } = optionsSlice.actions;
 
-export const { setPetProfilesData } = petProfilesSlice.actions;
+export const { setPetProfilesData, clearPetProfilesData } = petProfilesSlice.actions;
 
 export {store, persistor};
 //#endregion
