@@ -1,7 +1,7 @@
 /* Components */
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { signOutUser } from '../../../storage'
+import { signOutUser, clearPetProfilesData  } from '../../../storage'
 import {UITEXT} from '../../../Global/Constants'
 import { Converters, Helpers} from '../../../Global/Helpers'
 
@@ -50,6 +50,7 @@ function SideNavBar(props) {
   
   const OnSignOut = () => {
     props.signOutUser();
+    props.clearPetProfilesData();
     navigate('/');
 
   }
@@ -86,6 +87,7 @@ function SideNavBar(props) {
 
 const mapDispatchToProps = {
   signOutUser,
+  clearPetProfilesData,
 }
 
 export default connect(null, mapDispatchToProps)(SideNavBar)
