@@ -8,9 +8,9 @@ import AddPetModal from '../../Components/Modals/AddPetModal/AddPetModal'
 import { connect } from 'react-redux'
 import TasksList from '../../Components/Lists/TasksList/TasksList'
 import AddTaskModal from '../../Components/Modals/AddTaskModal/AddTaskModal'
+import FriendsList from '../../Components/Lists/FriendsList/FriendsList'
 import { useNavigate } from 'react-router-dom'
 //#endregion
-
 
 //#region Import Stylings
 import '../../Styles/Pages/DashboardPage/Dashboard.css'
@@ -122,7 +122,12 @@ function Dashboard({ userData }) {
                 />
               </div>
 
-              {/* TODO: CONTENT - Friends List */}
+                {/* TODO: CONTENT - Friends List */}
+                <FriendsList 
+                  userId={userData.userId}
+                  className="Dashboard-friendsListContainer"
+                />
+              
             </section>
 
             {/* Daily Progress Section */}

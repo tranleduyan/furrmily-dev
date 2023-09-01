@@ -117,3 +117,10 @@
   margin: calc(1.65vmin) 0px;
   height: calc(36.3vmin);
 }
+
+.Dashboard-friendsListContainer{
+  margin-top:calc(0.2vmin);
+  height: calc(12vmin); /* Based on 344px in 1920x1080 */
+  border-radius: calc(1vmin);
+  border: solid calc(0.3vmin) #bcbcbc; 
+}
