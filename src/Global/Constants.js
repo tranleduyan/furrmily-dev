@@ -11,6 +11,7 @@ export const API = {
   getUserTasksListURL: '/api/users/tasks/', //this one will be used to concat with userId
   getUserFriendsListURL: '/api/friends/', //this one will be used to concat with userId
   createTaskURL: '/api/tasks/create',
+  getUserURL: '/api/users/', //this one will be used to concat with others
 }
 
 //UI CONSTANTS

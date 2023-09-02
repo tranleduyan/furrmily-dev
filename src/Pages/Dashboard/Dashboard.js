@@ -10,6 +10,7 @@ import TasksList from '../../Components/Lists/TasksList/TasksList'
 import AddTaskModal from '../../Components/Modals/AddTaskModal/AddTaskModal'
 import FriendsList from '../../Components/Lists/FriendsList/FriendsList'
 import { useNavigate } from 'react-router-dom'
+import DailyProgressCard from '../../Components/Cards/DailyProgressCard/DailyProgressCard'
 //#endregion
 
 //#region Import Stylings
@@ -122,7 +123,7 @@ function Dashboard({ userData }) {
                 />
               </div>
 
-                {/* TODO: CONTENT - Friends List */}
+                {/* Content - Friends List */}
                 <FriendsList 
                   userId={userData.userId}
                   className="Dashboard-friendsListContainer"
@@ -139,7 +140,12 @@ function Dashboard({ userData }) {
                 </p>
               </div>
 
-              {/* TODO: CONTENT - Today's Progress Percentage */}
+              {/* Content - Today's Progress Percentage */}
+              <DailyProgressCard 
+                userId = {userData.userId}
+                className="Dashboard-dailyProgressCardContainer"
+              />
+
             </section>
           </div>
 
