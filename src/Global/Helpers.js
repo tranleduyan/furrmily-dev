@@ -14,6 +14,15 @@ const LowerCaseConverter = (str) => {
     return str.toLowerCase();
 };
 
+/** Truncate a string if it is longer than max length. For example: If the name is longer than 7 characters, return 'John...' */
+const TruncateString = (string, maxLength) => {
+    /** Check if string is longer than maxLength, we use maxLength - 3 in order to add `...` and avoid out of bound. */
+    if (string.length > maxLength) {
+        return string.substring(0, maxLength - 3) + '...';
+    }
+    return string;
+};
+
 const CapitalConverter = (str) => {
     // Check if the input is not a string or is an empty string
     if (typeof str !== "string" || str.length === 0) {
@@ -212,5 +221,6 @@ export const Helpers = {
     IsValidDate,
     IsLeapYear,
     CalculateAge,
+    TruncateString,
 }
 

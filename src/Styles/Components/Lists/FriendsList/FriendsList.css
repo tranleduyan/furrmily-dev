@@ -1,0 +1,30 @@
+.FriendsList-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height:calc(12vmin);
+}
+
+/** Styling message */
+.FriendsList-message {
+    text-align: center;
+    margin: 25% 0px;
+}
+
+/** This class helps styling because simple bar doesn't work with any styling, if use simple-bar-content (default className), it auto styling the other simple bar. */
+.FriendsList-messageContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height:calc(12vmin);
+}
+
+/** Styling Parents div of Friend Cards */ 
+.FriendList-cardContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height:calc(12vmin);
+}

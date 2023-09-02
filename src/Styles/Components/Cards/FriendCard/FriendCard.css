@@ -1,0 +1,23 @@
+.FriendCard-container{
+  width: calc(8vmin); /* Based on 73px in 1920x1080 */  
+  margin-left: calc(2.4vmin); /* Based on 21.5px in 1920x1080 */
+}
+
+.FriendCard-lastCardContainer{
+  width: calc(8vmin); /* Based on 73px in 1920x1080 */ 
+  margin: 0 calc(2.4vmin); /* Based on 21.5px in 1920x1080 */
+}
+
+.FriendCard-userAvatarContainer{
+  width: calc(8vmin); /* Based on 73px in 1920x1080 */ 
+  height:100%;
+}
+
+.FriendCard-userAvatar {
+  color: white;
+  background-color: black;
+  font-size: calc(3.5vmin);
+  width:calc(7vmin);
+  height: calc(7vmin);
+  border-radius: 50%;
+}
