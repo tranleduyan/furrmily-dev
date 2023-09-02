@@ -1,7 +1,6 @@
 //#region Import Components
 import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import * as solidIcons from '@fortawesome/free-solid-svg-icons';
 import { Helpers } from '../../../Global/Helpers';
 // #endregion
 
@@ -27,9 +26,6 @@ function FriendCard(props) {
         friendAvatar: props.friendAvatar
     }
 
-    /** Retrieving user avatar from library 'free-solid-svg-icons' */
-    const icon = solidIcons[friendInformation.friendAvatar];
-
     // #endregion
     
   return (
@@ -37,7 +33,7 @@ function FriendCard(props) {
          {/* Friend's Avatar Container*/}
         <div className="FriendCard-userAvatarContainer flexRowCenter">
             <div className="FriendCard-userAvatar flexRowCenter">
-                <FontAwesomeIcon icon={icon}/>  
+                <FontAwesomeIcon icon={Helpers.GetAvatarIcon(friendInformation.friendAvatar)}/>  
             </div>
         </div>
         {/* Friend's Name Container*/}
