@@ -51,6 +51,8 @@ function FriendsList(props) {
         setMessage(error.response.data.message);
       })
   }, [apiURL, apiKey])
+
+  // #endregion
   return (
     <SimpleBar className={className}>
         {friendsListData.length === 0 ? (

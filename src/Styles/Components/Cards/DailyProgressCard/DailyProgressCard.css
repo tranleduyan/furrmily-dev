@@ -1,0 +1,25 @@
+.DailyProgressCard-cardContainer{
+    height:calc(12vmin);    
+    margin-top: calc(0.2vmin);
+    display: flex;
+    flex-direction: row;
+}
+.DailyProgressCard-taskProgressContainer{
+    width: 30%;
+}
+
+.DailyProgressCard-taskProgressTextContainer{
+    width:calc(7.8vmin);
+    height:calc(7.8vmin);
+    border-radius: 50%;
+    background-color: var(--Orange2);
+    color: var(--Orange1);
+}
+
+.DailyProgressCard-taskProgressStatusTextContainer{
+    margin-right: calc(2vmin);
+}
+
+.DailyProgressCard-taskProgressMessageContainer {
+    width:100%;
+}
