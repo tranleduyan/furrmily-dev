@@ -149,6 +149,7 @@ function Pets({ userData, petProfiles }) {
                   <section className='Pets-petInformationContainer'>
                     {/* Pet About Card */}
                     <IconCard className='Pets-petAboutCard' 
+                              layout={['ColumnCenter']}
                               icon={faNoteSticky}>
                       <p className='paragraph2'>About</p>
                       <div className='Pets-petAboutContainer'>
