@@ -2,6 +2,7 @@
 import React from 'react'
 import PetMemberCard from '../PetMemberCard/PetMemberCard';
 import { Converters, Helpers } from '../../Global/Helpers';
+import IconButton from '../Buttons/IconButton';
 //#endregion
 
 //#region Import Stylings
@@ -10,7 +11,7 @@ import '../../Styles/Components/PetCard/PetCard.css'
 
 //#region Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaw } from '@fortawesome/free-solid-svg-icons';
+import { faPaw, faXmark } from '@fortawesome/free-solid-svg-icons';
 //#endregion
 
 function PetCard(props) {
@@ -61,6 +62,13 @@ function PetCard(props) {
       props.onClick();
     }
   }
+
+  //OnDeleteClicked - Delete the pet profile upon clicking
+  const OnDeleteClicked = (e) => {
+    e.stopPropagation(); // Stop event propagation
+    console.log("TODO: Remove pet profile!");
+  }
+
   //#endregion
 
   return (
@@ -86,12 +94,19 @@ function PetCard(props) {
           <p className='paragraph2'>{petBreed}</p>
       </div>
       <div className='petMemberContainer'>
-        <div className='petMemberList'>
-            <PetMemberCard avatar={props.ownerAvatar}/>
-            <div className={lastPetMemberCardClassName}>
-              <h4 className='heading4'>{`+ ${extraMemberAmount}`}</h4>
-            </div>
-        </div>
+        <div className='PetCard-deleteButtonContainer'>
+            <IconButton
+                      className="flexRowCenter PetCard-deleteButton"
+                      icon={<FontAwesomeIcon icon={faXmark} />}
+                      onClick={OnDeleteClicked}
+                    />
+          </div>
+          <div className='petMemberList'>
+              <PetMemberCard avatar={props.ownerAvatar}/>
+              <div className={lastPetMemberCardClassName}>
+                <h4 className='heading4'>{`+ ${extraMemberAmount}`}</h4>
+              </div>
+          </div>
       </div>
     </div>
   )

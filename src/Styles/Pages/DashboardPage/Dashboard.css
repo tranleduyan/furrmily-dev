@@ -81,6 +81,10 @@
   height: calc(16.2vmin); /* Based on 156px in 1920x1080 */
 }
 
+.Dashboard-dailyProgressCardContainer {
+  margin: calc(1.65vmin) 0px;
+}
+
 .Dashboard-sectionHeaderContainer {
   display: flex;
   flex-direction: row;
@@ -119,8 +123,8 @@
 }
 
 .Dashboard-friendsListContainer{
-  margin-top:calc(0.2vmin);
+  margin: calc(1.65vmin) 0px;
   height: calc(12vmin); /* Based on 344px in 1920x1080 */
-  border-radius: calc(1vmin);
-  border: solid calc(0.3vmin) #bcbcbc; 
+  border-radius: 5px;
+  border: solid 1px #bcbcbc; 
 }
