@@ -55,3 +55,22 @@ contacts based on their location or pets. The system must display necessary cont
 number, address, and name.The system must let users act directly with the emergency
 contacts, such as showing map directions and dialing phone
 numbers.
+### UI/UX Designs
+#### Dashboard
+![image](https://github.com/tranleduyan/furrmily-dev/assets/114903308/f0d342f5-ba2b-4f5e-a6da-64080465dd48)
+
+#### Pets - Information
+![image](https://github.com/tranleduyan/furrmily-dev/assets/114903308/b688c965-6e65-4954-8dd0-2e192e9ac025)
+
+#### Pets - Tasks
+![image](https://github.com/tranleduyan/furrmily-dev/assets/114903308/da68bbf5-245e-4dba-921d-063421861437)
+
+#### Tasks
+![image](https://github.com/tranleduyan/furrmily-dev/assets/114903308/ccec64af-7c41-421f-aa12-a4efafb9b40a)
+
+#### Friends
+![image](https://github.com/tranleduyan/furrmily-dev/assets/114903308/bce1874e-cca6-4ffc-a1b6-07e0e53c2974)
+
+#### Action Modals
+![image](https://github.com/tranleduyan/furrmily-dev/assets/114903308/5a661d0c-3a84-4a61-a66f-6fcc23eea730)
+![image](https://github.com/tranleduyan/furrmily-dev/assets/114903308/0b44ed7c-c14f-4ddc-bbeb-78e31225c494)
